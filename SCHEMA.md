@@ -27,7 +27,7 @@ The file is the source of truth. Excel and the dashboard are views of it.
 | date | string | match date, YYYY-MM-DD |
 | kickoff_et | string or null | kickoff in Eastern time, for example `3:00 PM` |
 | league | string or null | league name (not recorded for Oct 31) |
-| match | string | `Home v Away` using DataGaffer names |
+| match | string | `Home v Away` using the data source names |
 | bet_type | string | `single` or `double_chance` |
 | market | string | `over_2_5`, `under_3_5`, `home_over_1_5`, or `1X`, `X2`, `12` |
 | line_group | string | `main` (2.5 line), `alt` (3.5 line), `watch` (near miss tracked for testing), `shortlist` (double chance) |
@@ -35,7 +35,7 @@ The file is the source of truth. Excel and the dashboard are views of it.
 | odds_american | int or null | price at logging |
 | odds_source | string | where the price came from |
 | book | string or null | book the user placed it with, when known |
-| model_prob | number | DataGaffer's chance for that market (0 to 1) |
+| model_prob | number | the model's chance for that market (0 to 1) |
 | sofascore_check | string | my pre-kickoff label: Supported, Mostly supported, Mixed, Mixed to against, Not supported, Not checked |
 | inputs | object | `projected_total`, `pace`, `regression`, `form_note`. Double chance adds `home_win_pct`, `draw_pct`, `away_win_pct` |
 | placed | bool or null | true if the user actually bet it, null if unknown |

@@ -37,7 +37,8 @@
    "status": "Abandoned",
    "result": "win",
    "profit_units": 0.4405,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-cambuur-v-go-ahead-over_3_5",
@@ -73,7 +74,8 @@
    "status": "Abandoned",
    "result": "win",
    "profit_units": 1.1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-luzern-v-fc-sion-over_3_5",
@@ -109,7 +111,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-luzern-v-fc-sion-home_over_1_5",
@@ -145,7 +148,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-grasshoppers-v-fc-vaduz-over_3_5",
@@ -181,7 +185,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9091,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-mechelen-v-genk-over_2_5",
@@ -217,7 +222,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-fenerbahce-v-goztepe-over_3_5",
@@ -253,7 +259,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-leverkusen-v-stuttgart-over_3_5",
@@ -289,7 +296,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-moreirense-v-estrela-over_2_5",
@@ -325,7 +333,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9524,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-bolton-v-bristol-city-over_2_5",
@@ -361,7 +370,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-hull-v-ipswich-over_2_5",
@@ -397,7 +407,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-albacete-v-sabadell-under_2_5",
@@ -433,7 +444,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-vallecano-v-celta-vigo-under_2_5",
@@ -469,7 +481,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-kocaelispor-v-rizespor-under_2_5",
@@ -505,7 +518,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8475,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-burnley-v-portsmouth-under_2_5",
@@ -541,7 +555,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-aston-villa-v-fulham-under_2_5",
@@ -577,7 +592,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.2,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-darmstadt-v-magdeburg-under_2_5",
@@ -613,7 +629,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.4,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-motherwell-v-st-mirren-under_2_5",
@@ -649,7 +666,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.3,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-albacete-v-sabadell-under_3_5",
@@ -685,7 +703,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-vallecano-v-celta-vigo-under_3_5",
@@ -721,7 +740,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-kocaelispor-v-rizespor-under_3_5",
@@ -757,7 +777,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-burnley-v-portsmouth-under_3_5",
@@ -793,7 +814,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-aston-villa-v-fulham-under_3_5",
@@ -829,7 +851,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-darmstadt-v-magdeburg-under_3_5",
@@ -865,7 +888,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-10-31-motherwell-v-st-mirren-under_3_5",
@@ -901,7 +925,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-young-boys-v-zurich-over_2_5",
@@ -937,7 +962,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2198,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-brann-v-molde-over_2_5",
@@ -973,7 +999,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.33,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-salzburg-v-lustenau-over_2_5",
@@ -1009,7 +1036,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-viborg-v-ac-horsens-over_2_5",
@@ -1045,7 +1073,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-new-england-v-miami-over_2_5",
@@ -1081,7 +1110,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.33,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-telstar-v-utrecht-over_2_5",
@@ -1117,7 +1147,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.5291,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-emmen-v-den-bosch-over_2_5",
@@ -1153,7 +1184,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3597,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-bk-hacken-v-goteborg-over_2_5",
@@ -1189,7 +1221,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-groningen-v-sparta-over_2_5",
@@ -1225,7 +1258,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.4405,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-nashville-v-ny-red-bulls-over_2_5",
@@ -1261,7 +1295,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.4405,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-getafe-v-sevilla-under_2_5",
@@ -1297,7 +1332,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-lecce-v-genoa-under_2_5",
@@ -1333,7 +1369,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-viseu-v-rio-ave-under_2_5",
@@ -1369,7 +1406,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-juventus-v-napoli-under_2_5",
@@ -1405,7 +1443,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-maritimo-v-santa-clara-under_2_5",
@@ -1441,7 +1480,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.5291,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-liverpool-v-arsenal-under_2_5",
@@ -1477,7 +1517,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9091,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-01-ad-ceuta-v-gijon-under_2_5",
@@ -1513,7 +1554,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9524,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-sc-braga-v-famalicao-under_2_5",
@@ -1549,7 +1591,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-young-boys-v-zurich-over_3_5",
@@ -1585,7 +1628,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.5291,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-brann-v-molde-over_3_5",
@@ -1621,7 +1665,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-salzburg-v-lustenau-over_3_5",
@@ -1657,7 +1702,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.6211,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-viborg-v-ac-horsens-over_3_5",
@@ -1693,7 +1739,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-new-england-v-miami-over_3_5",
@@ -1729,7 +1776,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-telstar-v-utrecht-over_3_5",
@@ -1765,7 +1813,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-emmen-v-den-bosch-over_3_5",
@@ -1801,7 +1850,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.8333,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-bk-hacken-v-goteborg-over_3_5",
@@ -1837,7 +1887,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-groningen-v-sparta-over_3_5",
@@ -1873,7 +1924,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-nashville-v-ny-red-bulls-over_3_5",
@@ -1909,7 +1961,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-getafe-v-sevilla-under_3_5",
@@ -1945,7 +1998,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-lecce-v-genoa-under_3_5",
@@ -1981,7 +2035,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-viseu-v-rio-ave-under_3_5",
@@ -2017,7 +2072,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.33,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-juventus-v-napoli-under_3_5",
@@ -2053,7 +2109,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3003,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-maritimo-v-santa-clara-under_3_5",
@@ -2089,7 +2146,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.1799,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-liverpool-v-arsenal-under_3_5",
@@ -2125,7 +2183,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3597,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-01-ad-ceuta-v-gijon-under_3_5",
@@ -2161,7 +2220,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3597,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-01-sc-braga-v-famalicao-under_3_5",
@@ -2197,7 +2257,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2198,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-heracles-v-fc-oss-over_2_5",
@@ -2233,7 +2294,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-jong-ajax-v-vitesse-over_2_5",
@@ -2269,7 +2331,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-jong-psv-v-nac-breda-over_2_5",
@@ -2305,7 +2368,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-oviedo-v-las-palmas-under_2_5",
@@ -2341,7 +2405,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-valladolid-v-leganes-under_2_5",
@@ -2377,7 +2442,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-mallorca-v-cadiz-under_2_5",
@@ -2413,7 +2479,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-gil-vicente-v-guimaraes-under_2_5",
@@ -2449,7 +2516,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.6494,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-lorient-v-brest-under_2_5",
@@ -2485,7 +2553,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.7299,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-mjallby-v-kalmar-ff-under_2_5",
@@ -2521,7 +2590,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9009,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-heracles-v-fc-oss-over_3_5",
@@ -2557,7 +2627,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-jong-ajax-v-vitesse-over_3_5",
@@ -2593,7 +2664,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-jong-psv-v-nac-breda-over_3_5",
@@ -2629,7 +2701,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-oviedo-v-las-palmas-under_3_5",
@@ -2665,7 +2738,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-valladolid-v-leganes-under_3_5",
@@ -2701,7 +2775,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-mallorca-v-cadiz-under_3_5",
@@ -2737,7 +2812,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.33,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-02-gil-vicente-v-guimaraes-under_3_5",
@@ -2773,7 +2849,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2198,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-lorient-v-brest-under_3_5",
@@ -2809,7 +2886,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2801,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-mjallby-v-kalmar-ff-under_3_5",
@@ -2845,7 +2923,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.33,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-sassuolo-v-fiorentina-over_2_5",
@@ -2881,7 +2960,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.5714,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-02-benfica-v-alverca-over_2_5",
@@ -2917,7 +2997,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-galatasaray-v-stuttgart-over_2_5",
@@ -2953,7 +3034,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-atletico-v-bayern-over_2_5",
@@ -2989,7 +3071,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-barcelona-v-aston-villa-over_2_5",
@@ -3025,7 +3108,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-feyenoord-v-inter-over_2_5",
@@ -3061,7 +3145,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.4,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-lask-linz-v-slovan-over_2_5",
@@ -3097,7 +3182,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.4,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-villarreal-v-psg-over_2_5",
@@ -3133,7 +3219,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3597,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-blackburn-v-stoke-city-under_2_5",
@@ -3169,7 +3256,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-watford-v-lincoln-under_2_5",
@@ -3205,7 +3293,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9091,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-galatasaray-v-stuttgart-over_3_5",
@@ -3241,7 +3330,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-atletico-v-bayern-over_3_5",
@@ -3277,7 +3367,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-barcelona-v-aston-villa-over_3_5",
@@ -3313,7 +3404,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-feyenoord-v-inter-over_3_5",
@@ -3349,7 +3441,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-lask-linz-v-slovan-over_3_5",
@@ -3385,7 +3478,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9091,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-villarreal-v-psg-over_3_5",
@@ -3421,7 +3515,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.9091,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-blackburn-v-stoke-city-under_3_5",
@@ -3457,7 +3552,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.2801,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-watford-v-lincoln-under_3_5",
@@ -3493,7 +3589,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.3597,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-sirius-v-halmstad-over_2_5",
@@ -3529,7 +3626,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-charlton-v-bolton-under_2_5",
@@ -3565,7 +3663,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 1.1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-lask-linz-v-slovan-dc-x2",
@@ -3601,7 +3700,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-chapecoense-v-mirassol-dc-1x",
@@ -3637,7 +3737,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-lyngby-v-randers-dc-x2",
@@ -3673,7 +3774,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-internacional-v-coritiba-dc-x2",
@@ -3709,7 +3811,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-villarreal-v-psg-dc-1x",
@@ -3745,7 +3848,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-atletico-v-bayern-dc-x2",
@@ -3781,7 +3885,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.5,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-03-charlton-v-bolton-dc-1x",
@@ -3817,7 +3922,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-gaziantep-v-kasmpasa-under_2_5",
@@ -3853,7 +3959,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-gaziantep-v-kasmpasa-under_3_5",
@@ -3889,7 +3996,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-braunschweig-v-cottbus-over_2_5",
@@ -3925,7 +4033,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-braunschweig-v-cottbus-over_3_5",
@@ -3961,7 +4070,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-dordrecht-v-nac-breda-over_2_5",
@@ -3997,7 +4107,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-dordrecht-v-nac-breda-over_3_5",
@@ -4033,7 +4144,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-fc-eindhoven-v-jong-ajax-over_2_5",
@@ -4069,7 +4181,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-helmond-sport-v-volendam-over_2_5",
@@ -4105,7 +4218,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-helmond-sport-v-volendam-over_3_5",
@@ -4141,7 +4255,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-jong-az-v-almere-city-over_2_5",
@@ -4177,7 +4292,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-jong-az-v-almere-city-over_3_5",
@@ -4213,7 +4329,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-vvv-venlo-v-jong-psv-over_2_5",
@@ -4249,7 +4366,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-vvv-venlo-v-jong-psv-over_3_5",
@@ -4285,7 +4403,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-everton-v-coventry-under_2_5",
@@ -4321,7 +4440,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-06-everton-v-coventry-under_3_5",
@@ -4357,7 +4477,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": false
   },
   {
    "id": "2026-11-06-sevilla-v-alaves-under_2_5",
@@ -4393,7 +4514,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.671,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-sevilla-v-alaves-under_3_5",
@@ -4429,7 +4551,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-famalicao-v-arouca-under_2_5",
@@ -4465,7 +4588,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.752,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-famalicao-v-arouca-under_3_5",
@@ -4501,7 +4625,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.28,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-vitoria-v-fluminense-under_2_5",
@@ -4537,7 +4662,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-vitoria-v-fluminense-under_3_5",
@@ -4573,7 +4699,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-helmond-sport-v-volendam-dc-1x",
@@ -4609,7 +4736,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-fc-oss-v-waalwijk-dc-1x",
@@ -4645,7 +4773,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-venezia-v-udinese-dc-x2",
@@ -4681,7 +4810,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-castellon-v-eibar-dc-x2",
@@ -4717,7 +4847,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-silkeborg-v-lyngby-dc-1x",
@@ -4753,7 +4884,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-rapid-v-wolfsberger-dc-x2",
@@ -4789,7 +4921,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-sevilla-v-alaves-dc-x2",
@@ -4825,7 +4958,8 @@
    "status": "Final",
    "result": "win",
    "profit_units": 0.833,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-famalicao-v-arouca-dc-x2",
@@ -4861,7 +4995,8 @@
    "status": "Final",
    "result": "loss",
    "profit_units": -1,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-atlante-v-laguna-dc-1x",
@@ -4897,7 +5032,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-vitoria-v-fluminense-dc-1x",
@@ -4933,7 +5069,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "id": "2026-11-06-necaxa-v-tijuana-dc-1x",
@@ -4969,7 +5106,8 @@
    "status": null,
    "result": "pending",
    "profit_units": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5005,7 +5143,8 @@
     "pace": 17.8,
     "regression": -5.28,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5041,7 +5180,8 @@
     "pace": 17.8,
     "regression": -5.28,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5077,7 +5217,8 @@
     "pace": 91.2,
     "regression": 1.22,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5113,7 +5254,8 @@
     "pace": 91.2,
     "regression": 1.22,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5149,7 +5291,8 @@
     "pace": 84.6,
     "regression": -4.37,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5185,7 +5328,8 @@
     "pace": 84.6,
     "regression": -4.37,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5221,7 +5365,8 @@
     "pace": 19.3,
     "regression": 1.63,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5257,7 +5402,8 @@
     "pace": 19.3,
     "regression": 1.63,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5293,7 +5439,8 @@
     "pace": 75.0,
     "regression": -1.28,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5329,7 +5476,8 @@
     "pace": 75.0,
     "regression": -1.28,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5365,7 +5513,8 @@
     "pace": 34.6,
     "regression": 0.54,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": false
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5401,7 +5550,8 @@
     "pace": 34.6,
     "regression": 0.54,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": false
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5437,7 +5587,8 @@
     "pace": 37.4,
     "regression": 0.57,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5473,7 +5624,8 @@
     "pace": 37.4,
     "regression": 0.57,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5509,7 +5661,8 @@
     "pace": 23.8,
     "regression": -4.53,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5545,7 +5698,8 @@
     "pace": 23.8,
     "regression": -4.53,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5581,7 +5735,8 @@
     "pace": 56.7,
     "regression": -6.66,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5617,7 +5772,8 @@
     "pace": 76.7,
     "regression": 2.24,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5653,7 +5809,8 @@
     "pace": 76.7,
     "regression": 2.24,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5689,7 +5846,8 @@
     "pace": 25.7,
     "regression": -6.14,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5725,7 +5883,8 @@
     "pace": 25.7,
     "regression": -6.14,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5761,7 +5920,8 @@
     "pace": 31.9,
     "regression": 7.7,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5797,7 +5957,8 @@
     "pace": 31.9,
     "regression": 7.7,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5833,7 +5994,8 @@
     "pace": 13.9,
     "regression": -5.24,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5869,7 +6031,8 @@
     "pace": 13.9,
     "regression": -5.24,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5905,7 +6068,8 @@
     "pace": 73.6,
     "regression": -3.63,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5941,7 +6105,8 @@
     "pace": 73.6,
     "regression": -3.63,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -5977,7 +6142,8 @@
     "pace": 56.0,
     "regression": -6.46,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6013,7 +6179,8 @@
     "pace": 73.7,
     "regression": 9.78,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6049,7 +6216,8 @@
     "pace": 73.7,
     "regression": 9.78,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6085,7 +6253,8 @@
     "pace": 88.3,
     "regression": 1.61,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6121,7 +6290,8 @@
     "pace": 88.3,
     "regression": 1.61,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6157,7 +6327,8 @@
     "pace": 63.5,
     "regression": 0.4,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6193,7 +6364,8 @@
     "pace": 63.5,
     "regression": 0.4,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6229,7 +6401,8 @@
     "pace": 82.0,
     "regression": 3.23,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6265,7 +6438,8 @@
     "pace": 82.0,
     "regression": 3.23,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6301,7 +6475,8 @@
     "pace": 56.6,
     "regression": 0.74,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6337,7 +6512,8 @@
     "pace": 57.6,
     "regression": 5.76,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6373,7 +6549,8 @@
     "pace": 70.4,
     "regression": 6.87,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6409,7 +6586,8 @@
     "pace": 70.4,
     "regression": 6.87,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6445,7 +6623,8 @@
     "pace": 77.8,
     "regression": 5.03,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6481,7 +6660,8 @@
     "pace": 77.8,
     "regression": 5.03,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6517,7 +6697,8 @@
     "pace": 43.4,
     "regression": 0.17,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6553,7 +6734,8 @@
     "pace": 65.5,
     "regression": 8.99,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6589,7 +6771,8 @@
     "pace": 65.5,
     "regression": 8.99,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6625,7 +6808,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6661,7 +6845,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6697,7 +6882,8 @@
     "draw_pct": 30.7,
     "away_win_pct": 38.8,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6733,7 +6919,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6769,7 +6956,8 @@
     "draw_pct": 29.9,
     "away_win_pct": 31.8,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6805,7 +6993,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6841,7 +7030,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6877,7 +7067,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6913,7 +7104,8 @@
     "draw_pct": 26.7,
     "away_win_pct": 17.0,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6949,7 +7141,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -6985,7 +7178,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7021,7 +7215,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7057,7 +7252,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7093,7 +7289,8 @@
     "draw_pct": 28.4,
     "away_win_pct": 25.9,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7129,7 +7326,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7165,7 +7363,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7201,7 +7400,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7237,7 +7437,8 @@
     "draw_pct": 27.4,
     "away_win_pct": 30.5,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7273,7 +7474,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7309,7 +7511,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7345,7 +7548,8 @@
     "draw_pct": null,
     "away_win_pct": null,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7381,7 +7585,8 @@
     "draw_pct": 21.5,
     "away_win_pct": 22.5,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   },
   {
    "logged_at": "2026-11-07T10:50:00-05:00",
@@ -7417,7 +7622,8 @@
     "draw_pct": 21.0,
     "away_win_pct": 21.2,
     "form_note": null
-   }
+   },
+   "track_filtered_eligible": true
   }
  ],
  "slips": [
@@ -7460,7 +7666,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "loss",
    "profit_dollars": -25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-01-nov-1-draft-d1-overs",
@@ -7495,7 +7702,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 13.12,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-01-nov-1-draft-d2-overs",
@@ -7530,7 +7738,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 19.22,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-02-nov-2-draft-d1-unders",
@@ -7565,7 +7774,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 15.56,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-02-nov-2-draft-d2-overs",
@@ -7600,7 +7810,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "loss",
    "profit_dollars": -25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-03-nov-3-draft-d1-overs",
@@ -7635,7 +7846,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 22.59,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-03-nov-3-draft-d2-mixed",
@@ -7670,7 +7882,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 22.59,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-06-nov-6-draft-d1-unders",
@@ -7705,7 +7918,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 48.25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-06-nov-6-draft-d2-overs",
@@ -7740,7 +7954,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "pending",
    "profit_dollars": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-06-nov-6-draft-d3-mixed",
@@ -7775,7 +7990,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "loss",
    "profit_dollars": -25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-07-nov-7-draft-d1-mixed",
@@ -7810,7 +8026,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "win",
    "profit_dollars": 48.5,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-07-nov-7-draft-d2-overs",
@@ -7845,7 +8062,8 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "pending",
    "profit_dollars": null,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   },
   {
    "id": "2026-11-07-nov-7-draft-d3-mixed",
@@ -7880,7 +8098,21 @@
    "note": "Draft slip built from converted Bet365 prices. Not a placed bet.",
    "result": "loss",
    "profit_dollars": -25,
-   "closing_odds_american": null
+   "closing_odds_american": null,
+   "track": "open"
   }
- ]
+ ],
+ "track_b": {
+  "name": "Filtered",
+  "started": "2026-11-08",
+  "version": 1,
+  "rules": [
+   "Same shortlist from the outlook data. Singles are unchanged.",
+   "Skip Under bets (both lines) in Premier League and LaLiga 2.",
+   "Slips: at most one leg per league.",
+   "Slips: skip legs priced shorter than -300 if the other leg is also shorter than -300.",
+   "Slips: skip legs where the model chance beats the book by more than 10 points, or where the edge is negative."
+  ],
+  "note": "The Premier League and LaLiga 2 rule was chosen after seeing results, so the earlier-days numbers for it are a backtest. Only results from 2026-11-08 on are a fair test."
+ }
 }

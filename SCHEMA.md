@@ -55,3 +55,9 @@ All 7 slips loaded so far are drafts built from converted Bet365 prices (`placed
 - `edge_pts` (model chance minus the chance the price implies), computed by the dashboard.
 - `my_sim_prob`, so the dashboard can chart both models against results.
 - `closing_odds_american` gets filled only when a run can read the closing price.
+
+## Tracks (added Nov 7)
+Two tracks run side by side. `open` is the original method with no extra limits. `filtered` (Track B) adds limits listed under `track_b` in `picks.json`. Neither track is played with real money; both are for collecting results.
+- Every single pick has `track_filtered_eligible` (true or false). False means Track B would have skipped it.
+- Every slip has `track` (`open` or `filtered`).
+- Track B rules were chosen after seeing results, so earlier-day Track B numbers are a backtest. Only results from `track_b.started` on are a fair test.

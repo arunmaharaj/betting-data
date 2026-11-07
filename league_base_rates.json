@@ -1,0 +1,69 @@
+{
+ "updated": "2026-11-07",
+ "source": "Sofascore finished league matches, 2026/27 season to date",
+ "leagues": [
+  {
+   "league": "Premier League",
+   "games": 95,
+   "avg_goals": 2.68,
+   "under_2_5_pct": 54,
+   "under_3_5_pct": 69
+  },
+  {
+   "league": "La Liga",
+   "games": 113,
+   "avg_goals": 2.95,
+   "under_2_5_pct": 43,
+   "under_3_5_pct": 66
+  },
+  {
+   "league": "Serie A",
+   "games": 104,
+   "avg_goals": 3.14,
+   "under_2_5_pct": 39,
+   "under_3_5_pct": 67
+  },
+  {
+   "league": "Bundesliga",
+   "games": 78,
+   "avg_goals": 3.51,
+   "under_2_5_pct": 29,
+   "under_3_5_pct": 47
+  },
+  {
+   "league": "Ligue 1",
+   "games": 83,
+   "avg_goals": 3.02,
+   "under_2_5_pct": 41,
+   "under_3_5_pct": 64
+  },
+  {
+   "league": "Eredivisie",
+   "games": 102,
+   "avg_goals": 3.8,
+   "under_2_5_pct": 28,
+   "under_3_5_pct": 39
+  },
+  {
+   "league": "Championship",
+   "games": 180,
+   "avg_goals": 2.96,
+   "under_2_5_pct": 38,
+   "under_3_5_pct": 63
+  },
+  {
+   "league": "LaLiga 2",
+   "games": 136,
+   "avg_goals": 2.76,
+   "under_2_5_pct": 49,
+   "under_3_5_pct": 68
+  },
+  {
+   "league": "Primeira Liga",
+   "games": 92,
+   "avg_goals": 2.65,
+   "under_2_5_pct": 47,
+   "under_3_5_pct": 67
+  }
+ ]
+}

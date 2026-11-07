@@ -22,7 +22,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
 header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
 h1{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1;letter-spacing:.01em;margin:0;text-transform:uppercase}
-.stamp{font-family:var(--f-data);font-size:12px;color:var(--muted)}
+.stamp{font-family:var(--f-data);font-size:12px;color:var(--muted);line-height:1.5}
+.stamp a{color:var(--s1)}
 h2{font-family:var(--f-display);font-weight:600;font-size:20px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--ink2)}
 .filters{display:flex;flex-direction:column;gap:10px}
 .frow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -76,6 +77,10 @@ td.m{min-width:170px}
   <section class="tiles" id="tiles" aria-label="Results for the current filter"></section>
   <section><h2>Cumulative units</h2><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
   <section><h2>Open vs Filtered</h2>
+    <div class="card" style="margin-bottom:10px"><p style="margin:0 0 6px"><b>What this compares.</b> Both tracks start from the same list of games. Nothing here is played with real money. We are only collecting results.</p>
+    <p style="margin:0 0 6px"><b>Open</b> is the original method with no limits.</p>
+    <p style="margin:0 0 6px"><b>Filtered</b> adds limits to see if they help: skip Under bets in the Premier League and LaLiga 2, and build slips with one leg per league, no two legs priced -300 or shorter, and no leg where the model's edge over the book is above 10 points or below zero.</p>
+    <p class="note" style="margin:0">The aim is to learn whether cutting the weaker leagues and the riskiest slip legs makes the results better over a larger sample.</p></div>
     <div class="scroll"><table id="cmp"><thead><tr><th>Track</th><th class="n">Singles main W-L</th><th class="n">Units</th><th class="n">Slips W-L</th><th class="n">Slip profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="cmpnote"></p></section>
   <section><h2>By day</h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
@@ -242,7 +247,7 @@ function drawCmp(){
   function money(v){ return (v>=0?"+$":"-$")+Math.abs(v).toFixed(0); }
   var rows=[["Open (no limits)",A,sa],["Filtered",B,sb]];
   $("cmp").tBodies[0].innerHTML=rows.map(function(r){ return '<tr><td>'+r[0]+'</td><td class="n">'+r[1].w+'-'+r[1].l+'</td><td class="n '+cls(r[1].u)+'">'+fmtU(r[1].u)+'</td><td class="n">'+(r[2].w+r[2].l?r[2].w+"-"+r[2].l:"none yet")+'</td><td class="n '+cls(r[2].u)+'">'+(r[2].w+r[2].l?money(r[2].u):"")+'</td></tr>'; }).join("");
-  var tb=DATA.track_b; $("cmpnote").textContent = tb ? "Filtered skips Premier League and LaLiga 2 unders and builds slips with one leg per league, no two legs shorter than -300, and no leg with an edge over 10 points or below zero. Those rules were picked after seeing results, so the singles numbers above are a backtest. Only results from "+tb.started+" on are a fair test." : "";
+  var tb=DATA.track_b; $("cmpnote").textContent = tb ? "Those rules were picked after seeing results, so the singles figures above are a backtest. Only results from "+tb.started+" on are a fair test." : "";
 }
 function setup(d, live){
   DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
@@ -250,7 +255,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("more").onclick=function(){SHOW+=40;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'<span class="err">Snapshot, could not reach GitHub</span>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 4:15 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp();
 }
 setup(SNAPSHOT,false);

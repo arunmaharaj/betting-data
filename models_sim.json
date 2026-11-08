@@ -3563,31 +3563,34 @@
   {
    "date": "2026-11-08",
    "match": "Cambuur v PSV",
-   "league": "Eerste Divisie",
+   "league": "Eredivisie",
    "projected_total": 4.47,
    "u15": {
+    "league": 0.12,
     "poisson": 0.0626,
     "negbin": 0.0953,
     "bivar": 0.0819,
     "markov": 0.0584,
-    "blend": 0.0746
+    "blend": 0.0836
    },
    "u25": {
+    "league": 0.29,
     "market": 0.256,
     "poisson": 0.177,
     "negbin": 0.2238,
     "bivar": 0.2044,
     "markov": 0.1704,
     "outlook": 0.176,
-    "blend": 0.2063
+    "blend": 0.2203
    },
    "u35": {
+    "league": 0.4,
     "market": 0.4301,
     "poisson": 0.3474,
     "negbin": 0.3867,
     "bivar": 0.3694,
     "markov": 0.341,
-    "blend": 0.3749
+    "blend": 0.3791
    },
    "total_goals": null,
    "res_u15": null,

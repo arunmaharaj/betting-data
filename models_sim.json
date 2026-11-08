@@ -58,6 +58,13 @@
    "match": "Albacete v Sabadell",
    "league": null,
    "projected_total": 2.15,
+   "u15": {
+    "poisson": 0.3669,
+    "negbin": 0.3907,
+    "bivar": 0.3928,
+    "markov": 0.3633,
+    "blend": 0.3784
+   },
    "u25": {
     "market": 0.5875,
     "poisson": 0.6361,
@@ -75,6 +82,7 @@
     "blend": 0.8224
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -83,6 +91,13 @@
    "match": "Aston Villa v Fulham",
    "league": null,
    "projected_total": 2.62,
+   "u15": {
+    "poisson": 0.2635,
+    "negbin": 0.2946,
+    "bivar": 0.2929,
+    "markov": 0.259,
+    "blend": 0.2775
+   },
    "u25": {
     "market": 0.4329,
     "poisson": 0.5134,
@@ -100,6 +115,7 @@
     "blend": 0.7278
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -108,6 +124,13 @@
    "match": "Bolton v Bristol City",
    "league": null,
    "projected_total": 3.19,
+   "u15": {
+    "poisson": 0.1725,
+    "negbin": 0.208,
+    "bivar": 0.2012,
+    "markov": 0.1675,
+    "blend": 0.1873
+   },
    "u25": {
     "market": 0.4709,
     "poisson": 0.382,
@@ -125,6 +148,7 @@
     "blend": 0.6064
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -133,6 +157,13 @@
    "match": "Burnley v Portsmouth",
    "league": null,
    "projected_total": 2.34,
+   "u15": {
+    "poisson": 0.3217,
+    "negbin": 0.3488,
+    "bivar": 0.3496,
+    "markov": 0.3177,
+    "blend": 0.3345
+   },
    "u25": {
     "market": 0.5291,
     "poisson": 0.5855,
@@ -150,6 +181,7 @@
     "blend": 0.7854
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -158,6 +190,13 @@
    "match": "Cambuur v GO Ahead",
    "league": null,
    "projected_total": 4.18,
+   "u15": {
+    "poisson": 0.0792,
+    "negbin": 0.1136,
+    "bivar": 0.1009,
+    "markov": 0.0747,
+    "blend": 0.0921
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2129,
@@ -176,6 +215,7 @@
     "blend": 0.4378
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -184,6 +224,13 @@
    "match": "Darmstadt v Magdeburg",
    "league": null,
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.2441,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.3968,
     "poisson": 0.4936,
@@ -201,6 +248,7 @@
     "blend": 0.711
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -209,6 +257,13 @@
    "match": "Fenerbahce v Goztepe",
    "league": null,
    "projected_total": 4.06,
+   "u15": {
+    "poisson": 0.0873,
+    "negbin": 0.1222,
+    "bivar": 0.11,
+    "markov": 0.0826,
+    "blend": 0.1005
+   },
    "u25": {
     "poisson": 0.2294,
     "negbin": 0.2731,
@@ -225,6 +280,7 @@
     "blend": 0.4551
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -233,6 +289,13 @@
    "match": "Grasshoppers v FC Vaduz",
    "league": null,
    "projected_total": 4.15,
+   "u15": {
+    "poisson": 0.0812,
+    "negbin": 0.1157,
+    "bivar": 0.1031,
+    "markov": 0.0766,
+    "blend": 0.0942
+   },
    "u25": {
     "poisson": 0.2169,
     "negbin": 0.2615,
@@ -249,6 +312,7 @@
     "blend": 0.433
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -257,6 +321,13 @@
    "match": "Hull v Ipswich",
    "league": null,
    "projected_total": 3.18,
+   "u15": {
+    "poisson": 0.1738,
+    "negbin": 0.2093,
+    "bivar": 0.2026,
+    "markov": 0.1689,
+    "blend": 0.1886
+   },
    "u25": {
     "market": 0.4709,
     "poisson": 0.3841,
@@ -274,6 +345,7 @@
     "blend": 0.6085
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -282,6 +354,13 @@
    "match": "Kocaelispor v Rizespor",
    "league": null,
    "projected_total": 2.24,
+   "u15": {
+    "poisson": 0.3449,
+    "negbin": 0.3703,
+    "bivar": 0.3719,
+    "markov": 0.3411,
+    "blend": 0.3571
+   },
    "u25": {
     "market": 0.5155,
     "poisson": 0.612,
@@ -299,6 +378,7 @@
     "blend": 0.8052
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -307,6 +387,13 @@
    "match": "Leverkusen v Stuttgart",
    "league": null,
    "projected_total": 4.29,
+   "u15": {
+    "poisson": 0.0725,
+    "negbin": 0.1062,
+    "bivar": 0.0933,
+    "markov": 0.0681,
+    "blend": 0.085
+   },
    "u25": {
     "poisson": 0.1986,
     "negbin": 0.2444,
@@ -323,6 +410,7 @@
     "blend": 0.4072
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -331,6 +419,13 @@
    "match": "Luzern v FC Sion",
    "league": null,
    "projected_total": 4.26,
+   "u15": {
+    "poisson": 0.0743,
+    "negbin": 0.1082,
+    "bivar": 0.0953,
+    "markov": 0.0698,
+    "blend": 0.0869
+   },
    "u25": {
     "poisson": 0.2024,
     "negbin": 0.2479,
@@ -347,6 +442,7 @@
     "blend": 0.4133
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -355,6 +451,13 @@
    "match": "Mechelen v Genk",
    "league": null,
    "projected_total": 3.61,
+   "u15": {
+    "poisson": 0.1247,
+    "negbin": 0.1608,
+    "bivar": 0.1509,
+    "markov": 0.1198,
+    "blend": 0.139
+   },
    "u25": {
     "market": 0.4301,
     "poisson": 0.301,
@@ -372,6 +475,7 @@
     "blend": 0.5191
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -380,6 +484,13 @@
    "match": "Moreirense v Estrela",
    "league": null,
    "projected_total": 3.11,
+   "u15": {
+    "poisson": 0.1833,
+    "negbin": 0.2184,
+    "bivar": 0.2123,
+    "markov": 0.1784,
+    "blend": 0.1981
+   },
    "u25": {
     "market": 0.5122,
     "poisson": 0.399,
@@ -397,6 +508,7 @@
     "blend": 0.6234
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -405,6 +517,13 @@
    "match": "Motherwell v St Mirren",
    "league": null,
    "projected_total": 2.71,
+   "u15": {
+    "poisson": 0.2469,
+    "negbin": 0.2789,
+    "bivar": 0.2764,
+    "markov": 0.2422,
+    "blend": 0.2611
+   },
    "u25": {
     "market": 0.4141,
     "poisson": 0.4912,
@@ -422,6 +541,7 @@
     "blend": 0.7088
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -430,6 +550,13 @@
    "match": "Vallecano v Celta Vigo",
    "league": null,
    "projected_total": 2.14,
+   "u15": {
+    "poisson": 0.3694,
+    "negbin": 0.393,
+    "bivar": 0.3952,
+    "markov": 0.3658,
+    "blend": 0.3809
+   },
    "u25": {
     "market": 0.5699,
     "poisson": 0.6388,
@@ -447,6 +574,7 @@
     "blend": 0.8243
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -455,6 +583,14 @@
    "match": "AD Ceuta v Gijon",
    "league": "Segunda Division",
    "projected_total": 2.32,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3263,
+    "negbin": 0.353,
+    "bivar": 0.354,
+    "markov": 0.3223,
+    "blend": 0.3191
+   },
    "u25": {
     "league": 0.49,
     "market": 0.4878,
@@ -475,6 +611,7 @@
     "blend": 0.7563
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -483,6 +620,13 @@
    "match": "BK Hacken v Goteborg",
    "league": "Allsvenskan",
    "projected_total": 3.84,
+   "u15": {
+    "poisson": 0.104,
+    "negbin": 0.1397,
+    "bivar": 0.1285,
+    "markov": 0.0992,
+    "blend": 0.1179
+   },
    "u25": {
     "market": 0.3651,
     "poisson": 0.2625,
@@ -501,6 +645,7 @@
     "blend": 0.4924
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -509,6 +654,13 @@
    "match": "Brann v Molde",
    "league": "Eliteserien",
    "projected_total": 4.07,
+   "u15": {
+    "poisson": 0.0866,
+    "negbin": 0.1214,
+    "bivar": 0.1092,
+    "markov": 0.082,
+    "blend": 0.0998
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.228,
@@ -527,6 +679,7 @@
     "blend": 0.4385
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -535,6 +688,13 @@
    "match": "Emmen v Den Bosch",
    "league": "Eerste Divisie",
    "projected_total": 3.84,
+   "u15": {
+    "poisson": 0.104,
+    "negbin": 0.1397,
+    "bivar": 0.1285,
+    "markov": 0.0992,
+    "blend": 0.1179
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2625,
@@ -553,6 +713,7 @@
     "blend": 0.4751
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -561,6 +722,14 @@
    "match": "Getafe v Sevilla",
    "league": "La Liga",
    "projected_total": 1.86,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.4452,
+    "negbin": 0.4631,
+    "bivar": 0.4665,
+    "markov": 0.4423,
+    "blend": 0.4114
+   },
    "u25": {
     "league": 0.43,
     "market": 0.6611,
@@ -572,15 +741,16 @@
     "blend": 0.657
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.814,
     "poisson": 0.8815,
     "negbin": 0.8685,
     "bivar": 0.8638,
     "markov": 0.883,
-    "blend": 0.8284
+    "blend": 0.8301
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -589,26 +759,35 @@
    "match": "Groningen v Sparta",
    "league": "Eredivisie",
    "projected_total": 3.87,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1016,
+    "negbin": 0.1372,
+    "bivar": 0.1258,
+    "markov": 0.0968,
+    "blend": 0.1163
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3389,
     "poisson": 0.2578,
     "negbin": 0.2992,
     "bivar": 0.2849,
     "markov": 0.2519,
     "outlook": 0.257,
-    "blend": 0.2854
+    "blend": 0.2871
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5238,
     "poisson": 0.4593,
     "negbin": 0.4836,
     "bivar": 0.4736,
     "markov": 0.4552,
-    "blend": 0.4643
+    "blend": 0.4659
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -617,6 +796,14 @@
    "match": "Juventus v Napoli",
    "league": "Serie A",
    "projected_total": 2.18,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3595,
+    "negbin": 0.3838,
+    "bivar": 0.3857,
+    "markov": 0.3558,
+    "blend": 0.325
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5291,
@@ -628,15 +815,16 @@
     "blend": 0.5729
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.8233,
     "negbin": 0.811,
     "bivar": 0.8079,
     "markov": 0.8248,
-    "blend": 0.7782
+    "blend": 0.7799
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -645,6 +833,14 @@
    "match": "Lecce v Genoa",
    "league": "Serie A",
    "projected_total": 2.14,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3694,
+    "negbin": 0.393,
+    "bivar": 0.3952,
+    "markov": 0.3658,
+    "blend": 0.3327
+   },
    "u25": {
     "league": 0.39,
     "market": 0.6061,
@@ -656,15 +852,16 @@
     "blend": 0.5926
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7937,
     "poisson": 0.831,
     "negbin": 0.8185,
     "bivar": 0.8152,
     "markov": 0.8325,
-    "blend": 0.7935
+    "blend": 0.7952
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -673,6 +870,14 @@
    "match": "Liverpool v Arsenal",
    "league": "Premier League",
    "projected_total": 2.26,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.3402,
+    "negbin": 0.3659,
+    "bivar": 0.3673,
+    "markov": 0.3363,
+    "blend": 0.332
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4989,
@@ -693,6 +898,7 @@
     "blend": 0.7659
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -701,6 +907,14 @@
    "match": "Maritimo v Santa Clara",
    "league": "Primeira Liga",
    "projected_total": 2.31,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.3286,
+    "negbin": 0.3552,
+    "bivar": 0.3562,
+    "markov": 0.3246,
+    "blend": 0.3289
+   },
    "u25": {
     "league": 0.47,
     "market": 0.6228,
@@ -712,15 +926,16 @@
     "blend": 0.5797
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.8072,
     "poisson": 0.7973,
     "negbin": 0.7861,
     "bivar": 0.7835,
     "markov": 0.7987,
-    "blend": 0.7738
+    "blend": 0.7755
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -729,6 +944,13 @@
    "match": "Nashville v NY Red Bulls",
    "league": "MLS",
    "projected_total": 3.57,
+   "u15": {
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1237,
+    "blend": 0.1431
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3081,
@@ -747,6 +969,7 @@
     "blend": 0.5311
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -755,6 +978,13 @@
    "match": "New England v Miami",
    "league": "MLS",
    "projected_total": 3.99,
+   "u15": {
+    "poisson": 0.0923,
+    "negbin": 0.1275,
+    "bivar": 0.1156,
+    "markov": 0.0876,
+    "blend": 0.1057
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.2396,
@@ -773,6 +1003,7 @@
     "blend": 0.4523
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -781,6 +1012,14 @@
    "match": "SC Braga v Famalicao",
    "league": "Primeira Liga",
    "projected_total": 2.63,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2616,
+    "negbin": 0.2928,
+    "bivar": 0.291,
+    "markov": 0.2571,
+    "blend": 0.2765
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5875,
@@ -792,15 +1031,16 @@
     "blend": 0.5212
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7808,
     "poisson": 0.7295,
     "negbin": 0.7226,
     "bivar": 0.7207,
     "markov": 0.7302,
-    "blend": 0.7256
+    "blend": 0.7273
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -809,6 +1049,13 @@
    "match": "Salzburg v Lustenau",
    "league": "Austrian Bundesliga",
    "projected_total": 4.18,
+   "u15": {
+    "poisson": 0.0792,
+    "negbin": 0.1136,
+    "bivar": 0.1009,
+    "markov": 0.0747,
+    "blend": 0.0921
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.2129,
@@ -827,6 +1074,7 @@
     "blend": 0.411
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -835,26 +1083,35 @@
    "match": "Telstar v Utrecht",
    "league": "Eredivisie",
    "projected_total": 3.59,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1267,
+    "negbin": 0.1628,
+    "bivar": 0.153,
+    "markov": 0.1217,
+    "blend": 0.1368
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3772,
     "poisson": 0.3045,
     "negbin": 0.3417,
     "bivar": 0.3302,
     "markov": 0.2993,
     "outlook": 0.31,
-    "blend": 0.3221
+    "blend": 0.3238
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5767,
     "poisson": 0.5173,
     "negbin": 0.5339,
     "bivar": 0.527,
     "markov": 0.5145,
-    "blend": 0.5099
+    "blend": 0.5116
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -863,6 +1120,13 @@
    "match": "Viborg v AC Horsens",
    "league": "Danish Superliga",
    "projected_total": 3.54,
+   "u15": {
+    "poisson": 0.1317,
+    "negbin": 0.1678,
+    "bivar": 0.1584,
+    "markov": 0.1268,
+    "blend": 0.1462
+   },
    "u25": {
     "market": 0.3939,
     "poisson": 0.3135,
@@ -881,6 +1145,7 @@
     "blend": 0.5466
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -889,6 +1154,14 @@
    "match": "Viseu v Rio Ave",
    "league": "Primeira Liga",
    "projected_total": 2.44,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2998,
+    "negbin": 0.3285,
+    "bivar": 0.3284,
+    "markov": 0.2956,
+    "blend": 0.3065
+   },
    "u25": {
     "league": 0.47,
     "market": 0.4878,
@@ -900,15 +1173,16 @@
     "blend": 0.5354
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7161,
     "poisson": 0.7703,
     "negbin": 0.7606,
     "bivar": 0.7584,
     "markov": 0.7715,
-    "blend": 0.7411
+    "blend": 0.7428
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -917,6 +1191,13 @@
    "match": "Young Boys v Zurich",
    "league": "Swiss Super League",
    "projected_total": 4.9,
+   "u15": {
+    "poisson": 0.0439,
+    "negbin": 0.0736,
+    "bivar": 0.0598,
+    "markov": 0.0403,
+    "blend": 0.0544
+   },
    "u25": {
     "market": 0.2192,
     "poisson": 0.1333,
@@ -935,6 +1216,7 @@
     "blend": 0.3119
    },
    "total_goals": 8,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -943,6 +1225,14 @@
    "match": "Benfica v Alverca",
    "league": "Primeira Liga",
    "projected_total": 3.57,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1237,
+    "blend": 0.1705
+   },
    "u25": {
     "league": 0.47,
     "market": 0.2996,
@@ -953,14 +1243,15 @@
     "blend": 0.3432
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "poisson": 0.5216,
     "negbin": 0.5376,
     "bivar": 0.5309,
     "markov": 0.5189,
-    "blend": 0.5558
+    "blend": 0.5578
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -969,6 +1260,14 @@
    "match": "GIL Vicente v Guimaraes",
    "league": "Primeira Liga",
    "projected_total": 2.25,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.3425,
+    "negbin": 0.3681,
+    "bivar": 0.3696,
+    "markov": 0.3387,
+    "blend": 0.3398
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5774,
@@ -980,15 +1279,16 @@
     "blend": 0.5823
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7808,
     "poisson": 0.8094,
     "negbin": 0.7977,
     "bivar": 0.7949,
     "markov": 0.8109,
-    "blend": 0.7773
+    "blend": 0.7789
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -997,6 +1297,13 @@
    "match": "Heracles v FC OSS",
    "league": "Eerste Divisie",
    "projected_total": 3.91,
+   "u15": {
+    "poisson": 0.0984,
+    "negbin": 0.1339,
+    "bivar": 0.1223,
+    "markov": 0.0936,
+    "blend": 0.1121
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2516,
@@ -1015,6 +1322,7 @@
     "blend": 0.4581
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1023,6 +1331,13 @@
    "match": "Jong Ajax v Vitesse",
    "league": "Eerste Divisie",
    "projected_total": 3.49,
+   "u15": {
+    "poisson": 0.1369,
+    "negbin": 0.1731,
+    "bivar": 0.164,
+    "markov": 0.132,
+    "blend": 0.1515
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.3227,
@@ -1041,6 +1356,7 @@
     "blend": 0.531
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1049,6 +1365,13 @@
    "match": "Jong PSV v NAC Breda",
    "league": "Eerste Divisie",
    "projected_total": 3.73,
+   "u15": {
+    "poisson": 0.1135,
+    "negbin": 0.1494,
+    "bivar": 0.1388,
+    "markov": 0.1086,
+    "blend": 0.1276
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.2804,
@@ -1067,6 +1390,7 @@
     "blend": 0.4923
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1075,15 +1399,23 @@
    "match": "Lorient v Brest",
    "league": "Ligue 1",
    "projected_total": 2.68,
+   "u15": {
+    "league": 0.21,
+    "poisson": 0.2523,
+    "negbin": 0.284,
+    "bivar": 0.2818,
+    "markov": 0.2477,
+    "blend": 0.2552
+   },
    "u25": {
-    "league": 0.41,
+    "league": 0.42,
     "market": 0.5505,
     "poisson": 0.4985,
     "negbin": 0.5154,
     "bivar": 0.5119,
     "markov": 0.4962,
     "outlook": 0.494,
-    "blend": 0.4971
+    "blend": 0.4988
    },
    "u35": {
     "league": 0.64,
@@ -1095,6 +1427,7 @@
     "blend": 0.7075
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1103,6 +1436,14 @@
    "match": "Mallorca v Cadiz",
    "league": "LaLiga 2",
    "projected_total": 2.57,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.2732,
+    "negbin": 0.3036,
+    "bivar": 0.3024,
+    "markov": 0.2688,
+    "blend": 0.2776
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -1123,6 +1464,7 @@
     "blend": 0.7249
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1131,6 +1473,13 @@
    "match": "Mjallby v Kalmar FF",
    "league": "Allsvenskan",
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.2441,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.501,
     "poisson": 0.4936,
@@ -1149,6 +1498,7 @@
     "blend": 0.712
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1157,6 +1507,14 @@
    "match": "Oviedo v Las Palmas",
    "league": "LaLiga 2",
    "projected_total": 2.32,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3263,
+    "negbin": 0.353,
+    "bivar": 0.354,
+    "markov": 0.3223,
+    "blend": 0.3191
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -1177,6 +1535,7 @@
     "blend": 0.7617
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1185,6 +1544,14 @@
    "match": "Sassuolo v Fiorentina",
    "league": "Serie A",
    "projected_total": 3.43,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.1435,
+    "negbin": 0.1795,
+    "bivar": 0.1709,
+    "markov": 0.1385,
+    "blend": 0.1545
+   },
    "u25": {
     "league": 0.39,
     "market": 0.3939,
@@ -1195,14 +1562,15 @@
     "blend": 0.3623
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "poisson": 0.5518,
     "negbin": 0.564,
     "bivar": 0.5585,
     "markov": 0.5497,
-    "blend": 0.5788
+    "blend": 0.5808
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1211,6 +1579,14 @@
    "match": "Valladolid v Leganes",
    "league": "LaLiga 2",
    "projected_total": 2.42,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3041,
+    "negbin": 0.3324,
+    "bivar": 0.3326,
+    "markov": 0.2999,
+    "blend": 0.3018
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5436,
@@ -1231,6 +1607,7 @@
     "blend": 0.7502
    },
    "total_goals": 7,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1239,6 +1616,13 @@
    "match": "Atletico v Bayern",
    "league": "Champions League",
    "projected_total": 3.64,
+   "u15": {
+    "poisson": 0.1218,
+    "negbin": 0.1579,
+    "bivar": 0.1478,
+    "markov": 0.1167,
+    "blend": 0.136
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2957,
@@ -1257,6 +1641,7 @@
     "blend": 0.5152
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1265,6 +1650,13 @@
    "match": "Barcelona v Aston Villa",
    "league": "Champions League",
    "projected_total": 4.39,
+   "u15": {
+    "poisson": 0.0668,
+    "negbin": 0.1,
+    "bivar": 0.0868,
+    "markov": 0.0625,
+    "blend": 0.079
+   },
    "u25": {
     "market": 0.2063,
     "poisson": 0.1863,
@@ -1283,6 +1675,7 @@
     "blend": 0.3783
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1291,6 +1684,14 @@
    "match": "Blackburn v Stoke City",
    "league": "Championship",
    "projected_total": 2.64,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2598,
+    "negbin": 0.291,
+    "bivar": 0.2892,
+    "markov": 0.2552,
+    "blend": 0.263
+   },
    "u25": {
     "league": 0.38,
     "market": 0.5505,
@@ -1311,6 +1712,7 @@
     "blend": 0.7114
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1319,6 +1721,14 @@
    "match": "Charlton v Bolton",
    "league": "Championship",
    "projected_total": 2.62,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2635,
+    "negbin": 0.2946,
+    "bivar": 0.2929,
+    "markov": 0.2586,
+    "blend": 0.2659
+   },
    "u25": {
     "league": 0.38,
     "market": 0.4535,
@@ -1337,6 +1747,7 @@
     "blend": 0.7083
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1345,6 +1756,13 @@
    "match": "Feyenoord v Inter",
    "league": "Champions League",
    "projected_total": 3.91,
+   "u15": {
+    "poisson": 0.0984,
+    "negbin": 0.1339,
+    "bivar": 0.1223,
+    "markov": 0.0936,
+    "blend": 0.1121
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.2516,
@@ -1363,6 +1781,7 @@
     "blend": 0.473
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1371,6 +1790,13 @@
    "match": "Galatasaray v Stuttgart",
    "league": "Champions League",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1122,
+    "blend": 0.1313
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.2871,
@@ -1389,6 +1815,7 @@
     "blend": 0.5073
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1397,6 +1824,13 @@
    "match": "Lask Linz v Slovan",
    "league": "Champions League",
    "projected_total": 3.57,
+   "u15": {
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1236,
+    "blend": 0.143
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.3081,
@@ -1415,6 +1849,7 @@
     "blend": 0.522
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1423,6 +1858,13 @@
    "match": "Sirius v Halmstad",
    "league": "Allsvenskan",
    "projected_total": 3.44,
+   "u15": {
+    "poisson": 0.1424,
+    "negbin": 0.1784,
+    "bivar": 0.1697,
+    "markov": 0.1374,
+    "blend": 0.157
+   },
    "u25": {
     "market": 0.3568,
     "poisson": 0.3321,
@@ -1439,6 +1881,7 @@
     "blend": 0.5539
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1447,6 +1890,13 @@
    "match": "Villarreal v PSG",
    "league": "Champions League",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1115,
+    "blend": 0.1311
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2871,
@@ -1465,6 +1915,7 @@
     "blend": 0.5027
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1473,6 +1924,14 @@
    "match": "Watford v Lincoln",
    "league": "Championship",
    "projected_total": 2.36,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.3173,
+    "negbin": 0.3447,
+    "bivar": 0.3453,
+    "markov": 0.3132,
+    "blend": 0.3081
+   },
    "u25": {
     "league": 0.38,
     "market": 0.4989,
@@ -1493,6 +1952,7 @@
     "blend": 0.7427
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1501,6 +1961,13 @@
    "match": "Braunschweig v Cottbus",
    "league": "2. Bundesliga",
    "projected_total": 3.74,
+   "u15": {
+    "poisson": 0.1126,
+    "negbin": 0.1485,
+    "bivar": 0.1378,
+    "markov": 0.1077,
+    "blend": 0.1267
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2787,
@@ -1519,6 +1986,7 @@
     "blend": 0.4993
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1527,6 +1995,9 @@
    "match": "Castellón v Eibar",
    "league": "Segunda División",
    "projected_total": null,
+   "u15": {
+    "league": 0.24
+   },
    "u25": {
     "league": 0.49
    },
@@ -1534,6 +2005,7 @@
     "league": 0.68
    },
    "total_goals": null,
+   "res_u15": null,
    "res_u25": null,
    "res_u35": null
   },
@@ -1542,6 +2014,13 @@
    "match": "Dordrecht v NAC Breda",
    "league": "Eerste Divisie",
    "projected_total": 3.65,
+   "u15": {
+    "poisson": 0.1209,
+    "negbin": 0.1569,
+    "bivar": 0.1468,
+    "markov": 0.1159,
+    "blend": 0.1351
+   },
    "u25": {
     "market": 0.3568,
     "poisson": 0.294,
@@ -1560,6 +2039,7 @@
     "blend": 0.5182
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1568,6 +2048,14 @@
    "match": "Everton v Coventry",
    "league": "Premier League",
    "projected_total": 2.63,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.2616,
+    "negbin": 0.2928,
+    "bivar": 0.291,
+    "markov": 0.2571,
+    "blend": 0.2705
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4535,
@@ -1588,6 +2076,7 @@
     "blend": 0.709
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1596,6 +2085,13 @@
    "match": "FC Eindhoven v Jong Ajax",
    "league": "Eerste Divisie",
    "projected_total": 3.63,
+   "u15": {
+    "poisson": 0.1228,
+    "negbin": 0.1588,
+    "bivar": 0.1488,
+    "markov": 0.1178,
+    "blend": 0.1371
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2975,
@@ -1612,6 +2108,7 @@
     "blend": 0.5151
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1620,6 +2117,14 @@
    "match": "Famalicao v Arouca",
    "league": "Primeira Liga",
    "projected_total": 2.06,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.39,
+    "negbin": 0.4121,
+    "bivar": 0.4147,
+    "markov": 0.3866,
+    "blend": 0.3767
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5436,
@@ -1631,15 +2136,16 @@
     "blend": 0.6094
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.744,
     "poisson": 0.8461,
     "negbin": 0.8333,
     "bivar": 0.8296,
     "markov": 0.8477,
-    "blend": 0.7951
+    "blend": 0.7968
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1648,6 +2154,13 @@
    "match": "Gaziantep v Kasımpaşa",
    "league": "Süper Lig",
    "projected_total": 2.38,
+   "u15": {
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3087,
+    "blend": 0.3258
+   },
    "u25": {
     "market": 0.4878,
     "poisson": 0.5749,
@@ -1666,6 +2179,7 @@
     "blend": 0.7651
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1674,6 +2188,13 @@
    "match": "Helmond Sport v Volendam",
    "league": "Eerste Divisie",
    "projected_total": 3.58,
+   "u15": {
+    "poisson": 0.1277,
+    "negbin": 0.1638,
+    "bivar": 0.1541,
+    "markov": 0.1222,
+    "blend": 0.1419
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3063,
@@ -1692,6 +2213,7 @@
     "blend": 0.5249
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1700,6 +2222,13 @@
    "match": "Jong AZ v Almere City",
    "league": "Eerste Divisie",
    "projected_total": 4.03,
+   "u15": {
+    "poisson": 0.0894,
+    "negbin": 0.1244,
+    "bivar": 0.1123,
+    "markov": 0.0847,
+    "blend": 0.1027
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2337,
@@ -1718,6 +2247,7 @@
     "blend": 0.4401
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1726,6 +2256,9 @@
    "match": "Rapid v Wolfsberger",
    "league": "Bundesliga",
    "projected_total": null,
+   "u15": {
+    "league": 0.19
+   },
    "u25": {
     "league": 0.29
    },
@@ -1733,6 +2266,7 @@
     "league": 0.47
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1741,6 +2275,14 @@
    "match": "Sevilla v Alaves",
    "league": "La Liga",
    "projected_total": 2.38,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3086,
+    "blend": 0.3086
+   },
    "u25": {
     "league": 0.43,
     "market": 0.5699,
@@ -1752,15 +2294,16 @@
     "blend": 0.5524
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.7619,
     "poisson": 0.7829,
     "negbin": 0.7724,
     "bivar": 0.7701,
     "markov": 0.7842,
-    "blend": 0.7552
+    "blend": 0.7569
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1769,6 +2312,13 @@
    "match": "VVV Venlo v Jong PSV",
    "league": "Eerste Divisie",
    "projected_total": 4.08,
+   "u15": {
+    "poisson": 0.0859,
+    "negbin": 0.1207,
+    "bivar": 0.1084,
+    "markov": 0.0813,
+    "blend": 0.0991
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2266,
@@ -1787,6 +2337,7 @@
     "blend": 0.4328
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1795,13 +2346,17 @@
    "match": "Venezia v Udinese",
    "league": "Serie A",
    "projected_total": null,
+   "u15": {
+    "league": 0.14
+   },
    "u25": {
     "league": 0.39
    },
    "u35": {
-    "league": 0.67
+    "league": 0.68
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1810,6 +2365,14 @@
    "match": "Vitoria v Fluminense",
    "league": "Serie A",
    "projected_total": 2.5,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.2873,
+    "negbin": 0.3168,
+    "bivar": 0.3162,
+    "markov": 0.283,
+    "blend": 0.2686
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5436,
@@ -1821,15 +2384,16 @@
     "blend": 0.5215
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.7576,
     "negbin": 0.7487,
     "bivar": 0.7466,
     "markov": 0.7586,
-    "blend": 0.7356
+    "blend": 0.7373
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -1838,26 +2402,35 @@
    "match": "ADO v Sparta",
    "league": "Eredivisie",
    "projected_total": 3.77,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.11,
+    "negbin": 0.1458,
+    "bivar": 0.135,
+    "markov": 0.1051,
+    "blend": 0.1232
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3939,
     "poisson": 0.2738,
     "negbin": 0.3138,
     "bivar": 0.3005,
     "markov": 0.2681,
     "outlook": 0.28,
-    "blend": 0.305
+    "blend": 0.3067
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5998,
     "poisson": 0.4796,
     "negbin": 0.5012,
     "bivar": 0.4924,
     "markov": 0.476,
-    "blend": 0.4899
+    "blend": 0.4915
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1866,6 +2439,13 @@
    "match": "Aberdeen v Hibernian",
    "league": "Premiership",
    "projected_total": 2.58,
+   "u15": {
+    "poisson": 0.2713,
+    "negbin": 0.3018,
+    "bivar": 0.3005,
+    "markov": 0.2668,
+    "blend": 0.2851
+   },
    "u25": {
     "market": 0.4762,
     "poisson": 0.5235,
@@ -1884,6 +2464,7 @@
     "blend": 0.725
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1892,6 +2473,14 @@
    "match": "Alverca v Casa Pia",
    "league": "Primeira Liga",
    "projected_total": 2.46,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2956,
+    "negbin": 0.3245,
+    "bivar": 0.3243,
+    "markov": 0.2911,
+    "blend": 0.3031
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5155,
@@ -1903,15 +2492,16 @@
     "blend": 0.5367
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.7661,
     "negbin": 0.7566,
     "bivar": 0.7545,
     "markov": 0.7674,
-    "blend": 0.7412
+    "blend": 0.7428
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1920,6 +2510,13 @@
    "match": "Antwerp v Lommel United",
    "league": "Jupiler Pro League",
    "projected_total": 3.47,
+   "u15": {
+    "poisson": 0.1391,
+    "negbin": 0.1752,
+    "bivar": 0.1662,
+    "markov": 0.1341,
+    "blend": 0.1537
+   },
    "u25": {
     "market": 0.3939,
     "poisson": 0.3264,
@@ -1936,6 +2533,7 @@
     "blend": 0.5477
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1944,15 +2542,23 @@
    "match": "Auxerre v Paris FC",
    "league": "Ligue 1",
    "projected_total": 2.29,
+   "u15": {
+    "league": 0.21,
+    "poisson": 0.3332,
+    "negbin": 0.3594,
+    "bivar": 0.3606,
+    "markov": 0.3292,
+    "blend": 0.3185
+   },
    "u25": {
-    "league": 0.41,
+    "league": 0.42,
     "market": 0.4535,
     "poisson": 0.5987,
     "negbin": 0.6057,
     "bivar": 0.6034,
     "markov": 0.5978,
     "outlook": 0.61,
-    "blend": 0.5449
+    "blend": 0.5465
    },
    "u35": {
     "league": 0.64,
@@ -1964,6 +2570,7 @@
     "blend": 0.7471
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -1972,6 +2579,13 @@
    "match": "Chicago v Columbus",
    "league": "Major League Soccer",
    "projected_total": 3.59,
+   "u15": {
+    "poisson": 0.1267,
+    "negbin": 0.1628,
+    "bivar": 0.153,
+    "markov": 0.1207,
+    "blend": 0.1408
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3045,
@@ -1988,6 +2602,7 @@
     "blend": 0.5232
    },
    "total_goals": 7,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -1996,6 +2611,13 @@
    "match": "Cincinnati v Nashville",
    "league": "Major League Soccer",
    "projected_total": 3.49,
+   "u15": {
+    "poisson": 0.1369,
+    "negbin": 0.1731,
+    "bivar": 0.164,
+    "markov": 0.132,
+    "blend": 0.1515
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3227,
@@ -2014,6 +2636,7 @@
     "blend": 0.5396
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2022,6 +2645,14 @@
    "match": "Cordoba v AD Ceuta",
    "league": "Segunda División",
    "projected_total": 3.63,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.1228,
+    "negbin": 0.1588,
+    "bivar": 0.1488,
+    "markov": 0.1166,
+    "blend": 0.1574
+   },
    "u25": {
     "league": 0.49,
     "market": 0.3389,
@@ -2040,6 +2671,7 @@
     "blend": 0.5481
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2048,6 +2680,13 @@
    "match": "Degerfors v Gais",
    "league": "Allsvenskan",
    "projected_total": 2.64,
+   "u15": {
+    "poisson": 0.2598,
+    "negbin": 0.291,
+    "bivar": 0.2892,
+    "markov": 0.2552,
+    "blend": 0.2738
+   },
    "u25": {
     "market": 0.4878,
     "poisson": 0.5084,
@@ -2066,6 +2705,7 @@
     "blend": 0.719
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2074,26 +2714,35 @@
    "match": "Excelsior v GO Ahead",
    "league": "Eredivisie",
    "projected_total": 3.46,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1402,
+    "negbin": 0.1763,
+    "bivar": 0.1674,
+    "markov": 0.1352,
+    "blend": 0.1478
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3651,
     "poisson": 0.3283,
     "negbin": 0.3631,
     "bivar": 0.3529,
     "markov": 0.3234,
     "outlook": 0.33,
-    "blend": 0.3355
+    "blend": 0.3371
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5671,
     "poisson": 0.5453,
     "negbin": 0.5583,
     "bivar": 0.5525,
     "markov": 0.543,
-    "blend": 0.526
+    "blend": 0.5277
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2102,6 +2751,13 @@
    "match": "FC Vaduz v FC Sion",
    "league": "Super League",
    "projected_total": 4.52,
+   "u15": {
+    "poisson": 0.0601,
+    "negbin": 0.0924,
+    "bivar": 0.079,
+    "markov": 0.056,
+    "blend": 0.0719
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.1713,
@@ -2120,6 +2776,7 @@
     "blend": 0.3785
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2128,6 +2785,13 @@
    "match": "Hertha v Wolfsburg",
    "league": "2. Bundesliga",
    "projected_total": 3.93,
+   "u15": {
+    "poisson": 0.0968,
+    "negbin": 0.1322,
+    "bivar": 0.1206,
+    "markov": 0.0921,
+    "blend": 0.1104
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2485,
@@ -2146,6 +2810,7 @@
     "blend": 0.4613
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2154,6 +2819,14 @@
    "match": "Leganes v Albacete",
    "league": "Segunda División",
    "projected_total": 2.38,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3077,
+    "blend": 0.3084
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -2174,6 +2847,7 @@
     "blend": 0.7511
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2182,6 +2856,13 @@
    "match": "Luzern v Young Boys",
    "league": "Super League",
    "projected_total": 4.81,
+   "u15": {
+    "poisson": 0.0473,
+    "negbin": 0.0776,
+    "bivar": 0.0639,
+    "markov": 0.0436,
+    "blend": 0.0581
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.1416,
@@ -2200,6 +2881,7 @@
     "blend": 0.3293
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2208,6 +2890,13 @@
    "match": "Miami v Charlotte",
    "league": "Major League Soccer",
    "projected_total": 4.59,
+   "u15": {
+    "poisson": 0.0568,
+    "negbin": 0.0886,
+    "bivar": 0.0751,
+    "markov": 0.0527,
+    "blend": 0.0683
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.1637,
@@ -2226,6 +2915,7 @@
     "blend": 0.3523
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2234,6 +2924,14 @@
    "match": "N. Forest v Man City",
    "league": "Premier League",
    "projected_total": 2.46,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.2956,
+    "negbin": 0.3245,
+    "bivar": 0.3243,
+    "markov": 0.2914,
+    "blend": 0.2972
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4141,
@@ -2254,6 +2952,7 @@
     "blend": 0.7282
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2262,6 +2961,13 @@
    "match": "Orlando City v New England",
    "league": "Major League Soccer",
    "projected_total": 4.19,
+   "u15": {
+    "poisson": 0.0786,
+    "negbin": 0.1129,
+    "bivar": 0.1002,
+    "markov": 0.0741,
+    "blend": 0.0915
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2116,
@@ -2280,6 +2986,7 @@
     "blend": 0.4232
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2288,6 +2995,14 @@
    "match": "Osasuna v Athletic Club",
    "league": "La Liga",
    "projected_total": 2.37,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.315,
+    "negbin": 0.3426,
+    "bivar": 0.3431,
+    "markov": 0.311,
+    "blend": 0.3103
+   },
    "u25": {
     "league": 0.43,
     "market": 0.5505,
@@ -2299,15 +3014,16 @@
     "blend": 0.5509
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.7619,
     "poisson": 0.785,
     "negbin": 0.7744,
     "bivar": 0.772,
     "markov": 0.7862,
-    "blend": 0.7566
+    "blend": 0.7582
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2316,13 +3032,17 @@
    "match": "PSG v Estac Troyes",
    "league": "Ligue 1",
    "projected_total": null,
+   "u15": {
+    "league": 0.21
+   },
    "u25": {
-    "league": 0.41
+    "league": 0.42
    },
    "u35": {
     "league": 0.64
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2331,6 +3051,14 @@
    "match": "Parma v Bologna",
    "league": "Serie A",
    "projected_total": 2.34,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3217,
+    "negbin": 0.3488,
+    "bivar": 0.3496,
+    "markov": 0.3177,
+    "blend": 0.2956
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5505,
@@ -2342,15 +3070,16 @@
     "blend": 0.5492
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7619,
     "poisson": 0.7912,
     "negbin": 0.7802,
     "bivar": 0.7778,
     "markov": 0.7925,
-    "blend": 0.7623
+    "blend": 0.7639
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2359,6 +3088,13 @@
    "match": "Philadelphia v Toronto",
    "league": "Major League Soccer",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1122,
+    "blend": 0.1313
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2871,
@@ -2375,6 +3111,7 @@
     "blend": 0.5031
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2383,6 +3120,9 @@
    "match": "Ried v Lask Linz",
    "league": "Bundesliga",
    "projected_total": null,
+   "u15": {
+    "league": 0.19
+   },
    "u25": {
     "league": 0.29
    },
@@ -2390,6 +3130,7 @@
     "league": 0.47
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2398,6 +3139,13 @@
    "match": "Salt Lake v LA Galaxy",
    "league": "Major League Soccer",
    "projected_total": 3.5,
+   "u15": {
+    "poisson": 0.1359,
+    "negbin": 0.172,
+    "bivar": 0.1628,
+    "markov": 0.1309,
+    "blend": 0.1504
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.3208,
@@ -2416,6 +3164,7 @@
     "blend": 0.5335
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2424,6 +3173,13 @@
    "match": "San Diego v Kansas City",
    "league": "Major League Soccer",
    "projected_total": 4.17,
+   "u15": {
+    "poisson": 0.0799,
+    "negbin": 0.1143,
+    "bivar": 0.1017,
+    "markov": 0.0754,
+    "blend": 0.0928
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.2142,
@@ -2442,6 +3198,7 @@
     "blend": 0.4124
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2450,6 +3207,13 @@
    "match": "Seattle v LAFC",
    "league": "Major League Soccer",
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.244,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.4053,
     "poisson": 0.4936,
@@ -2466,6 +3230,7 @@
     "blend": 0.711
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -2474,13 +3239,17 @@
    "match": "Sittard v Telstar",
    "league": "Eredivisie",
    "projected_total": null,
+   "u15": {
+    "league": 0.12
+   },
    "u25": {
-    "league": 0.28
+    "league": 0.29
    },
    "u35": {
-    "league": 0.39
+    "league": 0.4
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -2489,13 +3258,17 @@
    "match": "Sporting v Moreirense",
    "league": "Primeira Liga",
    "projected_total": null,
+   "u15": {
+    "league": 0.28
+   },
    "u25": {
     "league": 0.47
    },
    "u35": {
-    "league": 0.67
+    "league": 0.68
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2504,6 +3277,14 @@
    "match": "Stuttgart v Bremen",
    "league": "Bundesliga",
    "projected_total": 3.67,
+   "u15": {
+    "league": 0.19,
+    "poisson": 0.119,
+    "negbin": 0.155,
+    "bivar": 0.1447,
+    "markov": 0.1141,
+    "blend": 0.1446
+   },
    "u25": {
     "league": 0.29,
     "market": 0.2839,
@@ -2524,6 +3305,7 @@
     "blend": 0.4949
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -2532,6 +3314,13 @@
    "match": "Toluca v Monterrey",
    "league": "Liga MX",
    "projected_total": 3.6,
+   "u15": {
+    "poisson": 0.1257,
+    "negbin": 0.1618,
+    "bivar": 0.152,
+    "markov": 0.1207,
+    "blend": 0.14
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3027,
@@ -2550,6 +3339,7 @@
     "blend": 0.5217
    },
    "total_goals": null,
+   "res_u15": null,
    "res_u25": null,
    "res_u35": null
   },
@@ -2558,13 +3348,17 @@
    "match": "Valencia v Real Madrid",
    "league": "La Liga",
    "projected_total": null,
+   "u15": {
+    "league": 0.24
+   },
    "u25": {
     "league": 0.43
    },
    "u35": {
-    "league": 0.66
+    "league": 0.67
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   }

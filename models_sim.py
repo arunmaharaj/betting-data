@@ -38,7 +38,7 @@ def run(total, share):
     t=tot_dist(st); th=tot_dist(half)
     cum=lambda d,k: sum(p for g,p in d.items() if g<=k)
     return {"u15":cum(t,1),"u25":cum(t,2),"u35":cum(t,3),"h1_u15":cum(th,1),"exp_total":round(expected(st),3),
-            "poisson_u25":poisson_under(total,2),"poisson_u35":poisson_under(total,3)}
+            "poisson_u15":poisson_under(total,1),"poisson_u25":poisson_under(total,2),"poisson_u35":poisson_under(total,3)}
 
 # ---------------------------------------------------------------------------
 # Independent side models. Data collection only: nothing here feeds any pick,
@@ -74,7 +74,7 @@ def bivar_under(total,c=0.10,mx=30):
     for i,x in enumerate(pa):
         for j,y in enumerate(pz):
             if i+2*j<=mx: tot[i+2*j]+=x*y
-    return sum(tot[:3]),sum(tot[:4])
+    return sum(tot[:2]),sum(tot[:3]),sum(tot[:4])
 ALIAS={"Segunda División":"LaLiga 2","Segunda Division":"LaLiga 2","Bundesliga":"Bundesliga"}
 def run_all():
     d=json.load(open('picks.json')); base=json.load(open('league_base_rates.json'))
@@ -87,7 +87,7 @@ def run_all():
         i=p.get('inputs') or {}
         if i.get('projected_total') and g['total'] is None: g['total']=i['projected_total']
         if i.get('home_win_pct') is not None: g['hw'],g['aw']=i['home_win_pct'],i['away_win_pct']
-        if p['bet_type']=='single' and p.get('odds_american') is not None and p.get('side') in('over','under'):
+        if p['bet_type']=='single' and p.get('goals_basis','total')=='total' and p.get('odds_american') is not None and p.get('side') in('over','under'):
             pr=min(0.98,max(0.02,implied(p['odds_american'])/MARGIN))
             pu=pr if p['side']=='under' else 1-pr
             if p.get('line')==2.5 and g['mk25'] is None: g['mk25']=pu
@@ -98,34 +98,36 @@ def run_all():
             g['goals']=p['home_goals']+p['away_goals']
     out=[]
     for g in games.values():
-        m25={};m35={}
+        m15={};m25={};m35={}
         lg=bl.get(ALIAS.get(g['league'],g['league']))
-        if lg: m25['league']=lg['under_2_5_pct']/100; m35['league']=lg['under_3_5_pct']/100
+        if lg:
+            m25['league']=lg['under_2_5_pct']/100; m35['league']=lg['under_3_5_pct']/100
+            if lg.get('under_1_5_pct') is not None: m15['league']=lg['under_1_5_pct']/100
         if g['mk25'] is not None: m25['market']=g['mk25']
         if g['mk35'] is not None: m35['market']=g['mk35']
         if g['total']:
             T=g['total']; share=0.54 if g['hw'] is None else min(0.7,max(0.3,0.5+(g['hw']-g['aw'])/200))
             r=run(T,share)
-            m25['poisson']=r['poisson_u25']; m35['poisson']=r['poisson_u35']
-            m25['negbin']=nb_cdf(T,2); m35['negbin']=nb_cdf(T,3)
-            a,b=bivar_under(T); m25['bivar']=a; m35['bivar']=b
-            m25['markov']=r['u25']; m35['markov']=r['u35']
+            m15['poisson']=r['poisson_u15']; m25['poisson']=r['poisson_u25']; m35['poisson']=r['poisson_u35']
+            m15['negbin']=nb_cdf(T,1); m25['negbin']=nb_cdf(T,2); m35['negbin']=nb_cdf(T,3)
+            z,a,b=bivar_under(T); m15['bivar']=z; m25['bivar']=a; m35['bivar']=b
+            m15['markov']=r['u15']; m25['markov']=r['u25']; m35['markov']=r['u35']
         if g['dg_u25'] is not None: m25['outlook']=g['dg_u25']
-        for m in (m25,m35):
+        for m in (m15,m25,m35):
             v=[m[k] for k in ('league','market','poisson','negbin','bivar','markov') if k in m]
             if len(v)>=2: m['blend']=sum(v)/len(v)
-        if not m25 and not m35: continue
+        if not m15 and not m25 and not m35: continue
         goals=g['goals']
         out.append({"date":g['date'],"match":g['match'],"league":g['league'],"projected_total":g['total'],
-          "u25":{k:round(v,4) for k,v in m25.items()},"u35":{k:round(v,4) for k,v in m35.items()},
-          "total_goals":goals,"res_u25":None if goals is None else int(goals<=2),"res_u35":None if goals is None else int(goals<=3)})
+          "u15":{k:round(v,4) for k,v in m15.items()},"u25":{k:round(v,4) for k,v in m25.items()},"u35":{k:round(v,4) for k,v in m35.items()},
+          "total_goals":goals,"res_u15":None if goals is None else int(goals<=1),"res_u25":None if goals is None else int(goals<=2),"res_u35":None if goals is None else int(goals<=3)})
     out.sort(key=lambda x:(x['date'],x['match']))
     json.dump({"description":"Independent side models. Data collection only: nothing here feeds any pick, slip, record or track.",
       "built":__import__('datetime').date.today().isoformat(),"sample_target":300,"models":MODELS,"games":out},open('models_sim.json','w'),indent=1,ensure_ascii=False)
     return out
 if __name__=="__main__":
     out=run_all(); print(len(out),"games")
-    for mk in ('u25','u35'):
+    for mk in ('u15','u25','u35'):
         done=[g for g in out if g['res_'+mk] is not None]
         ids=[m['id'] for m in MODELS if m['id']!='outlook' or mk=='u25']
         common=[g for g in done if all(i in g[mk] for i in ids)]

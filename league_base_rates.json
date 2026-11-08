@@ -1,69 +1,132 @@
 {
  "updated": "2026-11-07",
- "source": "Sofascore finished league matches, 2026/27 season to date",
+ "source": "Sofascore finished league matches, 2026/27 season to date, counted round by round and checked against each league table (matches played and goals scored match exactly)",
  "leagues": [
   {
    "league": "Premier League",
    "games": 95,
    "avg_goals": 2.68,
+   "under_1_5_pct": 25,
    "under_2_5_pct": 54,
-   "under_3_5_pct": 69
+   "under_3_5_pct": 69,
+   "counts": {
+    "under_1_5": 24,
+    "under_2_5": 51,
+    "under_3_5": 66,
+    "goals": 255
+   }
   },
   {
    "league": "La Liga",
-   "games": 113,
+   "games": 114,
    "avg_goals": 2.95,
+   "under_1_5_pct": 24,
    "under_2_5_pct": 43,
-   "under_3_5_pct": 66
+   "under_3_5_pct": 67,
+   "counts": {
+    "under_1_5": 27,
+    "under_2_5": 49,
+    "under_3_5": 76,
+    "goals": 336
+   }
   },
   {
    "league": "Serie A",
-   "games": 104,
+   "games": 105,
    "avg_goals": 3.14,
+   "under_1_5_pct": 14,
    "under_2_5_pct": 39,
-   "under_3_5_pct": 67
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 15,
+    "under_2_5": 41,
+    "under_3_5": 71,
+    "goals": 330
+   }
   },
   {
    "league": "Bundesliga",
    "games": 78,
    "avg_goals": 3.51,
+   "under_1_5_pct": 19,
    "under_2_5_pct": 29,
-   "under_3_5_pct": 47
+   "under_3_5_pct": 47,
+   "counts": {
+    "under_1_5": 15,
+    "under_2_5": 23,
+    "under_3_5": 37,
+    "goals": 274
+   }
   },
   {
    "league": "Ligue 1",
-   "games": 83,
-   "avg_goals": 3.02,
-   "under_2_5_pct": 41,
-   "under_3_5_pct": 64
+   "games": 84,
+   "avg_goals": 3.0,
+   "under_1_5_pct": 21,
+   "under_2_5_pct": 42,
+   "under_3_5_pct": 64,
+   "counts": {
+    "under_1_5": 18,
+    "under_2_5": 35,
+    "under_3_5": 54,
+    "goals": 252
+   }
   },
   {
    "league": "Eredivisie",
-   "games": 102,
-   "avg_goals": 3.8,
-   "under_2_5_pct": 28,
-   "under_3_5_pct": 39
+   "games": 103,
+   "avg_goals": 3.78,
+   "under_1_5_pct": 12,
+   "under_2_5_pct": 29,
+   "under_3_5_pct": 40,
+   "counts": {
+    "under_1_5": 12,
+    "under_2_5": 30,
+    "under_3_5": 41,
+    "goals": 389
+   }
   },
   {
    "league": "Championship",
    "games": 180,
    "avg_goals": 2.96,
+   "under_1_5_pct": 22,
    "under_2_5_pct": 38,
-   "under_3_5_pct": 63
+   "under_3_5_pct": 63,
+   "counts": {
+    "under_1_5": 40,
+    "under_2_5": 68,
+    "under_3_5": 113,
+    "goals": 532
+   }
   },
   {
    "league": "LaLiga 2",
    "games": 136,
    "avg_goals": 2.76,
+   "under_1_5_pct": 24,
    "under_2_5_pct": 49,
-   "under_3_5_pct": 68
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 32,
+    "under_2_5": 66,
+    "under_3_5": 92,
+    "goals": 375
+   }
   },
   {
    "league": "Primeira Liga",
-   "games": 92,
-   "avg_goals": 2.65,
+   "games": 93,
+   "avg_goals": 2.63,
+   "under_1_5_pct": 28,
    "under_2_5_pct": 47,
-   "under_3_5_pct": 67
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 26,
+    "under_2_5": 44,
+    "under_3_5": 63,
+    "goals": 245
+   }
   }
  ]
 }

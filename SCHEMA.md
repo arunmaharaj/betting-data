@@ -30,7 +30,7 @@ The file is the source of truth. Excel and the dashboard are views of it.
 | match | string | `Home v Away` using the data source names |
 | bet_type | string | `single` or `double_chance` |
 | market | string | `over_2_5`, `under_3_5`, `home_over_1_5`, or `1X`, `X2`, `12` |
-| line_group | string | `main` (2.5 line), `alt` (3.5 line), `watch` (near miss tracked for testing), `shortlist` (double chance) |
+| line_group | string | `main` (the standard pick, almost always the 2.5 line), `alt` (3.5 line), `alt15` (1.5 line, total goals, only when a Bet365 price is logged), `watch` (near miss tracked for testing), `shortlist` (double chance) |
 | side, line, goals_basis | | over or under, the line, `total` or `home_team` |
 | odds_american | int or null | price at logging |
 | odds_source | string | where the price came from |
@@ -61,3 +61,8 @@ Two tracks run side by side. `open` is the original method with no extra limits.
 - Every single pick has `track_filtered_eligible` (true or false). False means Track B would have skipped it.
 - Every slip has `track` (`open` or `filtered`).
 - Track B rules were chosen after seeing results, so earlier-day Track B numbers are a backtest. Only results from `track_b.started` on are a fair test.
+
+## Line coverage notes
+
+- `goals_basis` is `total` for ordinary Over/Under bets and `home_team` for a team total. Team totals are real bets but are left out of league and model line comparisons.
+- The 1.5 line is tracked in `models_sim.json` and `league_base_rates.json` (result of every finished game and the league rate). Bet-level 1.5 tracking (units, record, chart line) starts once 1.5 picks with a price are logged with `line: 1.5`, `line_group: "alt15"`, `goals_basis: "total"`.

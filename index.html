@@ -218,6 +218,8 @@ button.cd{cursor:pointer}
 #mk tr.infrow .infobox{margin:0;text-align:left;white-space:normal}
 #mk th .info{margin-left:4px;vertical-align:middle}
 .mprog .info{align-self:flex-start}
+.mkts{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;flex-wrap:nowrap}
+.mkts .chip{flex:none;text-align:center;padding:8px 6px}
 </style>
 <div class="wrap">
   <header>
@@ -227,7 +229,7 @@ button.cd{cursor:pointer}
   <section data-tab="results picks" class="fpanel" aria-label="Filters">
     <div class="fhead"><button class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span>Filters</span><span class="fsum" id="fsum"></span><span class="car">&#9662;</span></button><button class="reset" id="reset">Reset</button></div><div id="fbody" hidden class="fbody">
     <div class="fgroup"><span class="flabel">Bet type<button class="info" data-info="type" aria-expanded="false" aria-label="More info" title="More info">i</button></span><div class="seg" id="f-type"></div><div class="infobox" id="ib-type" hidden><p><b>Goals bets:</b> Over or Under total goals in the match. One bet per game, 1 unit each.</p><p><b>Double chance:</b> covers two of the three results: home or draw (1X), draw or away (X2), home or away (12). Shorter prices, so they need to win more often.</p></div></div>
-    <div class="fgroup" id="row-line"><span class="flabel">Which line<button class="info" data-info="line" aria-expanded="false" aria-label="More info" title="More info">i</button></span><div class="seg" id="f-line"></div><div class="infobox" id="ib-line" hidden><p><b>Main (2.5 goals):</b> the standard Over or Under 2.5 bet on each game. This is the headline record.</p><p><b>Alt (3.5 goals):</b> the same game's Over or Under 3.5 bet. Tracked separately so it never mixes into the main record.</p><p><b>Near misses:</b> games that almost met our rules, just under the cutoff. Tracked only to learn if the cutoffs are too strict. Not part of the main record.</p></div></div>
+    <div class="fgroup" id="row-line"><span class="flabel">Which line<button class="info" data-info="line" aria-expanded="false" aria-label="More info" title="More info">i</button></span><div class="seg" id="f-line"></div><div class="infobox" id="ib-line" hidden><p><b>Main picks:</b> the standard bet on each game, almost always Over or Under 2.5 (a few are a 3.5 line or a team total). This is the headline record.</p><p><b>Alt (3.5 goals):</b> the same game's Over or Under 3.5 bet. Tracked separately so it never mixes into the main record.</p><p><b>Alt (1.5 goals):</b> appears here once we start logging Over or Under 1.5 bets with a price. None have been logged yet.</p><p><b>Near misses:</b> games that almost met our rules, just under the cutoff. Tracked only to learn if the cutoffs are too strict. Not part of the main record.</p></div></div>
     <div class="fgroup"><span class="flabel">Over or Under</span><div class="seg" id="f-side"></div></div>
     <div class="fgroup"><label for="f-league" class="flabel">League</label><select id="f-league"><option value="">All leagues</option></select></div>
     </div>
@@ -248,7 +250,7 @@ button.cd{cursor:pointer}
     <div class="infobox" id="ib-models" hidden><p><b>What this is.</b> Several simple models predict every game's chance of finishing Under 2.5 and Under 3.5. When the game ends we score each one. They are never used to choose a bet, and nothing on the other tabs reads from them.</p>
     <p><b>Brier score</b> measures how close the chances were to what happened: 0 is perfect and 0.25 is what you get by always saying 50%. Lower is better. At this sample size the gaps between models are noise, so the plan is to keep collecting and compare trends once there are enough games.</p>
     <p><b>Inputs.</b> <span class="mtag cur">Own data</span> models use the league record or the Bet365 price, nothing from the outlook data. <span class="mtag fil">Outlook total</span> models all start from the projected total and only differ in how they spread goals around it, so they will look alike. The outlook chance is shown for reference.</p>
-    <p><b>Over versus Under.</b> Over is the mirror of Under on the same line: the chance of Over 2.5 is 100% minus the chance of Under 2.5, and the same for 3.5. So the four buttons are two sets of predictions shown from both sides. The chances and the green and red marks flip, but the Brier scores are identical for Under 2.5 and Over 2.5, and for Under 3.5 and Over 3.5. Other lines (1.5, 4.5) are not tracked yet.</p><p><b>Shared games</b> are games where every model had a number, so the comparison is fair. League rates only exist for nine leagues, which is why that count is smaller.</p></div>
+    <p><b>Over versus Under.</b> Over is the mirror of Under on the same line: the chance of Over 2.5 is 100% minus the chance of Under 2.5, and the same for 3.5. So the four buttons are two sets of predictions shown from both sides. The chances and the green and red marks flip, but the Brier scores are identical for Under 2.5 and Over 2.5, and for Under 3.5 and Over 3.5. The 1.5 line is tracked for the models that need no price (league rate, Poisson, negative binomial, bivariate Poisson, Markov and the blend). The Bet365 price model needs a logged 1.5 price, so it starts when we log some. The 4.5 line is not tracked.</p><p><b>Shared games</b> are games where every model had a number, so the comparison is fair. League rates only exist for nine leagues, which is why that count is smaller.</p></div>
     <div class="infobox" id="ib-mprog" hidden><p>Each finished game adds one more example for every model. With only a few dozen games, a model can look good or bad by luck, so the scores wobble a lot from day to day. The bar counts finished games toward a target of 300, which is roughly where a gap of a hundredth or two in Brier score starts to mean something. We keep collecting until then and only compare trends after that.</p><p>The 300 is my starting guess and can be changed in the data file if you want a different goal.</p></div>
     <div class="infobox" id="ib-mgames" hidden><p><b>Games</b> is how many finished games that model had a chance for. The models need different things: the league model needs a league with a known rate, the Bet365 price model needs a price we logged at that line, and the others need the projected total. A model that covers fewer games is scored on fewer games, so compare the Shared column when you want a fair fight.</p></div>
     <div class="infobox" id="ib-mbrier" hidden><p><b>Brier score</b> grades a chance after the game is over. If a model said 70% Under and the game ended Under, the miss is 0.30 and the penalty is 0.30 x 0.30 = 0.09. If it ended Over instead, the miss is 0.70 and the penalty is 0.49. The score is the average penalty over all games.</p><p><b>Lower is better.</b> 0 would be perfect, and a higher number means worse. Confident chances that turn out right score very low, confident chances that turn out wrong are punished hard, and hedging near 50% always lands in the middle.</p><p><b>Two yardsticks sit at the bottom of the table.</b> "Always 50%" scores exactly 0.25. "Always the average" says the same chance for every game, namely the share of games that really ended under the line, and it uses hindsight. A model only shows real skill if it scores below that second row. This matters most for Under 3.5, where most games end under, so a model can sit far below 0.25 and still be doing no better than the average.</p><p><b>What a good score looks like.</b> As far as I know, Over/Under lines are close to coin flips, so even strong models usually finish only a little below the "always the average" row. A gap of a hundredth or so is already notable, and with this few games it can easily be luck.</p><p><b>What it does not tell you.</b> Brier says how accurate the chances are. It does not say a bet is good, and there is no score range that means "confident enough to bet". A model with a great score can still lose money if the price already reflects what it knows. That is why the Bet365 price model is the benchmark to watch. We are not turning any of this into a rule until the sample is big enough.</p><p>The gold number only marks the lowest score in that column right now.</p></div>
@@ -8393,70 +8395,133 @@ var SNAPSHOT = {
 };
 var BASE_SNAP = {
  "updated": "2026-11-07",
- "source": "Sofascore finished league matches, 2026/27 season to date",
+ "source": "Sofascore finished league matches, 2026/27 season to date, counted round by round and checked against each league table (matches played and goals scored match exactly)",
  "leagues": [
   {
    "league": "Premier League",
    "games": 95,
    "avg_goals": 2.68,
+   "under_1_5_pct": 25,
    "under_2_5_pct": 54,
-   "under_3_5_pct": 69
+   "under_3_5_pct": 69,
+   "counts": {
+    "under_1_5": 24,
+    "under_2_5": 51,
+    "under_3_5": 66,
+    "goals": 255
+   }
   },
   {
    "league": "La Liga",
-   "games": 113,
+   "games": 114,
    "avg_goals": 2.95,
+   "under_1_5_pct": 24,
    "under_2_5_pct": 43,
-   "under_3_5_pct": 66
+   "under_3_5_pct": 67,
+   "counts": {
+    "under_1_5": 27,
+    "under_2_5": 49,
+    "under_3_5": 76,
+    "goals": 336
+   }
   },
   {
    "league": "Serie A",
-   "games": 104,
+   "games": 105,
    "avg_goals": 3.14,
+   "under_1_5_pct": 14,
    "under_2_5_pct": 39,
-   "under_3_5_pct": 67
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 15,
+    "under_2_5": 41,
+    "under_3_5": 71,
+    "goals": 330
+   }
   },
   {
    "league": "Bundesliga",
    "games": 78,
    "avg_goals": 3.51,
+   "under_1_5_pct": 19,
    "under_2_5_pct": 29,
-   "under_3_5_pct": 47
+   "under_3_5_pct": 47,
+   "counts": {
+    "under_1_5": 15,
+    "under_2_5": 23,
+    "under_3_5": 37,
+    "goals": 274
+   }
   },
   {
    "league": "Ligue 1",
-   "games": 83,
-   "avg_goals": 3.02,
-   "under_2_5_pct": 41,
-   "under_3_5_pct": 64
+   "games": 84,
+   "avg_goals": 3.0,
+   "under_1_5_pct": 21,
+   "under_2_5_pct": 42,
+   "under_3_5_pct": 64,
+   "counts": {
+    "under_1_5": 18,
+    "under_2_5": 35,
+    "under_3_5": 54,
+    "goals": 252
+   }
   },
   {
    "league": "Eredivisie",
-   "games": 102,
-   "avg_goals": 3.8,
-   "under_2_5_pct": 28,
-   "under_3_5_pct": 39
+   "games": 103,
+   "avg_goals": 3.78,
+   "under_1_5_pct": 12,
+   "under_2_5_pct": 29,
+   "under_3_5_pct": 40,
+   "counts": {
+    "under_1_5": 12,
+    "under_2_5": 30,
+    "under_3_5": 41,
+    "goals": 389
+   }
   },
   {
    "league": "Championship",
    "games": 180,
    "avg_goals": 2.96,
+   "under_1_5_pct": 22,
    "under_2_5_pct": 38,
-   "under_3_5_pct": 63
+   "under_3_5_pct": 63,
+   "counts": {
+    "under_1_5": 40,
+    "under_2_5": 68,
+    "under_3_5": 113,
+    "goals": 532
+   }
   },
   {
    "league": "LaLiga 2",
    "games": 136,
    "avg_goals": 2.76,
+   "under_1_5_pct": 24,
    "under_2_5_pct": 49,
-   "under_3_5_pct": 68
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 32,
+    "under_2_5": 66,
+    "under_3_5": 92,
+    "goals": 375
+   }
   },
   {
    "league": "Primeira Liga",
-   "games": 92,
-   "avg_goals": 2.65,
+   "games": 93,
+   "avg_goals": 2.63,
+   "under_1_5_pct": 28,
    "under_2_5_pct": 47,
-   "under_3_5_pct": 67
+   "under_3_5_pct": 68,
+   "counts": {
+    "under_1_5": 26,
+    "under_2_5": 44,
+    "under_3_5": 63,
+    "goals": 245
+   }
   }
  ]
 };
@@ -8520,6 +8585,13 @@ var MK_SNAP = {
    "match": "Albacete v Sabadell",
    "league": null,
    "projected_total": 2.15,
+   "u15": {
+    "poisson": 0.3669,
+    "negbin": 0.3907,
+    "bivar": 0.3928,
+    "markov": 0.3633,
+    "blend": 0.3784
+   },
    "u25": {
     "market": 0.5875,
     "poisson": 0.6361,
@@ -8537,6 +8609,7 @@ var MK_SNAP = {
     "blend": 0.8224
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -8545,6 +8618,13 @@ var MK_SNAP = {
    "match": "Aston Villa v Fulham",
    "league": null,
    "projected_total": 2.62,
+   "u15": {
+    "poisson": 0.2635,
+    "negbin": 0.2946,
+    "bivar": 0.2929,
+    "markov": 0.259,
+    "blend": 0.2775
+   },
    "u25": {
     "market": 0.4329,
     "poisson": 0.5134,
@@ -8562,6 +8642,7 @@ var MK_SNAP = {
     "blend": 0.7278
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8570,6 +8651,13 @@ var MK_SNAP = {
    "match": "Bolton v Bristol City",
    "league": null,
    "projected_total": 3.19,
+   "u15": {
+    "poisson": 0.1725,
+    "negbin": 0.208,
+    "bivar": 0.2012,
+    "markov": 0.1675,
+    "blend": 0.1873
+   },
    "u25": {
     "market": 0.4709,
     "poisson": 0.382,
@@ -8587,6 +8675,7 @@ var MK_SNAP = {
     "blend": 0.6064
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8595,6 +8684,13 @@ var MK_SNAP = {
    "match": "Burnley v Portsmouth",
    "league": null,
    "projected_total": 2.34,
+   "u15": {
+    "poisson": 0.3217,
+    "negbin": 0.3488,
+    "bivar": 0.3496,
+    "markov": 0.3177,
+    "blend": 0.3345
+   },
    "u25": {
     "market": 0.5291,
     "poisson": 0.5855,
@@ -8612,6 +8708,7 @@ var MK_SNAP = {
     "blend": 0.7854
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8620,6 +8717,13 @@ var MK_SNAP = {
    "match": "Cambuur v GO Ahead",
    "league": null,
    "projected_total": 4.18,
+   "u15": {
+    "poisson": 0.0792,
+    "negbin": 0.1136,
+    "bivar": 0.1009,
+    "markov": 0.0747,
+    "blend": 0.0921
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2129,
@@ -8638,6 +8742,7 @@ var MK_SNAP = {
     "blend": 0.4378
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8646,6 +8751,13 @@ var MK_SNAP = {
    "match": "Darmstadt v Magdeburg",
    "league": null,
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.2441,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.3968,
     "poisson": 0.4936,
@@ -8663,6 +8775,7 @@ var MK_SNAP = {
     "blend": 0.711
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8671,6 +8784,13 @@ var MK_SNAP = {
    "match": "Fenerbahce v Goztepe",
    "league": null,
    "projected_total": 4.06,
+   "u15": {
+    "poisson": 0.0873,
+    "negbin": 0.1222,
+    "bivar": 0.11,
+    "markov": 0.0826,
+    "blend": 0.1005
+   },
    "u25": {
     "poisson": 0.2294,
     "negbin": 0.2731,
@@ -8687,6 +8807,7 @@ var MK_SNAP = {
     "blend": 0.4551
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -8695,6 +8816,13 @@ var MK_SNAP = {
    "match": "Grasshoppers v FC Vaduz",
    "league": null,
    "projected_total": 4.15,
+   "u15": {
+    "poisson": 0.0812,
+    "negbin": 0.1157,
+    "bivar": 0.1031,
+    "markov": 0.0766,
+    "blend": 0.0942
+   },
    "u25": {
     "poisson": 0.2169,
     "negbin": 0.2615,
@@ -8711,6 +8839,7 @@ var MK_SNAP = {
     "blend": 0.433
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8719,6 +8848,13 @@ var MK_SNAP = {
    "match": "Hull v Ipswich",
    "league": null,
    "projected_total": 3.18,
+   "u15": {
+    "poisson": 0.1738,
+    "negbin": 0.2093,
+    "bivar": 0.2026,
+    "markov": 0.1689,
+    "blend": 0.1886
+   },
    "u25": {
     "market": 0.4709,
     "poisson": 0.3841,
@@ -8736,6 +8872,7 @@ var MK_SNAP = {
     "blend": 0.6085
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8744,6 +8881,13 @@ var MK_SNAP = {
    "match": "Kocaelispor v Rizespor",
    "league": null,
    "projected_total": 2.24,
+   "u15": {
+    "poisson": 0.3449,
+    "negbin": 0.3703,
+    "bivar": 0.3719,
+    "markov": 0.3411,
+    "blend": 0.3571
+   },
    "u25": {
     "market": 0.5155,
     "poisson": 0.612,
@@ -8761,6 +8905,7 @@ var MK_SNAP = {
     "blend": 0.8052
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8769,6 +8914,13 @@ var MK_SNAP = {
    "match": "Leverkusen v Stuttgart",
    "league": null,
    "projected_total": 4.29,
+   "u15": {
+    "poisson": 0.0725,
+    "negbin": 0.1062,
+    "bivar": 0.0933,
+    "markov": 0.0681,
+    "blend": 0.085
+   },
    "u25": {
     "poisson": 0.1986,
     "negbin": 0.2444,
@@ -8785,6 +8937,7 @@ var MK_SNAP = {
     "blend": 0.4072
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8793,6 +8946,13 @@ var MK_SNAP = {
    "match": "Luzern v FC Sion",
    "league": null,
    "projected_total": 4.26,
+   "u15": {
+    "poisson": 0.0743,
+    "negbin": 0.1082,
+    "bivar": 0.0953,
+    "markov": 0.0698,
+    "blend": 0.0869
+   },
    "u25": {
     "poisson": 0.2024,
     "negbin": 0.2479,
@@ -8809,6 +8969,7 @@ var MK_SNAP = {
     "blend": 0.4133
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8817,6 +8978,13 @@ var MK_SNAP = {
    "match": "Mechelen v Genk",
    "league": null,
    "projected_total": 3.61,
+   "u15": {
+    "poisson": 0.1247,
+    "negbin": 0.1608,
+    "bivar": 0.1509,
+    "markov": 0.1198,
+    "blend": 0.139
+   },
    "u25": {
     "market": 0.4301,
     "poisson": 0.301,
@@ -8834,6 +9002,7 @@ var MK_SNAP = {
     "blend": 0.5191
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8842,6 +9011,13 @@ var MK_SNAP = {
    "match": "Moreirense v Estrela",
    "league": null,
    "projected_total": 3.11,
+   "u15": {
+    "poisson": 0.1833,
+    "negbin": 0.2184,
+    "bivar": 0.2123,
+    "markov": 0.1784,
+    "blend": 0.1981
+   },
    "u25": {
     "market": 0.5122,
     "poisson": 0.399,
@@ -8859,6 +9035,7 @@ var MK_SNAP = {
     "blend": 0.6234
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -8867,6 +9044,13 @@ var MK_SNAP = {
    "match": "Motherwell v St Mirren",
    "league": null,
    "projected_total": 2.71,
+   "u15": {
+    "poisson": 0.2469,
+    "negbin": 0.2789,
+    "bivar": 0.2764,
+    "markov": 0.2422,
+    "blend": 0.2611
+   },
    "u25": {
     "market": 0.4141,
     "poisson": 0.4912,
@@ -8884,6 +9068,7 @@ var MK_SNAP = {
     "blend": 0.7088
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8892,6 +9077,13 @@ var MK_SNAP = {
    "match": "Vallecano v Celta Vigo",
    "league": null,
    "projected_total": 2.14,
+   "u15": {
+    "poisson": 0.3694,
+    "negbin": 0.393,
+    "bivar": 0.3952,
+    "markov": 0.3658,
+    "blend": 0.3809
+   },
    "u25": {
     "market": 0.5699,
     "poisson": 0.6388,
@@ -8909,6 +9101,7 @@ var MK_SNAP = {
     "blend": 0.8243
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -8917,6 +9110,14 @@ var MK_SNAP = {
    "match": "AD Ceuta v Gijon",
    "league": "Segunda Division",
    "projected_total": 2.32,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3263,
+    "negbin": 0.353,
+    "bivar": 0.354,
+    "markov": 0.3223,
+    "blend": 0.3191
+   },
    "u25": {
     "league": 0.49,
     "market": 0.4878,
@@ -8937,6 +9138,7 @@ var MK_SNAP = {
     "blend": 0.7563
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8945,6 +9147,13 @@ var MK_SNAP = {
    "match": "BK Hacken v Goteborg",
    "league": "Allsvenskan",
    "projected_total": 3.84,
+   "u15": {
+    "poisson": 0.104,
+    "negbin": 0.1397,
+    "bivar": 0.1285,
+    "markov": 0.0992,
+    "blend": 0.1179
+   },
    "u25": {
     "market": 0.3651,
     "poisson": 0.2625,
@@ -8963,6 +9172,7 @@ var MK_SNAP = {
     "blend": 0.4924
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -8971,6 +9181,13 @@ var MK_SNAP = {
    "match": "Brann v Molde",
    "league": "Eliteserien",
    "projected_total": 4.07,
+   "u15": {
+    "poisson": 0.0866,
+    "negbin": 0.1214,
+    "bivar": 0.1092,
+    "markov": 0.082,
+    "blend": 0.0998
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.228,
@@ -8989,6 +9206,7 @@ var MK_SNAP = {
     "blend": 0.4385
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -8997,6 +9215,13 @@ var MK_SNAP = {
    "match": "Emmen v Den Bosch",
    "league": "Eerste Divisie",
    "projected_total": 3.84,
+   "u15": {
+    "poisson": 0.104,
+    "negbin": 0.1397,
+    "bivar": 0.1285,
+    "markov": 0.0992,
+    "blend": 0.1179
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2625,
@@ -9015,6 +9240,7 @@ var MK_SNAP = {
     "blend": 0.4751
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9023,6 +9249,14 @@ var MK_SNAP = {
    "match": "Getafe v Sevilla",
    "league": "La Liga",
    "projected_total": 1.86,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.4452,
+    "negbin": 0.4631,
+    "bivar": 0.4665,
+    "markov": 0.4423,
+    "blend": 0.4114
+   },
    "u25": {
     "league": 0.43,
     "market": 0.6611,
@@ -9034,15 +9268,16 @@ var MK_SNAP = {
     "blend": 0.657
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.814,
     "poisson": 0.8815,
     "negbin": 0.8685,
     "bivar": 0.8638,
     "markov": 0.883,
-    "blend": 0.8284
+    "blend": 0.8301
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9051,26 +9286,35 @@ var MK_SNAP = {
    "match": "Groningen v Sparta",
    "league": "Eredivisie",
    "projected_total": 3.87,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1016,
+    "negbin": 0.1372,
+    "bivar": 0.1258,
+    "markov": 0.0968,
+    "blend": 0.1163
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3389,
     "poisson": 0.2578,
     "negbin": 0.2992,
     "bivar": 0.2849,
     "markov": 0.2519,
     "outlook": 0.257,
-    "blend": 0.2854
+    "blend": 0.2871
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5238,
     "poisson": 0.4593,
     "negbin": 0.4836,
     "bivar": 0.4736,
     "markov": 0.4552,
-    "blend": 0.4643
+    "blend": 0.4659
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9079,6 +9323,14 @@ var MK_SNAP = {
    "match": "Juventus v Napoli",
    "league": "Serie A",
    "projected_total": 2.18,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3595,
+    "negbin": 0.3838,
+    "bivar": 0.3857,
+    "markov": 0.3558,
+    "blend": 0.325
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5291,
@@ -9090,15 +9342,16 @@ var MK_SNAP = {
     "blend": 0.5729
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.8233,
     "negbin": 0.811,
     "bivar": 0.8079,
     "markov": 0.8248,
-    "blend": 0.7782
+    "blend": 0.7799
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9107,6 +9360,14 @@ var MK_SNAP = {
    "match": "Lecce v Genoa",
    "league": "Serie A",
    "projected_total": 2.14,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3694,
+    "negbin": 0.393,
+    "bivar": 0.3952,
+    "markov": 0.3658,
+    "blend": 0.3327
+   },
    "u25": {
     "league": 0.39,
     "market": 0.6061,
@@ -9118,15 +9379,16 @@ var MK_SNAP = {
     "blend": 0.5926
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7937,
     "poisson": 0.831,
     "negbin": 0.8185,
     "bivar": 0.8152,
     "markov": 0.8325,
-    "blend": 0.7935
+    "blend": 0.7952
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9135,6 +9397,14 @@ var MK_SNAP = {
    "match": "Liverpool v Arsenal",
    "league": "Premier League",
    "projected_total": 2.26,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.3402,
+    "negbin": 0.3659,
+    "bivar": 0.3673,
+    "markov": 0.3363,
+    "blend": 0.332
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4989,
@@ -9155,6 +9425,7 @@ var MK_SNAP = {
     "blend": 0.7659
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9163,6 +9434,14 @@ var MK_SNAP = {
    "match": "Maritimo v Santa Clara",
    "league": "Primeira Liga",
    "projected_total": 2.31,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.3286,
+    "negbin": 0.3552,
+    "bivar": 0.3562,
+    "markov": 0.3246,
+    "blend": 0.3289
+   },
    "u25": {
     "league": 0.47,
     "market": 0.6228,
@@ -9174,15 +9453,16 @@ var MK_SNAP = {
     "blend": 0.5797
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.8072,
     "poisson": 0.7973,
     "negbin": 0.7861,
     "bivar": 0.7835,
     "markov": 0.7987,
-    "blend": 0.7738
+    "blend": 0.7755
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9191,6 +9471,13 @@ var MK_SNAP = {
    "match": "Nashville v NY Red Bulls",
    "league": "MLS",
    "projected_total": 3.57,
+   "u15": {
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1237,
+    "blend": 0.1431
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3081,
@@ -9209,6 +9496,7 @@ var MK_SNAP = {
     "blend": 0.5311
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9217,6 +9505,13 @@ var MK_SNAP = {
    "match": "New England v Miami",
    "league": "MLS",
    "projected_total": 3.99,
+   "u15": {
+    "poisson": 0.0923,
+    "negbin": 0.1275,
+    "bivar": 0.1156,
+    "markov": 0.0876,
+    "blend": 0.1057
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.2396,
@@ -9235,6 +9530,7 @@ var MK_SNAP = {
     "blend": 0.4523
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9243,6 +9539,14 @@ var MK_SNAP = {
    "match": "SC Braga v Famalicao",
    "league": "Primeira Liga",
    "projected_total": 2.63,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2616,
+    "negbin": 0.2928,
+    "bivar": 0.291,
+    "markov": 0.2571,
+    "blend": 0.2765
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5875,
@@ -9254,15 +9558,16 @@ var MK_SNAP = {
     "blend": 0.5212
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7808,
     "poisson": 0.7295,
     "negbin": 0.7226,
     "bivar": 0.7207,
     "markov": 0.7302,
-    "blend": 0.7256
+    "blend": 0.7273
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9271,6 +9576,13 @@ var MK_SNAP = {
    "match": "Salzburg v Lustenau",
    "league": "Austrian Bundesliga",
    "projected_total": 4.18,
+   "u15": {
+    "poisson": 0.0792,
+    "negbin": 0.1136,
+    "bivar": 0.1009,
+    "markov": 0.0747,
+    "blend": 0.0921
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.2129,
@@ -9289,6 +9601,7 @@ var MK_SNAP = {
     "blend": 0.411
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9297,26 +9610,35 @@ var MK_SNAP = {
    "match": "Telstar v Utrecht",
    "league": "Eredivisie",
    "projected_total": 3.59,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1267,
+    "negbin": 0.1628,
+    "bivar": 0.153,
+    "markov": 0.1217,
+    "blend": 0.1368
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3772,
     "poisson": 0.3045,
     "negbin": 0.3417,
     "bivar": 0.3302,
     "markov": 0.2993,
     "outlook": 0.31,
-    "blend": 0.3221
+    "blend": 0.3238
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5767,
     "poisson": 0.5173,
     "negbin": 0.5339,
     "bivar": 0.527,
     "markov": 0.5145,
-    "blend": 0.5099
+    "blend": 0.5116
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9325,6 +9647,13 @@ var MK_SNAP = {
    "match": "Viborg v AC Horsens",
    "league": "Danish Superliga",
    "projected_total": 3.54,
+   "u15": {
+    "poisson": 0.1317,
+    "negbin": 0.1678,
+    "bivar": 0.1584,
+    "markov": 0.1268,
+    "blend": 0.1462
+   },
    "u25": {
     "market": 0.3939,
     "poisson": 0.3135,
@@ -9343,6 +9672,7 @@ var MK_SNAP = {
     "blend": 0.5466
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9351,6 +9681,14 @@ var MK_SNAP = {
    "match": "Viseu v Rio Ave",
    "league": "Primeira Liga",
    "projected_total": 2.44,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2998,
+    "negbin": 0.3285,
+    "bivar": 0.3284,
+    "markov": 0.2956,
+    "blend": 0.3065
+   },
    "u25": {
     "league": 0.47,
     "market": 0.4878,
@@ -9362,15 +9700,16 @@ var MK_SNAP = {
     "blend": 0.5354
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7161,
     "poisson": 0.7703,
     "negbin": 0.7606,
     "bivar": 0.7584,
     "markov": 0.7715,
-    "blend": 0.7411
+    "blend": 0.7428
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9379,6 +9718,13 @@ var MK_SNAP = {
    "match": "Young Boys v Zurich",
    "league": "Swiss Super League",
    "projected_total": 4.9,
+   "u15": {
+    "poisson": 0.0439,
+    "negbin": 0.0736,
+    "bivar": 0.0598,
+    "markov": 0.0403,
+    "blend": 0.0544
+   },
    "u25": {
     "market": 0.2192,
     "poisson": 0.1333,
@@ -9397,6 +9743,7 @@ var MK_SNAP = {
     "blend": 0.3119
    },
    "total_goals": 8,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9405,6 +9752,14 @@ var MK_SNAP = {
    "match": "Benfica v Alverca",
    "league": "Primeira Liga",
    "projected_total": 3.57,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1237,
+    "blend": 0.1705
+   },
    "u25": {
     "league": 0.47,
     "market": 0.2996,
@@ -9415,14 +9770,15 @@ var MK_SNAP = {
     "blend": 0.3432
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "poisson": 0.5216,
     "negbin": 0.5376,
     "bivar": 0.5309,
     "markov": 0.5189,
-    "blend": 0.5558
+    "blend": 0.5578
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9431,6 +9787,14 @@ var MK_SNAP = {
    "match": "GIL Vicente v Guimaraes",
    "league": "Primeira Liga",
    "projected_total": 2.25,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.3425,
+    "negbin": 0.3681,
+    "bivar": 0.3696,
+    "markov": 0.3387,
+    "blend": 0.3398
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5774,
@@ -9442,15 +9806,16 @@ var MK_SNAP = {
     "blend": 0.5823
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7808,
     "poisson": 0.8094,
     "negbin": 0.7977,
     "bivar": 0.7949,
     "markov": 0.8109,
-    "blend": 0.7773
+    "blend": 0.7789
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9459,6 +9824,13 @@ var MK_SNAP = {
    "match": "Heracles v FC OSS",
    "league": "Eerste Divisie",
    "projected_total": 3.91,
+   "u15": {
+    "poisson": 0.0984,
+    "negbin": 0.1339,
+    "bivar": 0.1223,
+    "markov": 0.0936,
+    "blend": 0.1121
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2516,
@@ -9477,6 +9849,7 @@ var MK_SNAP = {
     "blend": 0.4581
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9485,6 +9858,13 @@ var MK_SNAP = {
    "match": "Jong Ajax v Vitesse",
    "league": "Eerste Divisie",
    "projected_total": 3.49,
+   "u15": {
+    "poisson": 0.1369,
+    "negbin": 0.1731,
+    "bivar": 0.164,
+    "markov": 0.132,
+    "blend": 0.1515
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.3227,
@@ -9503,6 +9883,7 @@ var MK_SNAP = {
     "blend": 0.531
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9511,6 +9892,13 @@ var MK_SNAP = {
    "match": "Jong PSV v NAC Breda",
    "league": "Eerste Divisie",
    "projected_total": 3.73,
+   "u15": {
+    "poisson": 0.1135,
+    "negbin": 0.1494,
+    "bivar": 0.1388,
+    "markov": 0.1086,
+    "blend": 0.1276
+   },
    "u25": {
     "market": 0.2839,
     "poisson": 0.2804,
@@ -9529,6 +9917,7 @@ var MK_SNAP = {
     "blend": 0.4923
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9537,15 +9926,23 @@ var MK_SNAP = {
    "match": "Lorient v Brest",
    "league": "Ligue 1",
    "projected_total": 2.68,
+   "u15": {
+    "league": 0.21,
+    "poisson": 0.2523,
+    "negbin": 0.284,
+    "bivar": 0.2818,
+    "markov": 0.2477,
+    "blend": 0.2552
+   },
    "u25": {
-    "league": 0.41,
+    "league": 0.42,
     "market": 0.5505,
     "poisson": 0.4985,
     "negbin": 0.5154,
     "bivar": 0.5119,
     "markov": 0.4962,
     "outlook": 0.494,
-    "blend": 0.4971
+    "blend": 0.4988
    },
    "u35": {
     "league": 0.64,
@@ -9557,6 +9954,7 @@ var MK_SNAP = {
     "blend": 0.7075
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9565,6 +9963,14 @@ var MK_SNAP = {
    "match": "Mallorca v Cadiz",
    "league": "LaLiga 2",
    "projected_total": 2.57,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.2732,
+    "negbin": 0.3036,
+    "bivar": 0.3024,
+    "markov": 0.2688,
+    "blend": 0.2776
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -9585,6 +9991,7 @@ var MK_SNAP = {
     "blend": 0.7249
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9593,6 +10000,13 @@ var MK_SNAP = {
    "match": "Mjallby v Kalmar FF",
    "league": "Allsvenskan",
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.2441,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.501,
     "poisson": 0.4936,
@@ -9611,6 +10025,7 @@ var MK_SNAP = {
     "blend": 0.712
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9619,6 +10034,14 @@ var MK_SNAP = {
    "match": "Oviedo v Las Palmas",
    "league": "LaLiga 2",
    "projected_total": 2.32,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3263,
+    "negbin": 0.353,
+    "bivar": 0.354,
+    "markov": 0.3223,
+    "blend": 0.3191
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -9639,6 +10062,7 @@ var MK_SNAP = {
     "blend": 0.7617
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9647,6 +10071,14 @@ var MK_SNAP = {
    "match": "Sassuolo v Fiorentina",
    "league": "Serie A",
    "projected_total": 3.43,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.1435,
+    "negbin": 0.1795,
+    "bivar": 0.1709,
+    "markov": 0.1385,
+    "blend": 0.1545
+   },
    "u25": {
     "league": 0.39,
     "market": 0.3939,
@@ -9657,14 +10089,15 @@ var MK_SNAP = {
     "blend": 0.3623
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "poisson": 0.5518,
     "negbin": 0.564,
     "bivar": 0.5585,
     "markov": 0.5497,
-    "blend": 0.5788
+    "blend": 0.5808
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9673,6 +10106,14 @@ var MK_SNAP = {
    "match": "Valladolid v Leganes",
    "league": "LaLiga 2",
    "projected_total": 2.42,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3041,
+    "negbin": 0.3324,
+    "bivar": 0.3326,
+    "markov": 0.2999,
+    "blend": 0.3018
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5436,
@@ -9693,6 +10134,7 @@ var MK_SNAP = {
     "blend": 0.7502
    },
    "total_goals": 7,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9701,6 +10143,13 @@ var MK_SNAP = {
    "match": "Atletico v Bayern",
    "league": "Champions League",
    "projected_total": 3.64,
+   "u15": {
+    "poisson": 0.1218,
+    "negbin": 0.1579,
+    "bivar": 0.1478,
+    "markov": 0.1167,
+    "blend": 0.136
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2957,
@@ -9719,6 +10168,7 @@ var MK_SNAP = {
     "blend": 0.5152
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9727,6 +10177,13 @@ var MK_SNAP = {
    "match": "Barcelona v Aston Villa",
    "league": "Champions League",
    "projected_total": 4.39,
+   "u15": {
+    "poisson": 0.0668,
+    "negbin": 0.1,
+    "bivar": 0.0868,
+    "markov": 0.0625,
+    "blend": 0.079
+   },
    "u25": {
     "market": 0.2063,
     "poisson": 0.1863,
@@ -9745,6 +10202,7 @@ var MK_SNAP = {
     "blend": 0.3783
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9753,6 +10211,14 @@ var MK_SNAP = {
    "match": "Blackburn v Stoke City",
    "league": "Championship",
    "projected_total": 2.64,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2598,
+    "negbin": 0.291,
+    "bivar": 0.2892,
+    "markov": 0.2552,
+    "blend": 0.263
+   },
    "u25": {
     "league": 0.38,
     "market": 0.5505,
@@ -9773,6 +10239,7 @@ var MK_SNAP = {
     "blend": 0.7114
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9781,6 +10248,14 @@ var MK_SNAP = {
    "match": "Charlton v Bolton",
    "league": "Championship",
    "projected_total": 2.62,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2635,
+    "negbin": 0.2946,
+    "bivar": 0.2929,
+    "markov": 0.2586,
+    "blend": 0.2659
+   },
    "u25": {
     "league": 0.38,
     "market": 0.4535,
@@ -9799,6 +10274,7 @@ var MK_SNAP = {
     "blend": 0.7083
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9807,6 +10283,13 @@ var MK_SNAP = {
    "match": "Feyenoord v Inter",
    "league": "Champions League",
    "projected_total": 3.91,
+   "u15": {
+    "poisson": 0.0984,
+    "negbin": 0.1339,
+    "bivar": 0.1223,
+    "markov": 0.0936,
+    "blend": 0.1121
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.2516,
@@ -9825,6 +10308,7 @@ var MK_SNAP = {
     "blend": 0.473
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -9833,6 +10317,13 @@ var MK_SNAP = {
    "match": "Galatasaray v Stuttgart",
    "league": "Champions League",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1122,
+    "blend": 0.1313
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.2871,
@@ -9851,6 +10342,7 @@ var MK_SNAP = {
     "blend": 0.5073
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9859,6 +10351,13 @@ var MK_SNAP = {
    "match": "Lask Linz v Slovan",
    "league": "Champions League",
    "projected_total": 3.57,
+   "u15": {
+    "poisson": 0.1287,
+    "negbin": 0.1648,
+    "bivar": 0.1551,
+    "markov": 0.1236,
+    "blend": 0.143
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.3081,
@@ -9877,6 +10376,7 @@ var MK_SNAP = {
     "blend": 0.522
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9885,6 +10385,13 @@ var MK_SNAP = {
    "match": "Sirius v Halmstad",
    "league": "Allsvenskan",
    "projected_total": 3.44,
+   "u15": {
+    "poisson": 0.1424,
+    "negbin": 0.1784,
+    "bivar": 0.1697,
+    "markov": 0.1374,
+    "blend": 0.157
+   },
    "u25": {
     "market": 0.3568,
     "poisson": 0.3321,
@@ -9901,6 +10408,7 @@ var MK_SNAP = {
     "blend": 0.5539
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9909,6 +10417,13 @@ var MK_SNAP = {
    "match": "Villarreal v PSG",
    "league": "Champions League",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1115,
+    "blend": 0.1311
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2871,
@@ -9927,6 +10442,7 @@ var MK_SNAP = {
     "blend": 0.5027
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -9935,6 +10451,14 @@ var MK_SNAP = {
    "match": "Watford v Lincoln",
    "league": "Championship",
    "projected_total": 2.36,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.3173,
+    "negbin": 0.3447,
+    "bivar": 0.3453,
+    "markov": 0.3132,
+    "blend": 0.3081
+   },
    "u25": {
     "league": 0.38,
     "market": 0.4989,
@@ -9955,6 +10479,7 @@ var MK_SNAP = {
     "blend": 0.7427
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9963,6 +10488,13 @@ var MK_SNAP = {
    "match": "Braunschweig v Cottbus",
    "league": "2. Bundesliga",
    "projected_total": 3.74,
+   "u15": {
+    "poisson": 0.1126,
+    "negbin": 0.1485,
+    "bivar": 0.1378,
+    "markov": 0.1077,
+    "blend": 0.1267
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.2787,
@@ -9981,6 +10513,7 @@ var MK_SNAP = {
     "blend": 0.4993
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -9989,6 +10522,9 @@ var MK_SNAP = {
    "match": "Castellón v Eibar",
    "league": "Segunda División",
    "projected_total": null,
+   "u15": {
+    "league": 0.24
+   },
    "u25": {
     "league": 0.49
    },
@@ -9996,6 +10532,7 @@ var MK_SNAP = {
     "league": 0.68
    },
    "total_goals": null,
+   "res_u15": null,
    "res_u25": null,
    "res_u35": null
   },
@@ -10004,6 +10541,13 @@ var MK_SNAP = {
    "match": "Dordrecht v NAC Breda",
    "league": "Eerste Divisie",
    "projected_total": 3.65,
+   "u15": {
+    "poisson": 0.1209,
+    "negbin": 0.1569,
+    "bivar": 0.1468,
+    "markov": 0.1159,
+    "blend": 0.1351
+   },
    "u25": {
     "market": 0.3568,
     "poisson": 0.294,
@@ -10022,6 +10566,7 @@ var MK_SNAP = {
     "blend": 0.5182
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10030,6 +10575,14 @@ var MK_SNAP = {
    "match": "Everton v Coventry",
    "league": "Premier League",
    "projected_total": 2.63,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.2616,
+    "negbin": 0.2928,
+    "bivar": 0.291,
+    "markov": 0.2571,
+    "blend": 0.2705
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4535,
@@ -10050,6 +10603,7 @@ var MK_SNAP = {
     "blend": 0.709
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10058,6 +10612,13 @@ var MK_SNAP = {
    "match": "FC Eindhoven v Jong Ajax",
    "league": "Eerste Divisie",
    "projected_total": 3.63,
+   "u15": {
+    "poisson": 0.1228,
+    "negbin": 0.1588,
+    "bivar": 0.1488,
+    "markov": 0.1178,
+    "blend": 0.1371
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2975,
@@ -10074,6 +10635,7 @@ var MK_SNAP = {
     "blend": 0.5151
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10082,6 +10644,14 @@ var MK_SNAP = {
    "match": "Famalicao v Arouca",
    "league": "Primeira Liga",
    "projected_total": 2.06,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.39,
+    "negbin": 0.4121,
+    "bivar": 0.4147,
+    "markov": 0.3866,
+    "blend": 0.3767
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5436,
@@ -10093,15 +10663,16 @@ var MK_SNAP = {
     "blend": 0.6094
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.744,
     "poisson": 0.8461,
     "negbin": 0.8333,
     "bivar": 0.8296,
     "markov": 0.8477,
-    "blend": 0.7951
+    "blend": 0.7968
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10110,6 +10681,13 @@ var MK_SNAP = {
    "match": "Gaziantep v Kasımpaşa",
    "league": "Süper Lig",
    "projected_total": 2.38,
+   "u15": {
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3087,
+    "blend": 0.3258
+   },
    "u25": {
     "market": 0.4878,
     "poisson": 0.5749,
@@ -10128,6 +10706,7 @@ var MK_SNAP = {
     "blend": 0.7651
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10136,6 +10715,13 @@ var MK_SNAP = {
    "match": "Helmond Sport v Volendam",
    "league": "Eerste Divisie",
    "projected_total": 3.58,
+   "u15": {
+    "poisson": 0.1277,
+    "negbin": 0.1638,
+    "bivar": 0.1541,
+    "markov": 0.1222,
+    "blend": 0.1419
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3063,
@@ -10154,6 +10740,7 @@ var MK_SNAP = {
     "blend": 0.5249
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10162,6 +10749,13 @@ var MK_SNAP = {
    "match": "Jong AZ v Almere City",
    "league": "Eerste Divisie",
    "projected_total": 4.03,
+   "u15": {
+    "poisson": 0.0894,
+    "negbin": 0.1244,
+    "bivar": 0.1123,
+    "markov": 0.0847,
+    "blend": 0.1027
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2337,
@@ -10180,6 +10774,7 @@ var MK_SNAP = {
     "blend": 0.4401
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10188,6 +10783,9 @@ var MK_SNAP = {
    "match": "Rapid v Wolfsberger",
    "league": "Bundesliga",
    "projected_total": null,
+   "u15": {
+    "league": 0.19
+   },
    "u25": {
     "league": 0.29
    },
@@ -10195,6 +10793,7 @@ var MK_SNAP = {
     "league": 0.47
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10203,6 +10802,14 @@ var MK_SNAP = {
    "match": "Sevilla v Alaves",
    "league": "La Liga",
    "projected_total": 2.38,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3086,
+    "blend": 0.3086
+   },
    "u25": {
     "league": 0.43,
     "market": 0.5699,
@@ -10214,15 +10821,16 @@ var MK_SNAP = {
     "blend": 0.5524
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.7619,
     "poisson": 0.7829,
     "negbin": 0.7724,
     "bivar": 0.7701,
     "markov": 0.7842,
-    "blend": 0.7552
+    "blend": 0.7569
    },
    "total_goals": 0,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10231,6 +10839,13 @@ var MK_SNAP = {
    "match": "VVV Venlo v Jong PSV",
    "league": "Eerste Divisie",
    "projected_total": 4.08,
+   "u15": {
+    "poisson": 0.0859,
+    "negbin": 0.1207,
+    "bivar": 0.1084,
+    "markov": 0.0813,
+    "blend": 0.0991
+   },
    "u25": {
     "market": 0.2676,
     "poisson": 0.2266,
@@ -10249,6 +10864,7 @@ var MK_SNAP = {
     "blend": 0.4328
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10257,13 +10873,17 @@ var MK_SNAP = {
    "match": "Venezia v Udinese",
    "league": "Serie A",
    "projected_total": null,
+   "u15": {
+    "league": 0.14
+   },
    "u25": {
     "league": 0.39
    },
    "u35": {
-    "league": 0.67
+    "league": 0.68
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10272,6 +10892,14 @@ var MK_SNAP = {
    "match": "Vitoria v Fluminense",
    "league": "Serie A",
    "projected_total": 2.5,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.2873,
+    "negbin": 0.3168,
+    "bivar": 0.3162,
+    "markov": 0.283,
+    "blend": 0.2686
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5436,
@@ -10283,15 +10911,16 @@ var MK_SNAP = {
     "blend": 0.5215
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.7576,
     "negbin": 0.7487,
     "bivar": 0.7466,
     "markov": 0.7586,
-    "blend": 0.7356
+    "blend": 0.7373
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10300,26 +10929,35 @@ var MK_SNAP = {
    "match": "ADO v Sparta",
    "league": "Eredivisie",
    "projected_total": 3.77,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.11,
+    "negbin": 0.1458,
+    "bivar": 0.135,
+    "markov": 0.1051,
+    "blend": 0.1232
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3939,
     "poisson": 0.2738,
     "negbin": 0.3138,
     "bivar": 0.3005,
     "markov": 0.2681,
     "outlook": 0.28,
-    "blend": 0.305
+    "blend": 0.3067
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5998,
     "poisson": 0.4796,
     "negbin": 0.5012,
     "bivar": 0.4924,
     "markov": 0.476,
-    "blend": 0.4899
+    "blend": 0.4915
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10328,6 +10966,13 @@ var MK_SNAP = {
    "match": "Aberdeen v Hibernian",
    "league": "Premiership",
    "projected_total": 2.58,
+   "u15": {
+    "poisson": 0.2713,
+    "negbin": 0.3018,
+    "bivar": 0.3005,
+    "markov": 0.2668,
+    "blend": 0.2851
+   },
    "u25": {
     "market": 0.4762,
     "poisson": 0.5235,
@@ -10346,6 +10991,7 @@ var MK_SNAP = {
     "blend": 0.725
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10354,6 +11000,14 @@ var MK_SNAP = {
    "match": "Alverca v Casa Pia",
    "league": "Primeira Liga",
    "projected_total": 2.46,
+   "u15": {
+    "league": 0.28,
+    "poisson": 0.2956,
+    "negbin": 0.3245,
+    "bivar": 0.3243,
+    "markov": 0.2911,
+    "blend": 0.3031
+   },
    "u25": {
     "league": 0.47,
     "market": 0.5155,
@@ -10365,15 +11019,16 @@ var MK_SNAP = {
     "blend": 0.5367
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7324,
     "poisson": 0.7661,
     "negbin": 0.7566,
     "bivar": 0.7545,
     "markov": 0.7674,
-    "blend": 0.7412
+    "blend": 0.7428
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10382,6 +11037,13 @@ var MK_SNAP = {
    "match": "Antwerp v Lommel United",
    "league": "Jupiler Pro League",
    "projected_total": 3.47,
+   "u15": {
+    "poisson": 0.1391,
+    "negbin": 0.1752,
+    "bivar": 0.1662,
+    "markov": 0.1341,
+    "blend": 0.1537
+   },
    "u25": {
     "market": 0.3939,
     "poisson": 0.3264,
@@ -10398,6 +11060,7 @@ var MK_SNAP = {
     "blend": 0.5477
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10406,15 +11069,23 @@ var MK_SNAP = {
    "match": "Auxerre v Paris FC",
    "league": "Ligue 1",
    "projected_total": 2.29,
+   "u15": {
+    "league": 0.21,
+    "poisson": 0.3332,
+    "negbin": 0.3594,
+    "bivar": 0.3606,
+    "markov": 0.3292,
+    "blend": 0.3185
+   },
    "u25": {
-    "league": 0.41,
+    "league": 0.42,
     "market": 0.4535,
     "poisson": 0.5987,
     "negbin": 0.6057,
     "bivar": 0.6034,
     "markov": 0.5978,
     "outlook": 0.61,
-    "blend": 0.5449
+    "blend": 0.5465
    },
    "u35": {
     "league": 0.64,
@@ -10426,6 +11097,7 @@ var MK_SNAP = {
     "blend": 0.7471
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10434,6 +11106,13 @@ var MK_SNAP = {
    "match": "Chicago v Columbus",
    "league": "Major League Soccer",
    "projected_total": 3.59,
+   "u15": {
+    "poisson": 0.1267,
+    "negbin": 0.1628,
+    "bivar": 0.153,
+    "markov": 0.1207,
+    "blend": 0.1408
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3045,
@@ -10450,6 +11129,7 @@ var MK_SNAP = {
     "blend": 0.5232
    },
    "total_goals": 7,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10458,6 +11138,13 @@ var MK_SNAP = {
    "match": "Cincinnati v Nashville",
    "league": "Major League Soccer",
    "projected_total": 3.49,
+   "u15": {
+    "poisson": 0.1369,
+    "negbin": 0.1731,
+    "bivar": 0.164,
+    "markov": 0.132,
+    "blend": 0.1515
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3227,
@@ -10476,6 +11163,7 @@ var MK_SNAP = {
     "blend": 0.5396
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10484,6 +11172,14 @@ var MK_SNAP = {
    "match": "Cordoba v AD Ceuta",
    "league": "Segunda División",
    "projected_total": 3.63,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.1228,
+    "negbin": 0.1588,
+    "bivar": 0.1488,
+    "markov": 0.1166,
+    "blend": 0.1574
+   },
    "u25": {
     "league": 0.49,
     "market": 0.3389,
@@ -10502,6 +11198,7 @@ var MK_SNAP = {
     "blend": 0.5481
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10510,6 +11207,13 @@ var MK_SNAP = {
    "match": "Degerfors v Gais",
    "league": "Allsvenskan",
    "projected_total": 2.64,
+   "u15": {
+    "poisson": 0.2598,
+    "negbin": 0.291,
+    "bivar": 0.2892,
+    "markov": 0.2552,
+    "blend": 0.2738
+   },
    "u25": {
     "market": 0.4878,
     "poisson": 0.5084,
@@ -10528,6 +11232,7 @@ var MK_SNAP = {
     "blend": 0.719
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10536,26 +11241,35 @@ var MK_SNAP = {
    "match": "Excelsior v GO Ahead",
    "league": "Eredivisie",
    "projected_total": 3.46,
+   "u15": {
+    "league": 0.12,
+    "poisson": 0.1402,
+    "negbin": 0.1763,
+    "bivar": 0.1674,
+    "markov": 0.1352,
+    "blend": 0.1478
+   },
    "u25": {
-    "league": 0.28,
+    "league": 0.29,
     "market": 0.3651,
     "poisson": 0.3283,
     "negbin": 0.3631,
     "bivar": 0.3529,
     "markov": 0.3234,
     "outlook": 0.33,
-    "blend": 0.3355
+    "blend": 0.3371
    },
    "u35": {
-    "league": 0.39,
+    "league": 0.4,
     "market": 0.5671,
     "poisson": 0.5453,
     "negbin": 0.5583,
     "bivar": 0.5525,
     "markov": 0.543,
-    "blend": 0.526
+    "blend": 0.5277
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10564,6 +11278,13 @@ var MK_SNAP = {
    "match": "FC Vaduz v FC Sion",
    "league": "Super League",
    "projected_total": 4.52,
+   "u15": {
+    "poisson": 0.0601,
+    "negbin": 0.0924,
+    "bivar": 0.079,
+    "markov": 0.056,
+    "blend": 0.0719
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.1713,
@@ -10582,6 +11303,7 @@ var MK_SNAP = {
     "blend": 0.3785
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10590,6 +11312,13 @@ var MK_SNAP = {
    "match": "Hertha v Wolfsburg",
    "league": "2. Bundesliga",
    "projected_total": 3.93,
+   "u15": {
+    "poisson": 0.0968,
+    "negbin": 0.1322,
+    "bivar": 0.1206,
+    "markov": 0.0921,
+    "blend": 0.1104
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2485,
@@ -10608,6 +11337,7 @@ var MK_SNAP = {
     "blend": 0.4613
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10616,6 +11346,14 @@ var MK_SNAP = {
    "match": "Leganes v Albacete",
    "league": "Segunda División",
    "projected_total": 2.38,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.3128,
+    "negbin": 0.3405,
+    "bivar": 0.341,
+    "markov": 0.3077,
+    "blend": 0.3084
+   },
    "u25": {
     "league": 0.49,
     "market": 0.5155,
@@ -10636,6 +11374,7 @@ var MK_SNAP = {
     "blend": 0.7511
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10644,6 +11383,13 @@ var MK_SNAP = {
    "match": "Luzern v Young Boys",
    "league": "Super League",
    "projected_total": 4.81,
+   "u15": {
+    "poisson": 0.0473,
+    "negbin": 0.0776,
+    "bivar": 0.0639,
+    "markov": 0.0436,
+    "blend": 0.0581
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.1416,
@@ -10662,6 +11408,7 @@ var MK_SNAP = {
     "blend": 0.3293
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10670,6 +11417,13 @@ var MK_SNAP = {
    "match": "Miami v Charlotte",
    "league": "Major League Soccer",
    "projected_total": 4.59,
+   "u15": {
+    "poisson": 0.0568,
+    "negbin": 0.0886,
+    "bivar": 0.0751,
+    "markov": 0.0527,
+    "blend": 0.0683
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.1637,
@@ -10688,6 +11442,7 @@ var MK_SNAP = {
     "blend": 0.3523
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10696,6 +11451,14 @@ var MK_SNAP = {
    "match": "N. Forest v Man City",
    "league": "Premier League",
    "projected_total": 2.46,
+   "u15": {
+    "league": 0.25,
+    "poisson": 0.2956,
+    "negbin": 0.3245,
+    "bivar": 0.3243,
+    "markov": 0.2914,
+    "blend": 0.2972
+   },
    "u25": {
     "league": 0.54,
     "market": 0.4141,
@@ -10716,6 +11479,7 @@ var MK_SNAP = {
     "blend": 0.7282
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10724,6 +11488,13 @@ var MK_SNAP = {
    "match": "Orlando City v New England",
    "league": "Major League Soccer",
    "projected_total": 4.19,
+   "u15": {
+    "poisson": 0.0786,
+    "negbin": 0.1129,
+    "bivar": 0.1002,
+    "markov": 0.0741,
+    "blend": 0.0915
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2116,
@@ -10742,6 +11513,7 @@ var MK_SNAP = {
     "blend": 0.4232
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10750,6 +11522,14 @@ var MK_SNAP = {
    "match": "Osasuna v Athletic Club",
    "league": "La Liga",
    "projected_total": 2.37,
+   "u15": {
+    "league": 0.24,
+    "poisson": 0.315,
+    "negbin": 0.3426,
+    "bivar": 0.3431,
+    "markov": 0.311,
+    "blend": 0.3103
+   },
    "u25": {
     "league": 0.43,
     "market": 0.5505,
@@ -10761,15 +11541,16 @@ var MK_SNAP = {
     "blend": 0.5509
    },
    "u35": {
-    "league": 0.66,
+    "league": 0.67,
     "market": 0.7619,
     "poisson": 0.785,
     "negbin": 0.7744,
     "bivar": 0.772,
     "markov": 0.7862,
-    "blend": 0.7566
+    "blend": 0.7582
    },
    "total_goals": 2,
+   "res_u15": 0,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10778,13 +11559,17 @@ var MK_SNAP = {
    "match": "PSG v Estac Troyes",
    "league": "Ligue 1",
    "projected_total": null,
+   "u15": {
+    "league": 0.21
+   },
    "u25": {
-    "league": 0.41
+    "league": 0.42
    },
    "u35": {
     "league": 0.64
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10793,6 +11578,14 @@ var MK_SNAP = {
    "match": "Parma v Bologna",
    "league": "Serie A",
    "projected_total": 2.34,
+   "u15": {
+    "league": 0.14,
+    "poisson": 0.3217,
+    "negbin": 0.3488,
+    "bivar": 0.3496,
+    "markov": 0.3177,
+    "blend": 0.2956
+   },
    "u25": {
     "league": 0.39,
     "market": 0.5505,
@@ -10804,15 +11597,16 @@ var MK_SNAP = {
     "blend": 0.5492
    },
    "u35": {
-    "league": 0.67,
+    "league": 0.68,
     "market": 0.7619,
     "poisson": 0.7912,
     "negbin": 0.7802,
     "bivar": 0.7778,
     "markov": 0.7925,
-    "blend": 0.7623
+    "blend": 0.7639
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10821,6 +11615,13 @@ var MK_SNAP = {
    "match": "Philadelphia v Toronto",
    "league": "Major League Soccer",
    "projected_total": 3.69,
+   "u15": {
+    "poisson": 0.1171,
+    "negbin": 0.1531,
+    "bivar": 0.1427,
+    "markov": 0.1122,
+    "blend": 0.1313
+   },
    "u25": {
     "market": 0.2996,
     "poisson": 0.2871,
@@ -10837,6 +11638,7 @@ var MK_SNAP = {
     "blend": 0.5031
    },
    "total_goals": 5,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10845,6 +11647,9 @@ var MK_SNAP = {
    "match": "Ried v Lask Linz",
    "league": "Bundesliga",
    "projected_total": null,
+   "u15": {
+    "league": 0.19
+   },
    "u25": {
     "league": 0.29
    },
@@ -10852,6 +11657,7 @@ var MK_SNAP = {
     "league": 0.47
    },
    "total_goals": 6,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10860,6 +11666,13 @@ var MK_SNAP = {
    "match": "Salt Lake v LA Galaxy",
    "league": "Major League Soccer",
    "projected_total": 3.5,
+   "u15": {
+    "poisson": 0.1359,
+    "negbin": 0.172,
+    "bivar": 0.1628,
+    "markov": 0.1309,
+    "blend": 0.1504
+   },
    "u25": {
     "market": 0.3197,
     "poisson": 0.3208,
@@ -10878,6 +11691,7 @@ var MK_SNAP = {
     "blend": 0.5335
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10886,6 +11700,13 @@ var MK_SNAP = {
    "match": "San Diego v Kansas City",
    "league": "Major League Soccer",
    "projected_total": 4.17,
+   "u15": {
+    "poisson": 0.0799,
+    "negbin": 0.1143,
+    "bivar": 0.1017,
+    "markov": 0.0754,
+    "blend": 0.0928
+   },
    "u25": {
     "market": 0.2381,
     "poisson": 0.2142,
@@ -10904,6 +11725,7 @@ var MK_SNAP = {
     "blend": 0.4124
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10912,6 +11734,13 @@ var MK_SNAP = {
    "match": "Seattle v LAFC",
    "league": "Major League Soccer",
    "projected_total": 2.7,
+   "u15": {
+    "poisson": 0.2487,
+    "negbin": 0.2806,
+    "bivar": 0.2782,
+    "markov": 0.244,
+    "blend": 0.2629
+   },
    "u25": {
     "market": 0.4053,
     "poisson": 0.4936,
@@ -10928,6 +11757,7 @@ var MK_SNAP = {
     "blend": 0.711
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   },
@@ -10936,13 +11766,17 @@ var MK_SNAP = {
    "match": "Sittard v Telstar",
    "league": "Eredivisie",
    "projected_total": null,
+   "u15": {
+    "league": 0.12
+   },
    "u25": {
-    "league": 0.28
+    "league": 0.29
    },
    "u35": {
-    "league": 0.39
+    "league": 0.4
    },
    "total_goals": 4,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 0
   },
@@ -10951,13 +11785,17 @@ var MK_SNAP = {
    "match": "Sporting v Moreirense",
    "league": "Primeira Liga",
    "projected_total": null,
+   "u15": {
+    "league": 0.28
+   },
    "u25": {
     "league": 0.47
    },
    "u35": {
-    "league": 0.67
+    "league": 0.68
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10966,6 +11804,14 @@ var MK_SNAP = {
    "match": "Stuttgart v Bremen",
    "league": "Bundesliga",
    "projected_total": 3.67,
+   "u15": {
+    "league": 0.19,
+    "poisson": 0.119,
+    "negbin": 0.155,
+    "bivar": 0.1447,
+    "markov": 0.1141,
+    "blend": 0.1446
+   },
    "u25": {
     "league": 0.29,
     "market": 0.2839,
@@ -10986,6 +11832,7 @@ var MK_SNAP = {
     "blend": 0.4949
    },
    "total_goals": 1,
+   "res_u15": 1,
    "res_u25": 1,
    "res_u35": 1
   },
@@ -10994,6 +11841,13 @@ var MK_SNAP = {
    "match": "Toluca v Monterrey",
    "league": "Liga MX",
    "projected_total": 3.6,
+   "u15": {
+    "poisson": 0.1257,
+    "negbin": 0.1618,
+    "bivar": 0.152,
+    "markov": 0.1207,
+    "blend": 0.14
+   },
    "u25": {
     "market": 0.3389,
     "poisson": 0.3027,
@@ -11012,6 +11866,7 @@ var MK_SNAP = {
     "blend": 0.5217
    },
    "total_goals": null,
+   "res_u15": null,
    "res_u25": null,
    "res_u35": null
   },
@@ -11020,13 +11875,17 @@ var MK_SNAP = {
    "match": "Valencia v Real Madrid",
    "league": "La Liga",
    "projected_total": null,
+   "u15": {
+    "league": 0.24
+   },
    "u25": {
     "league": 0.43
    },
    "u35": {
-    "league": 0.66
+    "league": 0.67
    },
    "total_goals": 3,
+   "res_u15": 0,
    "res_u25": 0,
    "res_u35": 1
   }
@@ -11048,7 +11907,7 @@ function md(d){ var p=d.split("-"); return p[1]+"/"+p[2]; }
 function call(p){ return p.bet_type==="double_chance" ? p.market+" double chance" : (p.side==="over"?"Over ":"Under ")+p.line; }
 var CHIPS = {
   type:[["","All bets"],["single","Goals bets"],["double_chance","Double chance"]],
-  line:[["","All lines"],["main","Main (2.5 goals)"],["alt","Alt (3.5 goals)"],["watch","Near misses"]],
+  line:[["","All lines"],["main","Main picks"],["alt","Alt (3.5 goals)"],["watch","Near misses"]],
   side:[["","Both"],["over","Over"],["under","Under"]]
 };
 var HINTS = {
@@ -11060,7 +11919,7 @@ var HINTS = {
     alt:"Alt line: the same game's Over or Under 3.5 goals bet. Tracked separately so it never mixes into the main record.",
     watch:"Near misses: games that almost met our rules (just under the cutoff). Tracked only to learn if the cutoffs are too strict. Not part of the main record."}
 };
-var LINE_NAME={main:"Main",alt:"Alt 3.5",watch:"Near miss"};
+var LINE_NAME={main:"Main",alt:"Alt 3.5",alt15:"Alt 1.5",watch:"Near miss"};
 function lineName(p){ return p.bet_type==="single"?(LINE_NAME[p.line_group]||""):"DC"; }
 function summary(list,st){
   var parts=[];
@@ -11107,7 +11966,7 @@ function render(){
   $("showing").innerHTML = summary(list,st) + (st.n===0 ? '<div class="empty" style="margin-top:8px">'+(list.length?"None of these have a final score yet, so there is no record to show. They fill in once the games finish and I grade them.":"No bets match this combination.")+' <button class="reset" onclick="resetF()">Reset filters</button></div>' : "");
   drawChart(DATA.picks.filter(function(p){return !F.league||p.league===F.league})); drawDays(list); drawPicks(list);
 }
-function short(){ var a=[]; a.push(F.type==="single"?"Goals":F.type==="double_chance"?"Double chance":"All bets"); if(F.type!=="double_chance"&&F.line) a.push({main:"2.5",alt:"3.5",watch:"Near miss"}[F.line]); if(F.side) a.push(F.side==="over"?"Overs":"Unders"); if(F.league) a.push(F.league); return a.join(" · "); }
+function short(){ var a=[]; a.push(F.type==="single"?"Goals":F.type==="double_chance"?"Double chance":"All bets"); if(F.type!=="double_chance"&&F.line) a.push({main:"Main",alt:"3.5",alt15:"1.5",watch:"Near miss"}[F.line]); if(F.side) a.push(F.side==="over"?"Overs":"Unders"); if(F.league) a.push(F.league); return a.join(" · "); }
 function resetF(){ F={type:"",line:"",side:"",league:""}; $("f-league").value=""; SHOW=25; save(); render(); }
 function tile(k,v,s,c){ return '<div class="tile"><div class="k">'+k+'</div><div class="v '+c+'">'+v+'</div><div class="s">'+s+'</div></div>'; }
 var DAYSALL=false;
@@ -11208,6 +12067,8 @@ function drawChart(list){
     {k:"o25",n:"Over 2.5",c:"#ff7a9c",f:function(p){return p.bet_type==="single"&&p.side==="over"&&p.line===2.5}},
     {k:"u35",n:"Under 3.5",c:"#b48cff",f:function(p){return p.bet_type==="single"&&p.side==="under"&&p.line===3.5}},
     {k:"o35",n:"Over 3.5",c:"#ff9f43",f:function(p){return p.bet_type==="single"&&p.side==="over"&&p.line===3.5}},
+    {k:"o15",n:"Over 1.5",c:"#5ec8ff",f:function(p){return p.bet_type==="single"&&(!p.goals_basis||p.goals_basis==="total")&&p.side==="over"&&p.line===1.5}},
+    {k:"u15",n:"Under 1.5",c:"#c3f584",f:function(p){return p.bet_type==="single"&&(!p.goals_basis||p.goals_basis==="total")&&p.side==="under"&&p.line===1.5}},
     {k:"dc",n:"Double chance",c:"#EDBB00",f:function(p){return p.bet_type==="double_chance"}}];
   var series=DEFS.map(function(df){
     var sub=list.filter(df.f); if(!sub.length) return null;
@@ -11250,7 +12111,7 @@ function drawChart(list){
 }
 
 function ours(league,side,line,grp){
-  var w=0,l=0; DATA.picks.forEach(function(p){ if(p.bet_type!=="single"||p.league!==league||p.side!==side||p.line!==line||p.line_group!==grp||!settled(p)) return; if(p.result==="win")w++; else l++; });
+  var w=0,l=0; DATA.picks.forEach(function(p){ if(p.bet_type!=="single"||(p.goals_basis&&p.goals_basis!=="total")||p.league!==league||p.side!==side||p.line!==line||p.line_group!==grp||!settled(p)) return; if(p.result==="win")w++; else l++; });
   return [w,l];
 }
 function cell(base,wl){
@@ -11259,20 +12120,21 @@ function cell(base,wl){
   return '<td class="n"><span class="'+c+'">'+wl[0]+'-'+wl[1]+'</span><div class="sub">'+(d>=0?"+":"")+Math.round(d)+' pts</div></td>';
 }
 var LGM="u25";
-var LGMK={u25:{n:"Under 2.5",side:"under",line:2.5,grp:"main"},u35:{n:"Under 3.5",side:"under",line:3.5,grp:"alt"},o25:{n:"Over 2.5",side:"over",line:2.5,grp:"main"},o35:{n:"Over 3.5",side:"over",line:3.5,grp:"alt"}};
-function lgRate(x,k){ var u=k==="u25"?x.under_2_5_pct:k==="u35"?x.under_3_5_pct:k==="o25"?100-x.under_2_5_pct:100-x.under_3_5_pct; return u; }
+var LGMK={u15:{n:"Under 1.5",side:"under",line:1.5,grp:"alt15"},o15:{n:"Over 1.5",side:"over",line:1.5,grp:"alt15"},u25:{n:"Under 2.5",side:"under",line:2.5,grp:"main"},u35:{n:"Under 3.5",side:"under",line:3.5,grp:"alt"},o25:{n:"Over 2.5",side:"over",line:2.5,grp:"main"},o35:{n:"Over 3.5",side:"over",line:3.5,grp:"alt"}};
+function lgRate(x,k){ var base=k.slice(1), u=base==="15"?x.under_1_5_pct:base==="25"?x.under_2_5_pct:x.under_3_5_pct; if(u==null) return null; return k.charAt(0)==="o"?100-u:u; }
+function lineGrid(cur){ return ["o15","o25","o35","u15","u25","u35"].map(function(k){return '<button type="button" class="chip'+(k===cur?" on":"")+'" data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+LGMK[k].n+'</button>'}).join(""); }
 function drawBase(){
   var B=BASE; if(!B||!B.leagues) return;
   var m=LGMK[LGM];
-  $("lgm").innerHTML=Object.keys(LGMK).map(function(k){return '<button type="button" class="chip'+(k===LGM?" on":"")+'" data-k="'+k+'" aria-pressed="'+(k===LGM)+'">'+LGMK[k].n+'</button>'}).join("");
+  $("lgm").innerHTML=lineGrid(LGM);
   Array.prototype.forEach.call(document.querySelectorAll("#lgm button"),function(el){el.onclick=function(){LGM=el.getAttribute("data-k");drawBase()}});
   $("lgh1").textContent="League rate";
   $("lgcap").innerHTML='<b>League rate</b> is how often games in that league finished '+m.n+'. <b>Our bets</b> is our record on '+m.n+' picks there. <b>vs league</b> is our hit rate minus the league rate: green means our picks did better than just betting every game.';
-  var rows=B.leagues.slice().sort(function(a,b){return lgRate(b,LGM)-lgRate(a,LGM)});
+  var rows=B.leagues.slice().sort(function(a,b){return (lgRate(b,LGM)||0)-(lgRate(a,LGM)||0)});
   $("base").tBodies[0].innerHTML=rows.map(function(x){
     var rate=lgRate(x,LGM), wl=ours(x.league,m.side,m.line,m.grp), n=wl[0]+wl[1], hit=n?wl[0]/n*100:0, d=hit-rate, c=d>=0?"up":"dn";
-    return '<tr><td><b>'+esc(x.league)+'</b><div class="sub">'+x.games+' games</div></td><td class="n">'+rate+'%</td>'+
-      (n?'<td class="n"><span class="'+c+'">'+wl[0]+'-'+wl[1]+'</span><div class="sub">'+Math.round(hit)+'% hit</div></td><td class="n '+(d>=0?"pos":"neg")+'"><b>'+(d>=0?"+":"-")+Math.abs(Math.round(d))+' pts</b></td>':'<td class="n sub">none</td><td class="n sub">n/a</td>')+'</tr>';
+    return '<tr><td><b>'+esc(x.league)+'</b><div class="sub">'+x.games+' games</div></td><td class="n">'+(rate==null?"n/a":rate+"%")+'</td>'+
+      (n&&rate!=null?'<td class="n"><span class="'+c+'">'+wl[0]+'-'+wl[1]+'</span><div class="sub">'+Math.round(hit)+'% hit</div></td><td class="n '+(d>=0?"pos":"neg")+'"><b>'+(d>=0?"+":"-")+Math.abs(Math.round(d))+' pts</b></td>':'<td class="n sub">none</td><td class="n sub">n/a</td>')+'</tr>';
   }).join("");
   $("ib-leagues").textContent="League rate comes from all finished league games this season (Sofascore, updated "+B.updated+"). Samples of 2 to 6 bets are too small to trust.";
 }
@@ -11302,11 +12164,11 @@ outlook:"<p><b>What it does.</b> This is the outlook data's own chance of Under 
 blend:"<p><b>What it does.</b> A plain average of the chances from the league model, the Bet365 price, Poisson, negative binomial, bivariate Poisson and Markov, using whichever of them have a number for that game (at least two). The outlook chance is not included.</p><p><b>Why it is here.</b> Averaging several imperfect models often beats any single one, because their mistakes partly cancel.</p><p><b>Limits.</b> Four of the six ingredients start from the same projected total, so the blend leans toward that number. Equal weights are a simple default, nothing was tuned.</p>"};
 var MINFO={};
 var MKM="u25", MCOLL={};
-var MKN={u25:"Under 2.5",o25:"Over 2.5",u35:"Under 3.5",o35:"Over 3.5"};
+var MKN={u15:"Under 1.5",o15:"Over 1.5",u25:"Under 2.5",o25:"Over 2.5",u35:"Under 3.5",o35:"Over 3.5"};
 function drawMk(){
   if(!MK||!MK.games) return;
   var key="u"+MKM.slice(1), flip=MKM.charAt(0)==="o", LBL=MKN[MKM], res="res_"+key, G=MK.games, MD=MK.models, NM={}; MD.forEach(function(m){NM[m.id]=m});
-  var ids=MD.map(function(m){return m.id}).filter(function(i){return i!=="outlook"||key==="u25"});
+  var ids=MD.map(function(m){return m.id}).filter(function(i){return i!=="outlook"||key==="u25"}).filter(function(i){return G.some(function(g){return g[key]&&g[key][i]!=null})});
   var done=G.filter(function(g){return g[res]!=null});
   var shared=done.filter(function(g){return ids.every(function(i){return g[key][i]!=null})});
   function brier(list,i){ var v=list.filter(function(g){return g[key][i]!=null}); return v.length?v.reduce(function(s,g){return s+Math.pow(g[key][i]-g[res],2)},0)/v.length:null; }
@@ -11315,7 +12177,7 @@ function drawMk(){
   function f4(x){ return x==null?"n/a":x.toFixed(4); }
   var target=MK.sample_target||300, nd=G.filter(function(g){return g.res_u25!=null}).length;
   $("mbar").style.width=Math.min(100,nd/target*100)+"%"; $("mprog").textContent=nd+" of "+target+" finished games collected for trend analysis";
-  $("mmk").innerHTML=[["u25","Under 2.5"],["o25","Over 2.5"],["u35","Under 3.5"],["o35","Over 3.5"]].map(function(x){return '<button type="button" class="chip'+(x[0]===key?" on":"")+'" data-k="'+x[0]+'" aria-pressed="'+(x[0]===key)+'">'+x[1]+'</button>'}).join("");
+  $("mmk").innerHTML=["o15","o25","o35","u15","u25","u35"].map(function(k){return '<button type="button" class="chip'+(k===MKM?" on":"")+'" data-k="'+k+'" aria-pressed="'+(k===MKM)+'">'+MKN[k]+'</button>'}).join("");
   Array.prototype.forEach.call(document.querySelectorAll("#mmk button"),function(el){el.onclick=function(){MKM=el.getAttribute("data-k");drawMk()}});
   var tagc={own:["Own data","cur"],total:["Outlook total","fil"],outlook:["Outlook chance","fil"],mix:["Mix of the above","cur"]};
   var own=ids.map(function(i){return brier(done,i)}), sh=ids.map(function(i){return brier(shared,i)});
@@ -11329,7 +12191,7 @@ function drawMk(){
   $("mk").tBodies[0].innerHTML=rows.join("");
   Array.prototype.forEach.call(document.querySelectorAll("#mk [data-minfo]"),function(el){el.onclick=function(){var k=el.getAttribute("data-minfo");MINFO[k]=!MINFO[k];drawMk()}});
   var act=rate(done);
-  $("mknote").textContent="Brier is scored on every finished game each model covers; Shared uses the "+shared.length+" games where all models had a number. Actual "+LBL+" rate: "+(act==null?"n/a":(act*100).toFixed(1)+"%")+" of "+done.length+" games. Gold marks the lowest score in a column."+(flip?" Over is the mirror of Under (Over = 100% minus Under), so the Brier scores are identical to the Under view. Only how the chances are shown changes.":"")+" Built "+MK.built+".";
+  $("mknote").textContent="Brier is scored on every finished game each model covers; Shared uses the "+shared.length+" games where all models had a number. Actual "+LBL+" rate: "+(act==null?"n/a":(act*100).toFixed(1)+"%")+" of "+done.length+" games. Gold marks the lowest score in a column."+(key==="u15"?" There is no Bet365 1.5 price model yet because no total-goals 1.5 prices have been logged.":"")+(flip?" Over is the mirror of Under (Over = 100% minus Under), so the Brier scores are identical to the Under view. Only how the chances are shown changes.":"")+" Built "+MK.built+".";
   var DN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   function pc(x){return x==null?"n/a":Math.round(x*100)+"%"}
   var days=[], by={}; G.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:(a.match<b.match?-1:1)}).forEach(function(g){ if(g[key].blend==null&&!Object.keys(g[key]).length) return; if(!by[g.date]){by[g.date]=[];days.push(g.date)} by[g.date].push(g); });
@@ -11366,12 +12228,13 @@ function initTabs(){
 }
 document.addEventListener("click",function(e){ var b=e.target.closest("[data-info]"); if(!b) return; var box=$("ib-"+b.getAttribute("data-info")); if(!box) return; var open=box.hidden; box.hidden=!open; Array.prototype.forEach.call(document.querySelectorAll('[data-info="'+b.getAttribute("data-info")+'"]'),function(x){x.setAttribute("aria-expanded",open)}); });
 function setup(d, live){
-  DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
+  DATA=d; if(d.picks.some(function(p){return p.line_group==="alt15"})&&!CHIPS.line.some(function(o){return o[0]==="alt15"})) CHIPS.line.splice(3,0,["alt15","Alt (1.5 goals)"]);
+  var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
   var sel=$("f-league"); sel.innerHTML='<option value="">All leagues</option>'+ls.map(function(l){return '<option>'+esc(l)+'</option>'}).join(""); sel.value=F.league;
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 10:10 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 10:16 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

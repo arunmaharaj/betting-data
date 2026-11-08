@@ -173,6 +173,23 @@ td{padding-top:10px;padding-bottom:10px}
 #slips tr.dayrow td{padding:0;border-bottom:0}
 .dayhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;background:linear-gradient(90deg,rgba(0,77,152,.45),rgba(165,0,68,.35));border-top:1px solid #EDBB00;border-bottom:1px solid rgba(237,187,0,.25);font-size:13px;position:sticky;top:0;z-index:2}
 .dayhead .pos,.dayhead .neg{font-family:ui-monospace,monospace;font-weight:700}
+.cal{margin:0 0 12px;padding:12px;border:1px solid rgba(237,187,0,.35);border-radius:14px;background:linear-gradient(160deg,rgba(0,77,152,.28),rgba(165,0,68,.22))}
+.calhd{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;text-align:center;font-size:13px}
+.calhd .chip:disabled{opacity:.3}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.calgrid .dw{text-align:center;font-size:11px;opacity:.6;padding-bottom:2px}
+.cd{aspect-ratio:1/1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border-radius:9px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);color:inherit;font:inherit;padding:0}
+.cd.e{border:0;background:none}
+.cd b{font-size:12px;font-weight:600;opacity:.8}
+.cd em{font-style:normal;font-family:ui-monospace,monospace;font-size:10.5px;font-weight:700}
+.cd.up{background:rgba(46,204,113,.28);border-color:rgba(46,204,113,.7)} .cd.up em{color:#5dffb4}
+.cd.dn{background:rgba(255,77,109,.26);border-color:rgba(255,77,109,.7)} .cd.dn em{color:#ff8fb0}
+.cd.fl,.cd.pd{background:rgba(255,255,255,.08)}
+button.cd{cursor:pointer}
+.slipctl{display:flex;justify-content:flex-end;margin:0 0 8px}
+.dayhead{width:100%;color:inherit;font-family:inherit;text-align:left;cursor:pointer;border-left:0;border-right:0}
+.dayhead .chev{font-style:normal;display:inline-block;transition:transform .15s;margin-right:4px}
+.dayhead[aria-expanded="false"] .chev{transform:rotate(-90deg)}
 </style>
 <div class="wrap">
   <header>
@@ -209,7 +226,7 @@ td{padding-top:10px;padding-bottom:10px}
   <section data-tab="leagues"><h2>League base rates<button class="info" data-info="leagues" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
     <div class="infobox" id="ib-leagues" hidden></div></section>
-  <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Slip</th><th class="n">Odds / Profit</th></tr></thead><tbody></tbody></table></div>
+  <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div id="slipcal" class="cal"></div><div class="slipctl"><button class="chip" id="slipfold">Collapse all days</button></div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Slip</th><th class="n">Odds / Profit</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="slipmore"></button></div><p class="note" id="slipnote"></p></section>
   <section data-tab="picks"><h2>All picks<button class="info" data-info="picks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-picks" hidden><p>One row per pick, 1 unit flat stake. The tag under each call shows which group it is in: <b>Main line</b> (2.5 goals), <b>Alt line</b> (3.5 goals), <b>Near miss</b> (almost met the rules, tracked only), or <b>Double chance</b>.</p></div><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Match</th><th>Call</th><th class="n">Odds / Units</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="more">Show more</button><span id="count"></span></div></section>
@@ -10067,7 +10084,28 @@ function legRes(s,l){
     else if(p.bet_type==="double_chance"&&l.call.indexOf(p.market)>-1) res=p.result; });
   return res;
 }
-var SLIPALL=false;
+var SLIPALL=false, COLL={}, CALM=null;
+function drawCal(day){
+  var keys=Object.keys(day).sort(); if(!keys.length){$("slipcal").innerHTML="";return}
+  if(!CALM) CALM=keys[keys.length-1].slice(0,7);
+  var ym=CALM.split("-"), Y=+ym[0], M=+ym[1]-1, first=new Date(Date.UTC(Y,M,1)), dim=new Date(Date.UTC(Y,M+1,0)).getUTCDate(), off=first.getUTCDay();
+  var MNs=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var lo=keys[0].slice(0,7), hi=keys[keys.length-1].slice(0,7), mt=0, g=0, r=0;
+  var cells="";
+  for(var i=0;i<off;i++) cells+='<span class="cd e"></span>';
+  for(var d=1;d<=dim;d++){
+    var k=CALM+"-"+(d<10?"0":"")+d, x=day[k], c="cd", inner='<b>'+d+'</b>';
+    if(x&&(x.w+x.l)){ mt+=x.u; if(x.u>0){c+=" up";g++}else if(x.u<0){c+=" dn";r++}else c+=" fl"; inner+='<em>'+(x.u>0?"+":x.u<0?"-":"")+'$'+Math.abs(x.u)+'</em>'; }
+    else if(x){ c+=" pd"; inner+='<em>open</em>'; }
+    cells+=x?'<button type="button" class="'+c+'" data-day="'+k+'" aria-label="'+k+'">'+inner+'</button>':'<span class="'+c+'">'+inner+'</span>';
+  }
+  $("slipcal").innerHTML='<div class="calhd"><button type="button" class="chip" id="calprev"'+(CALM<=lo?" disabled":"")+' aria-label="Previous month">&#8249;</button><div><b>'+MNs[M]+" "+Y+'</b><span class="sub"> · '+g+' green, '+r+' red · </span><span class="'+cls(mt)+'">'+(mt>0?"+$":mt<0?"-$":"$")+Math.abs(mt)+'</span></div><button type="button" class="chip" id="calnext"'+(CALM>=hi?" disabled":"")+' aria-label="Next month">&#8250;</button></div><div class="calgrid"><span class="dw">S</span><span class="dw">M</span><span class="dw">T</span><span class="dw">W</span><span class="dw">T</span><span class="dw">F</span><span class="dw">S</span>'+cells+'</div>';
+  function shift(n){var p=CALM.split("-"),dt=new Date(Date.UTC(+p[0],+p[1]-1+n,1));CALM=dt.getUTCFullYear()+"-"+("0"+(dt.getUTCMonth()+1)).slice(-2);drawCal(day)}
+  $("calprev").onclick=function(){shift(-1)}; $("calnext").onclick=function(){shift(1)};
+  Array.prototype.forEach.call(document.querySelectorAll("#slipcal button.cd"),function(el){el.onclick=function(){
+    var k=el.getAttribute("data-day"); COLL[k]=false; SLIPALL=true; drawSlips();
+    var row=document.getElementById("day-"+k); if(row) row.scrollIntoView({behavior:"smooth",block:"start"}); }});
+}
 function drawSlips(){
   var h="", tot=0, stk=0, n=0, cur=null, count=0;
   var all=DATA.slips.slice().sort(function(a,b){return a.date<b.date?1:-1});
@@ -10080,11 +10118,15 @@ function drawSlips(){
     count++;
     if(s.date!==cur){ cur=s.date; var d=day[cur], p=cur.split("-"), dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
       var net=(d.w+d.l)?'<span class="'+cls(d.u)+'">'+(d.u>0?"+$":d.u<0?"-$":"$")+Math.abs(d.u).toFixed(0)+'</span>':'<span class="sub">pending</span>';
-      h+='<tr class="dayrow"><td colspan="3"><div class="dayhead"><span><b>'+DN[dt.getUTCDay()]+", "+MN[+p[1]-1]+" "+(+p[2])+'</b><span class="sub"> · '+d.w+"-"+d.l+(d.p?" ("+d.p+" open)":"")+'</span></span>'+net+'</div></td></tr>'; }
+      h+='<tr class="dayrow" id="day-'+cur+'"><td colspan="3"><button type="button" class="dayhead" data-day="'+cur+'" aria-expanded="'+(!COLL[cur])+'"><span><i class="chev">&#9662;</i> <b>'+DN[dt.getUTCDay()]+", "+MN[+p[1]-1]+" "+(+p[2])+'</b><span class="sub"> · '+d.w+"-"+d.l+(d.p?" ("+d.p+" open)":"")+'</span></span>'+net+'</button></td></tr>'; }
+    if(COLL[s.date]) return;
     h+='<tr><td class="mc">'+mark(r)+'</td><td class="m"><b>'+esc(s.name)+'</b><div class="sub">'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</div>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td class="ncell"><b>'+fmtO(s.combined_odds_american)+'</b><span class="sub">'+Math.round(s.combined_prob_model*100)+'% model</span><span class="'+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</span></td></tr>';
   });
   $("slips").tBodies[0].innerHTML=h; $("slipmore").textContent=SLIPALL?"Show latest 8":"Show all "+DATA.slips.length+" slips";
   $("slipnote").textContent = n+" settled drafts at $25 each: "+(tot>=0?"+$":"-$")+Math.abs(tot).toFixed(0)+" on $"+stk.toFixed(0)+" staked. Drafts, not placed bets.";
+  $("slipfold").textContent=Object.keys(day).every(function(k){return COLL[k]})?"Expand all days":"Collapse all days";
+  Array.prototype.forEach.call(document.querySelectorAll("#slips .dayhead"),function(el){el.onclick=function(){var k=el.getAttribute("data-day");COLL[k]=!COLL[k];drawSlips()}});
+  drawCal(day);
 }
 function drawChart(list){
   var svg=$("chart"), W=640, H=260, L=44, R=14, T=14, B=28;
@@ -10199,9 +10241,9 @@ function setup(d, live){
   DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
   var sel=$("f-league"); sel.innerHTML='<option value="">All leagues</option>'+ls.map(function(l){return '<option>'+esc(l)+'</option>'}).join(""); sel.value=F.league;
   sel.onchange=function(){F.league=sel.value;save();render()};
-  $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
+  $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:34 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:36 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

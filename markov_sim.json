@@ -974,9 +974,9 @@
    "poisson_u25": 0.2787,
    "poisson_u35": 0.4858,
    "dg_u25": 0.275,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 0,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-06",
@@ -991,9 +991,9 @@
    "poisson_u25": 0.294,
    "poisson_u35": 0.5046,
    "dg_u25": 0.292,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 0,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-06",
@@ -1008,9 +1008,9 @@
    "poisson_u25": 0.2975,
    "poisson_u35": 0.5089,
    "dg_u25": null,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 3,
+   "result_u25": 0,
+   "result_u35": 1
   },
   {
    "date": "2026-11-06",
@@ -1025,9 +1025,9 @@
    "poisson_u25": 0.3063,
    "poisson_u35": 0.5195,
    "dg_u25": 0.305,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 5,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-06",
@@ -1042,9 +1042,9 @@
    "poisson_u25": 0.2337,
    "poisson_u35": 0.4276,
    "dg_u25": 0.239,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 4,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-06",
@@ -1059,9 +1059,9 @@
    "poisson_u25": 0.2266,
    "poisson_u35": 0.418,
    "dg_u25": 0.232,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 2,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-06",
@@ -1127,9 +1127,9 @@
    "poisson_u25": 0.5438,
    "poisson_u35": 0.7576,
    "dg_u25": 0.545,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 3,
+   "result_u25": 0,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1365,9 +1365,9 @@
    "poisson_u25": 0.2485,
    "poisson_u35": 0.4473,
    "dg_u25": 0.25,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 3,
+   "result_u25": 0,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1382,9 +1382,9 @@
    "poisson_u25": 0.3264,
    "poisson_u35": 0.5431,
    "dg_u25": null,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 4,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-07",
@@ -1399,9 +1399,9 @@
    "poisson_u25": 0.3283,
    "poisson_u35": 0.5453,
    "dg_u25": 0.33,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 1,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1416,9 +1416,9 @@
    "poisson_u25": 0.1637,
    "poisson_u35": 0.3273,
    "dg_u25": 0.16,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 6,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-07",
@@ -1433,9 +1433,9 @@
    "poisson_u25": 0.3227,
    "poisson_u35": 0.5388,
    "dg_u25": 0.32,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 2,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1450,9 +1450,9 @@
    "poisson_u25": 0.2116,
    "poisson_u35": 0.3973,
    "dg_u25": 0.21,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 1,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1467,9 +1467,9 @@
    "poisson_u25": 0.2871,
    "poisson_u35": 0.4962,
    "dg_u25": null,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 5,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-07",
@@ -1484,9 +1484,9 @@
    "poisson_u25": 0.3045,
    "poisson_u35": 0.5173,
    "dg_u25": null,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 7,
+   "result_u25": 0,
+   "result_u35": 0
   },
   {
    "date": "2026-11-07",
@@ -1501,9 +1501,9 @@
    "poisson_u25": 0.3208,
    "poisson_u35": 0.5366,
    "dg_u25": 0.32,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 3,
+   "result_u25": 0,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1518,9 +1518,9 @@
    "poisson_u25": 0.2142,
    "poisson_u35": 0.401,
    "dg_u25": 0.21,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 1,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",
@@ -1535,9 +1535,9 @@
    "poisson_u25": 0.4936,
    "poisson_u35": 0.7141,
    "dg_u25": null,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 3,
+   "result_u25": 0,
+   "result_u35": 1
   },
   {
    "date": "2026-11-07",

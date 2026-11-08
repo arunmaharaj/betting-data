@@ -194,6 +194,10 @@ button.cd{cursor:pointer}
 .mtag{font-size:11px;font-weight:600;letter-spacing:.02em;line-height:1.3;margin-top:2px}
 .mtag.cur{color:#EDBB00}.mtag.fil{color:#6fd3ff}
 #cmp td:first-child .mtag{white-space:normal;max-width:150px;font-family:inherit;background:none;padding:0}
+.mkts{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px}
+.mkts .chip.on{background:linear-gradient(90deg,#004D98,#A50044);color:#fff;border-color:#EDBB00}
+.mkcap{font-size:12px;opacity:.8;margin:0 0 10px;line-height:1.45}
+#base td.n{white-space:nowrap;padding-left:5px;padding-right:5px}#base th{letter-spacing:0;font-size:10.5px;padding-left:5px;padding-right:5px}#base td:first-child{min-width:104px}.mkts .chip{padding:7px 9px;font-size:13px;white-space:nowrap;flex:1}.mkts{flex-wrap:nowrap}
 </style>
 <div class="wrap">
   <header>
@@ -222,13 +226,15 @@ button.cd{cursor:pointer}
   <section data-tab="markov"><h2>Markov side test<button class="info" data-info="markov" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-markov" hidden><p><b>What this is.</b> A separate experiment. It does not touch any pick, record, slip or track above, and nothing is bet on it.</p>
     <p>A Markov chain predicts the next step using only where you are now. Here the "square" is the score. The model plays each match minute by minute: each minute a goal can happen, and the chance depends on the current score (the leading team slows down a little, the trailing team pushes a little). It is set so the average total matches our projected total, then we read off the chance of Under 2.5 and Under 3.5.</p>
-    <p>We compare it with DataGaffer's own chance and a plain Poisson model on finished games. Lower Brier score means better probabilities. Brier of 0.25 is what you get by always saying 50%.</p></div>
+    <p>We compare it with the outlook data's own chance and a plain Poisson model on finished games. Lower Brier score means better probabilities. Brier of 0.25 is what you get by always saying 50%.</p></div>
     <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg U2.5</th><th class="n">Brier 2.5</th><th class="n">Brier 3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="mknote"></p>
-    <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
+    <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">Outlook</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
   <section data-tab="results"><h2>By day <button class="reset" id="dayall" style="margin-left:auto;font-size:13px;text-transform:none;letter-spacing:0">Show all days</button></h2><div class="scroll"><table id="days"><thead><tr><th>Day</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Open</th><th class="n">Hit</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
   <section data-tab="leagues"><h2>League base rates<button class="info" data-info="leagues" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
-    <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
+    <div class="mkts" id="lgm" role="tablist"></div>
+    <p class="mkcap" id="lgcap"></p>
+    <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n" id="lgh1">League rate</th><th class="n">Our bets</th><th class="n">vs league</th></tr></thead><tbody></tbody></table></div>
     <div class="infobox" id="ib-leagues" hidden></div></section>
   <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div id="slipcal" class="cal"></div><div class="slipctl"><button class="chip" id="slipfold">Collapse all days</button></div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Slip</th><th class="n">Odds / Profit</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="slipmore"></button></div><p class="note" id="slipnote"></p></section>
@@ -8425,7 +8431,7 @@ var BASE_SNAP = {
  ]
 };
 var MK_SNAP = {
- "description": "Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with DataGaffer's own chance and a plain Poisson model.",
+ "description": "Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with the outlook data's own chance and a plain Poisson model.",
  "model": {
   "minutes": 90,
   "leader_rate_multiplier": 0.92,
@@ -10180,18 +10186,23 @@ function cell(base,wl){
   var hit=wl[0]/n*100, d=hit-base, c=d>=0?"up":"dn";
   return '<td class="n"><span class="'+c+'">'+wl[0]+'-'+wl[1]+'</span><div class="sub">'+(d>=0?"+":"")+Math.round(d)+' pts</div></td>';
 }
+var LGM="u25";
+var LGMK={u25:{n:"Under 2.5",side:"under",line:2.5,grp:"main"},u35:{n:"Under 3.5",side:"under",line:3.5,grp:"alt"},o25:{n:"Over 2.5",side:"over",line:2.5,grp:"main"},o35:{n:"Over 3.5",side:"over",line:3.5,grp:"alt"}};
+function lgRate(x,k){ var u=k==="u25"?x.under_2_5_pct:k==="u35"?x.under_3_5_pct:k==="o25"?100-x.under_2_5_pct:100-x.under_3_5_pct; return u; }
 function drawBase(){
   var B=BASE; if(!B||!B.leagues) return;
-  var rows=B.leagues.slice().sort(function(a,b){return b.under_2_5_pct-a.under_2_5_pct});
+  var m=LGMK[LGM];
+  $("lgm").innerHTML=Object.keys(LGMK).map(function(k){return '<button type="button" class="chip'+(k===LGM?" on":"")+'" data-k="'+k+'" aria-pressed="'+(k===LGM)+'">'+LGMK[k].n+'</button>'}).join("");
+  Array.prototype.forEach.call(document.querySelectorAll("#lgm button"),function(el){el.onclick=function(){LGM=el.getAttribute("data-k");drawBase()}});
+  $("lgh1").textContent="League rate";
+  $("lgcap").innerHTML='<b>League rate</b> is how often games in that league finished '+m.n+'. <b>Our bets</b> is our record on '+m.n+' picks there. <b>vs league</b> is our hit rate minus the league rate: green means our picks did better than just betting every game.';
+  var rows=B.leagues.slice().sort(function(a,b){return lgRate(b,LGM)-lgRate(a,LGM)});
   $("base").tBodies[0].innerHTML=rows.map(function(x){
-    var o25=100-x.under_2_5_pct, o35=100-x.under_3_5_pct;
-    return '<tr><td>'+esc(x.league)+'</td><td class="n">'+x.games+'</td><td class="n">'+x.avg_goals.toFixed(2)+'</td>'+
-      '<td class="n">'+x.under_2_5_pct+'%</td>'+cell(x.under_2_5_pct,ours(x.league,"under",2.5,"main"))+
-      '<td class="n">'+x.under_3_5_pct+'%</td>'+cell(x.under_3_5_pct,ours(x.league,"under",3.5,"alt"))+
-      '<td class="n">'+o25+'%</td>'+cell(o25,ours(x.league,"over",2.5,"main"))+
-      '<td class="n">'+o35+'%</td>'+cell(o35,ours(x.league,"over",3.5,"alt"))+'</tr>';
+    var rate=lgRate(x,LGM), wl=ours(x.league,m.side,m.line,m.grp), n=wl[0]+wl[1], hit=n?wl[0]/n*100:0, d=hit-rate, c=d>=0?"up":"dn";
+    return '<tr><td><b>'+esc(x.league)+'</b><div class="sub">'+x.games+' games</div></td><td class="n">'+rate+'%</td>'+
+      (n?'<td class="n"><span class="'+c+'">'+wl[0]+'-'+wl[1]+'</span><div class="sub">'+Math.round(hit)+'% hit</div></td><td class="n '+(d>=0?"pos":"neg")+'"><b>'+(d>=0?"+":"-")+Math.abs(Math.round(d))+' pts</b></td>':'<td class="n sub">none</td><td class="n sub">n/a</td>')+'</tr>';
   }).join("");
-  $("ib-leagues").textContent="Base rate is the share of all finished league games this season that went that way (Sofascore, updated "+B.updated+"). Ours is our graded W-L, with the gap in points between our hit rate and the base rate. Green means our picks beat the league average. Samples of 2 to 6 bets are too small to trust.";
+  $("ib-leagues").textContent="League rate comes from all finished league games this season (Sofascore, updated "+B.updated+"). Samples of 2 to 6 bets are too small to trust.";
 }
 var BASE = BASE_SNAP;
 
@@ -10214,7 +10225,7 @@ function drawMk(){
   function brier(list,key,res){ var v=list.filter(function(g){return g[key]!=null&&g[res]!=null}); if(!v.length) return null; return v.reduce(function(s,g){return s+Math.pow(g[key]-g[res],2)},0)/v.length; }
   function avg(list,key){ var v=list.filter(function(g){return g[key]!=null}); return v.length?v.reduce(function(s,g){return s+g[key]},0)/v.length:null; }
   var common=done.filter(function(g){return g.dg_u25!=null});
-  var rows=[["Markov chain","markov_u25","markov_u35"],["DataGaffer","dg_u25",null],["Poisson (plain)","poisson_u25","poisson_u35"]];
+  var rows=[["Markov chain","markov_u25","markov_u35"],["Outlook data","dg_u25",null],["Poisson (plain)","poisson_u25","poisson_u35"]];
   function f(x,d){ return x==null?"n/a":x.toFixed(d); }
   $("mk").tBodies[0].innerHTML=rows.map(function(r){ return '<tr><td>'+r[0]+'</td><td class="n">'+common.length+'</td><td class="n">'+(avg(common,r[1])==null?"n/a":(avg(common,r[1])*100).toFixed(1)+"%")+'</td><td class="n">'+f(brier(common,r[1],"result_u25"),4)+'</td><td class="n">'+(r[2]?f(brier(done,r[2],"result_u35"),4):'<span class="sub">no price</span>')+'</td></tr>'; }).join("");
   var act=common.length?common.filter(function(g){return g.result_u25===1}).length/common.length:null;
@@ -10247,7 +10258,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:42 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:44 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

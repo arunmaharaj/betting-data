@@ -62,7 +62,7 @@ if __name__=="__main__":
           "poisson_u25":round(r['poisson_u25'],4),"poisson_u35":round(r['poisson_u35'],4),
           "dg_u25":None if g['dg_over25'] is None else round(1-g['dg_over25'],4),
           "total_goals":g['goals'],"result_u25":None if g['goals'] is None else int(g['goals']<=2),"result_u35":None if g['goals'] is None else int(g['goals']<=3)})
-    json.dump({"description":"Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with DataGaffer's own chance and a plain Poisson model.",
+    json.dump({"description":"Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with the outlook data's own chance and a plain Poisson model.",
       "model":{"minutes":90,"leader_rate_multiplier":0.92,"trailing_rate_multiplier":1.10,"first_half_minutes":45,"home_share":"from win percents, else 54%"},
       "built":"2026-11-07","games":out},open('/home/claude/bd-repo/markov_sim.json','w'),indent=1)
     print(len(out))

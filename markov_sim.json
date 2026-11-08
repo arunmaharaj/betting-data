@@ -1,5 +1,5 @@
 {
- "description": "Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with DataGaffer's own chance and a plain Poisson model.",
+ "description": "Side experiment, not used for any pick. Markov chain on the score, minute by minute, with a leader-slows and trailer-pushes effect, calibrated to the projected total. Compared with the outlook data's own chance and a plain Poisson model.",
  "model": {
   "minutes": 90,
   "leader_rate_multiplier": 0.92,

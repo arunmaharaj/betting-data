@@ -190,6 +190,7 @@ button.cd{cursor:pointer}
 .dayhead{width:100%;color:inherit;font-family:inherit;text-align:left;cursor:pointer;border-left:0;border-right:0}
 .dayhead .chev{font-style:normal;display:inline-block;transition:transform .15s;margin-right:4px}
 .dayhead[aria-expanded="false"] .chev{transform:rotate(-90deg)}
+#cmp td:first-child b{white-space:nowrap}#cmp td,#cmp th{padding-left:6px;padding-right:6px}#cmp th{letter-spacing:.04em;font-size:11px}#cmp td.n{font-size:14px}
 </style>
 <div class="wrap">
   <header>
@@ -208,12 +209,12 @@ button.cd{cursor:pointer}
   <section data-tab="results" class="tiles" id="tiles" aria-label="Results for the current filter"></section>
   <section data-tab="results" style="margin-top:-6px"><button class="infolink" data-info="tiles"><span class="info" style="margin:0" aria-hidden="true">i</span>What do these numbers mean?</button><div class="infobox" id="ib-tiles" hidden><p><b>Record:</b> wins and losses among played bets.</p><p><b>Hit rate:</b> wins divided by played bets.</p><p><b>Units:</b> profit if every bet risked 1 unit at the listed odds. A win pays the odds, a loss costs 1.</p><p><b>ROI:</b> units won per unit risked.</p></div></section>
   <section data-tab="results"><h2>Cumulative units<button class="info" data-info="chart" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-chart" hidden>Running total of units won or lost, day by day, for the bets matching your filters. Tap or hover the line to see a day.</div><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
-  <section data-tab="tracks"><h2>Open vs Filtered<button class="info" data-info="tracks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
+  <section data-tab="tracks"><h2>Current vs Filtered model<button class="info" data-info="tracks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-tracks" hidden><p><b>What this compares.</b> Both tracks start from the same list of games. Nothing here is played with real money. We are only collecting results.</p>
-    <p><b>Open</b> is the original method with no limits.</p>
-    <p><b>Filtered</b> adds limits to see if they help: skip Under bets in the Premier League and LaLiga 2, and build slips with one leg per league, no two legs priced -300 or shorter, and no leg where the model's edge over the book is above 10 points or below zero.</p>
+    <p><b>Current model</b> is the method we run today: every game on the list is eligible and nothing is filtered out.</p>
+    <p><b>Filtered model</b> is the same model with four extra rules switched on to see if they help: skip Under bets in the Premier League and LaLiga 2, and build slips with one leg per league, no two legs priced -300 or shorter, and no leg where the model's edge over the book is above 10 points or below zero.</p>
     <p>The aim is to learn whether cutting the weaker leagues and the riskiest slip legs makes the results better over a larger sample.</p></div>
-    <div class="scroll"><table id="cmp"><thead><tr><th>Track</th><th class="n">Singles</th><th class="n">Units</th><th class="n">Slips</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
+    <div class="scroll"><table id="cmp"><thead><tr><th>Model</th><th class="n">Singles</th><th class="n">Units</th><th class="n">Slips</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="cmpnote"></p></section>
   <section data-tab="markov"><h2>Markov side test<button class="info" data-info="markov" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-markov" hidden><p><b>What this is.</b> A separate experiment. It does not touch any pick, record, slip or track above, and nothing is bet on it.</p>
@@ -10120,7 +10121,7 @@ function drawSlips(){
       var net=(d.w+d.l)?'<span class="'+cls(d.u)+'">'+(d.u>0?"+$":d.u<0?"-$":"$")+Math.abs(d.u).toFixed(0)+'</span>':'<span class="sub">pending</span>';
       h+='<tr class="dayrow" id="day-'+cur+'"><td colspan="3"><button type="button" class="dayhead" data-day="'+cur+'" aria-expanded="'+(!COLL[cur])+'"><span><i class="chev">&#9662;</i> <b>'+DN[dt.getUTCDay()]+", "+MN[+p[1]-1]+" "+(+p[2])+'</b><span class="sub"> · '+d.w+"-"+d.l+(d.p?" ("+d.p+" open)":"")+'</span></span>'+net+'</button></td></tr>'; }
     if(COLL[s.date]) return;
-    h+='<tr><td class="mc">'+mark(r)+'</td><td class="m"><b>'+esc(s.name)+'</b><div class="sub">'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</div>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td class="ncell"><b>'+fmtO(s.combined_odds_american)+'</b><span class="sub">'+Math.round(s.combined_prob_model*100)+'% model</span><span class="'+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</span></td></tr>';
+    h+='<tr><td class="mc">'+mark(r)+'</td><td class="m"><b>'+esc(s.name)+'</b><div class="sub">'+((s.track||"open")==="filtered"?"Filtered model":"Current model")+'</div>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td class="ncell"><b>'+fmtO(s.combined_odds_american)+'</b><span class="sub">'+Math.round(s.combined_prob_model*100)+'% model</span><span class="'+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</span></td></tr>';
   });
   $("slips").tBodies[0].innerHTML=h; $("slipmore").textContent=SLIPALL?"Show latest 8":"Show all "+DATA.slips.length+" slips";
   $("slipnote").textContent = n+" settled drafts at $25 each: "+(tot>=0?"+$":"-$")+Math.abs(tot).toFixed(0)+" on $"+stk.toFixed(0)+" staked. Drafts, not placed bets.";
@@ -10198,8 +10199,8 @@ function drawCmp(){
   function sl(track){ var w=0,l=0,u=0; DATA.slips.forEach(function(s){ var t=s.track||"open"; if(track==="filtered"&&t!=="filtered") return; if(s.result==="win"){w++;u+=s.profit_dollars||0} else if(s.result==="loss"){l++;u+=s.profit_dollars||0} }); return {w:w,l:l,u:u}; }
   var sa=sl("open"), sb=sl("filtered");
   function money(v){ return (v>=0?"+$":"-$")+Math.abs(v).toFixed(0); }
-  var rows=[["Open (no limits)",A,sa],["Filtered",B,sb]];
-  $("cmp").tBodies[0].innerHTML=rows.map(function(r){ return '<tr><td>'+r[0]+'</td><td class="n">'+r[1].w+'-'+r[1].l+'</td><td class="n '+cls(r[1].u)+'">'+fmtU(r[1].u)+'</td><td class="n">'+(r[2].w+r[2].l?r[2].w+"-"+r[2].l:"none yet")+'</td><td class="n '+cls(r[2].u)+'">'+(r[2].w+r[2].l?money(r[2].u):"")+'</td></tr>'; }).join("");
+  var rows=[["Current model","Filters off",A,sa],["Filtered model","Filters on",B,sb]];
+  $("cmp").tBodies[0].innerHTML=rows.map(function(r){ return '<tr><td><b>'+r[0]+'</b><div class="sub">'+r[1]+'</div></td><td class="n">'+r[2].w+'-'+r[2].l+'</td><td class="n '+cls(r[2].u)+'">'+fmtU(r[2].u)+'</td><td class="n">'+(r[3].w+r[3].l?r[3].w+"-"+r[3].l:"none")+'</td><td class="n '+cls(r[3].u)+'">'+(r[3].w+r[3].l?money(r[3].u):"")+'</td></tr>'; }).join("");
   var tb=DATA.track_b; $("cmpnote").textContent = tb ? "Those rules were picked after seeing results, so the singles figures above are a backtest. Only results from "+tb.started+" on are a fair test." : "";
 }
 
@@ -10243,7 +10244,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:36 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:40 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

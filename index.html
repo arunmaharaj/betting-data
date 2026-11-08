@@ -198,6 +198,10 @@ button.cd{cursor:pointer}
 .mkts .chip.on{background:linear-gradient(90deg,#004D98,#A50044);color:#fff;border-color:#EDBB00}
 .mkcap{font-size:12px;opacity:.8;margin:0 0 10px;line-height:1.45}
 #base td.n{white-space:nowrap;padding-left:5px;padding-right:5px}#base th{letter-spacing:0;font-size:10.5px;padding-left:5px;padding-right:5px}#base td:first-child{min-width:104px}.mkts .chip{padding:7px 9px;font-size:13px;white-space:nowrap;flex:1}.mkts{flex-wrap:nowrap}
+#legend{display:flex;flex-wrap:wrap;gap:6px 8px}
+#legend .lg{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:inherit;border-radius:999px;padding:3px 8px;font:inherit;font-size:11.5px;cursor:pointer;white-space:nowrap}
+#legend .lg i{width:11px;height:3px;border-radius:2px;display:inline-block}
+#legend .lg.off{opacity:.4;text-decoration:line-through}
 </style>
 <div class="wrap">
   <header>
@@ -215,7 +219,7 @@ button.cd{cursor:pointer}
   </section>
   <section data-tab="results" class="tiles" id="tiles" aria-label="Results for the current filter"></section>
   <section data-tab="results" style="margin-top:-6px"><button class="infolink" data-info="tiles"><span class="info" style="margin:0" aria-hidden="true">i</span>What do these numbers mean?</button><div class="infobox" id="ib-tiles" hidden><p><b>Record:</b> wins and losses among played bets.</p><p><b>Hit rate:</b> wins divided by played bets.</p><p><b>Units:</b> profit if every bet risked 1 unit at the listed odds. A win pays the odds, a loss costs 1.</p><p><b>ROI:</b> units won per unit risked.</p></div></section>
-  <section data-tab="results"><h2>Cumulative units<button class="info" data-info="chart" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-chart" hidden>Running total of units won or lost, day by day, for the bets matching your filters. Tap or hover the line to see a day.</div><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
+  <section data-tab="results"><h2>Cumulative units<button class="info" data-info="chart" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-chart" hidden>Running total of units won or lost, day by day, with one line per bet type: all goals bets together (dashed), Under 2.5, Over 2.5, Under 3.5, Over 3.5 and double chance. Tap a name above the chart to hide or show its line. This chart ignores the bet type and line filters so every line is always available; only the league filter applies. Tap or hover the chart to see a day.</div><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
   <section data-tab="tracks"><h2>Current vs Filtered model<button class="info" data-info="tracks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-tracks" hidden><p><b>What this compares.</b> Both tracks start from the same list of games. Nothing here is played with real money. We are only collecting results.</p>
     <p><b>Current model</b> is the method we run today: every game on the list is eligible and nothing is filtered out.</p>
@@ -10063,7 +10067,7 @@ function render(){
     tile("ROI", st.roi==null?"n/a":(st.roi*100>0?"+":"")+(st.roi*100).toFixed(1)+"%", "per unit staked", cls(st.u));
   $("fsum").textContent = short();
   $("showing").innerHTML = summary(list,st) + (st.n===0 ? '<div class="empty" style="margin-top:8px">'+(list.length?"None of these have a final score yet, so there is no record to show. They fill in once the games finish and I grade them.":"No bets match this combination.")+' <button class="reset" onclick="resetF()">Reset filters</button></div>' : "");
-  drawChart(list); drawDays(list); drawPicks(list);
+  drawChart(DATA.picks.filter(function(p){return !F.league||p.league===F.league})); drawDays(list); drawPicks(list);
 }
 function short(){ var a=[]; a.push(F.type==="single"?"Goals":F.type==="double_chance"?"Double chance":"All bets"); if(F.type!=="double_chance"&&F.line) a.push({main:"2.5",alt:"3.5",watch:"Near miss"}[F.line]); if(F.side) a.push(F.side==="over"?"Overs":"Unders"); if(F.league) a.push(F.league); return a.join(" · "); }
 function resetF(){ F={type:"",line:"",side:"",league:""}; $("f-league").value=""; SHOW=25; save(); render(); }
@@ -10138,17 +10142,28 @@ function drawSlips(){
   Array.prototype.forEach.call(document.querySelectorAll("#slips .dayhead"),function(el){el.onclick=function(){var k=el.getAttribute("data-day");COLL[k]=!COLL[k];drawSlips()}});
   drawCal(day);
 }
+var CHOFF={};
 function drawChart(list){
   var svg=$("chart"), W=640, H=260, L=44, R=14, T=14, B=28;
   svg.setAttribute("viewBox","0 0 "+W+" "+H);
   var days=Array.from(new Set(DATA.picks.map(function(p){return p.date}))).sort();
-  var types=F.type?[F.type]:["single","double_chance"], names={single:"Singles",double_chance:"Double chance"}, cols={single:"var(--s1)",double_chance:"var(--s2)"};
-  var series=types.map(function(t){
+  var DEFS=[
+    {k:"all",n:"All goals bets",c:"#8ab4ff",dash:"5 4",f:function(p){return p.bet_type==="single"}},
+    {k:"u25",n:"Under 2.5",c:"#38d6a0",f:function(p){return p.bet_type==="single"&&p.side==="under"&&p.line===2.5}},
+    {k:"o25",n:"Over 2.5",c:"#ff7a9c",f:function(p){return p.bet_type==="single"&&p.side==="over"&&p.line===2.5}},
+    {k:"u35",n:"Under 3.5",c:"#b48cff",f:function(p){return p.bet_type==="single"&&p.side==="under"&&p.line===3.5}},
+    {k:"o35",n:"Over 3.5",c:"#ff9f43",f:function(p){return p.bet_type==="single"&&p.side==="over"&&p.line===3.5}},
+    {k:"dc",n:"Double chance",c:"#EDBB00",f:function(p){return p.bet_type==="double_chance"}}];
+  var series=DEFS.map(function(df){
+    var sub=list.filter(df.f); if(!sub.length) return null;
     var c=0, pts=[]; days.forEach(function(d,i){
-      var s=stats(list.filter(function(p){return p.bet_type===t&&p.date===d})); c+=s.u; pts.push({d:d,i:i,v:c,n:s.n});
-    }); return {t:t,pts:pts};
-  }).filter(function(s){ return list.some(function(p){return p.bet_type===s.t}); });
-  $("legend").innerHTML = series.length>1 ? series.map(function(s){return '<span><i style="background:'+cols[s.t]+'"></i>'+names[s.t]+'</span>'}).join("") : (series[0]?'<span><i style="background:'+cols[series[0].t]+'"></i>'+names[series[0].t]+'</span>':"");
+      var s=stats(sub.filter(function(p){return p.date===d})); c+=s.u; pts.push({d:d,i:i,v:c,n:s.n});
+    }); return {t:df.k,n:df.n,c:df.c,dash:df.dash,pts:pts,off:!!CHOFF[df.k]};
+  }).filter(Boolean);
+  var names={}, cols={}; series.forEach(function(s){names[s.t]=s.n;cols[s.t]=s.c});
+  $("legend").innerHTML = series.map(function(s){return '<button type="button" class="lg'+(s.off?" off":"")+'" data-k="'+s.t+'" aria-pressed="'+(!s.off)+'"><i style="background:'+s.c+'"></i>'+s.n+'</button>'}).join("");
+  Array.prototype.forEach.call(document.querySelectorAll("#legend .lg"),function(el){el.onclick=function(){var k=el.getAttribute("data-k");CHOFF[k]=!CHOFF[k];drawChart(list)}});
+  series=series.filter(function(s){return !s.off});
   var vals=[0]; series.forEach(function(s){s.pts.forEach(function(p){vals.push(p.v)})});
   var lo=Math.min.apply(null,vals), hi=Math.max.apply(null,vals), pad=Math.max(1,(hi-lo)*.12); lo=Math.floor(lo-pad); hi=Math.ceil(hi+pad);
   var span=hi-lo, step=span>12?5:span>6?2:1;
@@ -10158,10 +10173,12 @@ function drawChart(list){
   days.forEach(function(d,i){ if(days.length<=8||i%2===0||i===days.length-1) g+='<text x="'+x(i)+'" y="'+(H-8)+'" text-anchor="middle">'+md(d)+'</text>'; });
   series.forEach(function(s){
     var pts=s.pts; var path=pts.map(function(p,k){return (k?"L":"M")+x(p.i).toFixed(1)+" "+y(p.v).toFixed(1)}).join("");
-    g+='<path d="'+path+'" fill="none" stroke="'+cols[s.t]+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    g+='<path d="'+path+'" fill="none" stroke="'+cols[s.t]+'"'+(s.dash?' stroke-dasharray="'+s.dash+'"':'')+' stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
     pts.forEach(function(p){ g+='<circle cx="'+x(p.i)+'" cy="'+y(p.v)+'" r="3.5" fill="'+cols[s.t]+'" stroke="var(--surface)" stroke-width="2"/>'; });
-    var e=pts[pts.length-1]; g+='<text x="'+Math.min(x(e.i)+6,W-R)+'" y="'+(y(e.v)-8)+'" text-anchor="'+(x(e.i)>W-60?"end":"start")+'" style="fill:var(--ink);font-weight:500">'+fmtU(e.v)+'</text>';
+    s.e=pts[pts.length-1];
   });
+  var lab=series.slice().sort(function(a,b){return y(a.e.v)-y(b.e.v)}), lastY=-99;
+  lab.forEach(function(s){ var yy=Math.max(y(s.e.v)-6,lastY+15); lastY=yy; g+='<text x="'+(W-R+2)+'" y="'+yy+'" text-anchor="end" style="fill:'+s.c+';font-weight:700;font-size:12px">'+fmtU(s.e.v)+'</text>'; });
   if(!series.length) g+='<text x="'+W/2+'" y="'+H/2+'" text-anchor="middle">No settled picks for this filter</text>';
   g+='<line id="xh" x1="0" x2="0" y1="'+T+'" y2="'+(H-B)+'" stroke="var(--muted)" stroke-dasharray="3 3" style="display:none"/><rect id="hit" x="'+L+'" y="'+T+'" width="'+(W-L-R)+'" height="'+(H-T-B)+'" fill="transparent"/>';
   svg.innerHTML=g;
@@ -10242,7 +10259,7 @@ function showTab(id,fromUser){
   Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(b){ var on=b.dataset.t===id; b.setAttribute("aria-selected",on); if(on&&fromUser) b.scrollIntoView({inline:"center",block:"nearest"}); });
   try{ localStorage.setItem("ledger-tab",id); }catch(e){}
   if(fromUser){ try{ history.replaceState(null,"","#"+id); }catch(e){} window.scrollTo(0,0); }
-  if(id==="results"&&DATA) drawChart(DATA.picks.filter(pass));
+  if(id==="results"&&DATA) drawChart(DATA.picks.filter(function(p){return !F.league||p.league===F.league}));
 }
 function initTabs(){
   var nav=$("tabs"); nav.innerHTML="";
@@ -10258,7 +10275,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:44 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:45 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

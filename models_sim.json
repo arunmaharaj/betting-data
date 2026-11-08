@@ -3391,10 +3391,10 @@
     "markov": 0.5276,
     "blend": 0.5376
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 5,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -3428,10 +3428,10 @@
     "markov": 0.5342,
     "blend": 0.515
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 7,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -3462,10 +3462,10 @@
     "markov": 0.478,
     "blend": 0.5114
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3499,10 +3499,10 @@
     "markov": 0.7324,
     "blend": 0.7021
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3536,10 +3536,10 @@
     "markov": 0.3938,
     "blend": 0.4639
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3555,10 +3555,10 @@
    "u35": {
     "league": 0.69
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3592,10 +3592,10 @@
     "markov": 0.341,
     "blend": 0.3791
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 7,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -3629,10 +3629,10 @@
     "markov": 0.7586,
     "blend": 0.7303
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 0,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3663,10 +3663,10 @@
     "markov": 0.4779,
     "blend": 0.4774
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3695,10 +3695,10 @@
     "markov": 0.508,
     "blend": 0.5171
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3788,10 +3788,10 @@
     "markov": 0.4429,
     "blend": 0.47
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3822,10 +3822,10 @@
     "markov": 0.5211,
     "blend": 0.5236
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 6,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -3859,10 +3859,10 @@
     "markov": 0.7778,
     "blend": 0.7409
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -3896,10 +3896,10 @@
     "markov": 0.7862,
     "blend": 0.7599
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3933,10 +3933,10 @@
     "markov": 0.8442,
     "blend": 0.7974
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -3970,10 +3970,10 @@
     "markov": 0.7672,
     "blend": 0.7401
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4007,10 +4007,10 @@
     "markov": 0.7415,
     "blend": 0.6826
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4044,10 +4044,10 @@
     "markov": 0.4739,
     "blend": 0.4738
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 8,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4078,10 +4078,10 @@
     "markov": 0.5189,
     "blend": 0.5311
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4115,10 +4115,10 @@
     "markov": 0.5386,
     "blend": 0.5716
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4134,10 +4134,10 @@
    "u35": {
     "league": 0.69
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4208,10 +4208,10 @@
     "markov": 0.8149,
     "blend": 0.7668
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4227,10 +4227,10 @@
    "u35": {
     "league": 0.64
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4246,10 +4246,10 @@
    "u35": {
     "league": 0.64
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4280,10 +4280,10 @@
     "markov": 0.4951,
     "blend": 0.4983
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 5,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4312,10 +4312,10 @@
     "markov": 0.4309,
     "blend": 0.4452
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4347,10 +4347,10 @@
     "markov": 0.7258,
     "blend": 0.7132
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4400,10 +4400,10 @@
     "markov": 0.7651,
     "blend": 0.7473
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4434,10 +4434,10 @@
     "markov": 0.5254,
     "blend": 0.536
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 5,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4466,10 +4466,10 @@
     "markov": 0.508,
     "blend": 0.5171
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 10,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4503,10 +4503,10 @@
     "markov": 0.7883,
     "blend": 0.7699
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4537,10 +4537,10 @@
     "markov": 0.5342,
     "blend": 0.5486
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 0,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4556,10 +4556,10 @@
    "u35": {
     "league": 0.47
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 7,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4575,10 +4575,10 @@
    "u35": {
     "league": 0.69
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -4612,10 +4612,10 @@
     "markov": 0.4908,
     "blend": 0.4918
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4678,10 +4678,10 @@
     "markov": 0.447,
     "blend": 0.4603
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 6,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -4715,10 +4715,10 @@
     "markov": 0.8188,
     "blend": 0.7657
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",

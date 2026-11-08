@@ -53,6 +53,11 @@ tr:last-child td{border-bottom:0}
 td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
 td.m{min-width:170px}
 .sub{font-size:12px;color:var(--muted)}
+.mk{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font:700 14px var(--f-body);line-height:1}
+.mk.win{background:var(--good);color:#fff}.mk.loss{background:var(--bad);color:#fff}
+.mk.pending{border:1.5px dashed var(--muted);color:var(--muted);font-size:11px}.mk.void{background:var(--chip);color:var(--warn)}
+.mk.sm{width:18px;height:18px;font-size:11px;margin-right:6px;flex:none;vertical-align:-3px}
+td.mc,th.mc{width:40px;padding-right:0;text-align:center}
 .pill{display:inline-block;font:600 11px var(--f-data);letter-spacing:.06em;padding:2px 7px;border-radius:4px;text-transform:uppercase;white-space:nowrap}
 .pill.win{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
 .pill.loss{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}
@@ -114,14 +119,14 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
     <p class="note" style="margin:0">We compare it with DataGaffer's own chance and a plain Poisson model on finished games. Lower Brier score means better probabilities. Brier of 0.25 is what you get by always saying 50%.</p></div>
     <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg Under 2.5 chance</th><th class="n">Brier U2.5</th><th class="n">Brier U3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="mknote"></p>
-    <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals</th></tr></thead><tbody></tbody></table></div></section>
+    <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
   <section><h2>By day</h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
   <section><h2>League base rates</h2>
     <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="basenote"></p></section>
-  <section><h2>Slips</h2><div class="scroll"><table id="slips"><thead><tr><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th>Result</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
+  <section><h2>Slips</h2><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="slipnote"></p></section>
-  <section><h2>Picks</h2><div class="scroll"><table id="picks"><thead><tr><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th>Result</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
+  <section><h2>Picks</h2><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="more">Show more</button><span id="count"></span></div></section>
   <p class="note">1 unit flat stake per pick, American odds, Bet365 prices converted. Slips are drafts, not placed bets. Small samples: a few dozen bets cannot show whether the method has an edge. Data summaries only, not betting advice.</p>
 </div>
@@ -139,6 +144,7 @@ function $(i){return document.getElementById(i)}
 function fmtO(o){ return o==null?"":(o>0?"+"+o:String(o)); }
 function fmtU(u){ return (u>0?"+":"")+u.toFixed(2); }
 function cls(u){ return u>0?"pos":u<0?"neg":""; }
+function mark(r,sm){ r=r||"pending"; var ch=r==="win"?"\u2713":r==="loss"?"\u2717":r==="void"?"\u2013":"\u2026"; return '<span class="mk '+r+(sm?' sm':'')+'" role="img" aria-label="'+r+'" title="'+r+'">'+ch+'</span>'; }
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
 function md(d){ var p=d.split("-"); return p[1]+"/"+p[2]; }
 function call(p){ return p.bet_type==="double_chance" ? p.market+" double chance" : (p.side==="over"?"Over ":"Under ")+p.line; }
@@ -216,17 +222,24 @@ function drawPicks(list){
   var rows=list.slice().sort(function(a,b){ return a.date<b.date?1:a.date>b.date?-1:(a.id<b.id?-1:1); });
   var h=""; rows.slice(0,SHOW).forEach(function(p){
     var r=p.result||"pending", u=p.profit_units;
-    h+='<tr><td>'+md(p.date)+'</td><td class="m">'+esc(p.match)+'<div class="sub">'+esc(p.league||"")+(p.kickoff_et?" · "+esc(p.kickoff_et):"")+'</div></td><td>'+esc(call(p))+(lineName(p)?'<div class="tag">'+esc(lineName(p))+'</div>':'')+'</td><td class="n">'+fmtO(p.odds_american)+'</td><td class="n">'+(p.model_prob!=null?Math.round(p.model_prob*100)+"%":"")+'</td><td><span class="pill '+r+'">'+r+'</span>'+(p.home_goals!=null?'<div class="sub">'+p.home_goals+'-'+p.away_goals+'</div>':'')+'</td><td class="n '+cls(u)+'">'+(u!=null?fmtU(u):"")+'</td></tr>';
+    h+='<tr><td class="mc">'+mark(r)+'</td><td>'+md(p.date)+'</td><td class="m">'+esc(p.match)+(p.home_goals!=null?' <span class="sub">('+p.home_goals+'-'+p.away_goals+')</span>':'')+'<div class="sub">'+esc(p.league||"")+(p.kickoff_et?" · "+esc(p.kickoff_et):"")+'</div></td><td>'+esc(call(p))+(lineName(p)?'<div class="tag">'+esc(lineName(p))+'</div>':'')+'</td><td class="n">'+fmtO(p.odds_american)+'</td><td class="n">'+(p.model_prob!=null?Math.round(p.model_prob*100)+"%":"")+'</td><td class="n '+cls(u)+'">'+(u!=null?fmtU(u):"")+'</td></tr>';
   });
   $("picks").tBodies[0].innerHTML = h || '<tr><td colspan="7" class="sub">No picks match these filters.</td></tr>';
   $("count").textContent = Math.min(SHOW,rows.length)+" of "+rows.length;
   $("more").style.display = rows.length>SHOW?"":"none";
 }
+function legRes(s,l){
+  var m=l.call.match(/(Over|Under)\s+([\d.]+)/), dc=!m; var res=null;
+  DATA.picks.forEach(function(p){ if(p.date!==s.date||p.match!==l.match) return;
+    if(m){ if(p.bet_type==="single"&&p.side===m[1].toLowerCase()&&String(p.line)===String(parseFloat(m[2]))) res=p.result; }
+    else if(p.bet_type==="double_chance"&&l.call.indexOf(p.market)>-1) res=p.result; });
+  return res;
+}
 function drawSlips(){
   var h="", tot=0, stk=0, n=0;
   DATA.slips.slice().sort(function(a,b){return a.date<b.date?1:-1}).forEach(function(s){
     var r=s.result||"pending"; if(r==="win"||r==="loss"){tot+=s.profit_dollars||0;stk+=s.stake_dollars||0;n++}
-    h+='<tr><td>'+md(s.date)+'</td><td class="m">'+esc(s.name)+'<div class="sub">'+s.legs.map(function(l){return esc(l.match)+" "+esc(l.call.replace(" goals",""))}).join("; ")+'</div></td><td>'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</td><td class="n">'+fmtO(s.combined_odds_american)+'</td><td class="n">'+Math.round(s.combined_prob_model*100)+'%</td><td><span class="pill '+r+'">'+r+'</span></td><td class="n '+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</td></tr>';
+    h+='<tr><td class="mc">'+mark(r)+'</td><td>'+md(s.date)+'</td><td class="m"><b>'+esc(s.name)+'</b>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td>'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</td><td class="n">'+fmtO(s.combined_odds_american)+'</td><td class="n">'+Math.round(s.combined_prob_model*100)+'%</td><td class="n '+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</td></tr>';
   });
   $("slips").tBodies[0].innerHTML=h;
   $("slipnote").textContent = n+" settled drafts at $25 each: "+(tot>=0?"+$":"-$")+Math.abs(tot).toFixed(0)+" on $"+stk.toFixed(0)+" staked. Drafts, not placed bets.";
@@ -320,7 +333,7 @@ function drawMk(){
   $("mknote").textContent="Compared on the "+common.length+" finished games where all three chances exist. Actual Under 2.5 rate in those games: "+(act==null?"n/a":(act*100).toFixed(1)+"%")+". Under 3.5 uses all "+done.length+" finished games. Built "+MK.built+". Differences this small are noise at this sample size.";
   var rec=G.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0}).slice(0,25);
   function pc(x){return x==null?"":Math.round(x*100)+"%"}
-  $("mkg").tBodies[0].innerHTML=rec.map(function(g){ var hit=g.result_u25; return '<tr><td class="m">'+esc(g.match)+'<div class="sub">'+md(g.date)+' · '+esc(g.league||"")+' · proj '+g.projected_total+'</div></td><td class="n">'+pc(g.markov_u25)+'</td><td class="n">'+pc(g.dg_u25)+'</td><td class="n">'+pc(g.poisson_u25)+'</td><td class="n">'+(g.total_goals==null?'<span class="sub">pending</span>':g.total_goals+(hit?' <span class="up">U</span>':' <span class="dn">O</span>'))+'</td></tr>'; }).join("");
+  $("mkg").tBodies[0].innerHTML=rec.map(function(g){ var hit=g.result_u25; return '<tr><td class="m">'+esc(g.match)+'<div class="sub">'+md(g.date)+' · '+esc(g.league||"")+' · proj '+g.projected_total+'</div></td><td class="n">'+pc(g.markov_u25)+'</td><td class="n">'+pc(g.dg_u25)+'</td><td class="n">'+pc(g.poisson_u25)+'</td><td class="n">'+(g.total_goals==null?mark("pending",true):g.total_goals+' '+mark(hit?"win":"loss",true))+'</td></tr>'; }).join("");
 }
 function setup(d, live){
   DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();

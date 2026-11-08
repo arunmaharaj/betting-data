@@ -108,6 +108,68 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
 .tab[aria-selected="true"]{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
 .tab:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 @media (max-width:520px){h1{font-size:28px}.flabel{width:100%}}
+
+html:root:root{--bg:#0a0b1f;--surface:rgba(255,255,255,0.07);--ink:#f4f3ff;--ink2:#c3c2e6;--muted:#8d8cb8;--line:rgba(255,255,255,0.16);--grid:rgba(255,255,255,.07);--s1:#8b7bff;--s2:#ff6ac4;--good:#4dffc3;--bad:#ff6b9a;--chip:rgba(255,255,255,0.09);--acc:#8b7bff;--accfg:#ffffff;--f-display:"Inter Display","Inter",sans-serif;--f-body:"Inter",sans-serif;--f-data:"DejaVu Sans Mono",monospace;color-scheme:dark}
+body{background:radial-gradient(900px 500px at 0% -5%,rgba(139,123,255,.55),transparent 60%),radial-gradient(700px 500px at 100% 20%,rgba(255,106,196,.38),transparent 60%),radial-gradient(800px 600px at 20% 100%,rgba(0,214,190,.32),transparent 60%),#0a0b1f;background-attachment:fixed}
+header{background:linear-gradient(135deg,rgba(139,123,255,.55),rgba(255,106,196,.38));border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.5);border-radius:22px;color:#fff} header h1{font-weight:800;text-transform:none;letter-spacing:-.02em;font-size:28px;color:#fff} header:after{border-color:rgba(255,255,255,.14)} header .stamp{color:#fff;opacity:.9}
+.card,.scroll,.fpanel,.tiles{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 10px 36px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,.4);border-radius:22px}
+.tiles{gap:0} .tile{background:transparent;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.tile .v{font-weight:800;font-size:32px;color:var(--ink)}
+.tabs{background:rgba(255,255,255,0.08);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:6px;margin:0} .tab{background:transparent;border:0;color:var(--ink2)}
+.tab[aria-selected="true"]{background:linear-gradient(135deg,#8b7bff,#ff6ac4);color:#fff;box-shadow:0 6px 20px rgba(139,123,255,.55)}
+.chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--ink)}.chip[aria-pressed="true"]{background:linear-gradient(135deg,#8b7bff,#ff6ac4);border-color:transparent;color:#fff}
+h2{text-transform:none;letter-spacing:-.01em;font-size:20px;font-weight:700;color:var(--ink)} section>h2:before{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#8b7bff,#ff6ac4);box-shadow:0 0 12px #8b7bff}
+th{background:rgba(20,20,50,.85);backdrop-filter:blur(8px)} select{background:rgba(255,255,255,.1);color:var(--ink);border-color:rgba(255,255,255,.25)}.ftoggle{background:rgba(255,255,255,.12);color:var(--ink)}.infobox{background:rgba(255,255,255,.12)}
+.mk.win{background:#4dffc3;color:#03281f;box-shadow:0 0 10px #4dffc3}.mk.loss{background:#ff6b9a;color:#fff;box-shadow:0 0 10px #ff6b9a}
+
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));top:auto;width:calc(100% - 28px);max-width:560px;z-index:30;box-shadow:0 14px 40px rgba(0,0,0,.55);background:rgba(18,16,44,.78);justify-content:space-between;margin:0}
+.tab{flex:1;padding:9px 6px;font-size:12px;min-width:0;text-align:center}
+body{padding-bottom:110px}
+header{background:transparent;border:0;box-shadow:none;backdrop-filter:none;padding:6px 2px 0} header h1{font-size:15px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink2)} header .stamp{color:var(--muted)} header:after{display:none}
+.tiles{display:grid;grid-template-columns:1fr 1fr;background:transparent;border:0;box-shadow:none;backdrop-filter:none;gap:10px;overflow:visible}
+.tile{border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(255,255,255,.07);backdrop-filter:blur(18px);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.18)}
+.tile:first-child{grid-column:1/3;padding:20px 18px;background:linear-gradient(135deg,rgba(139,123,255,.5),rgba(255,106,196,.32));border-color:rgba(255,255,255,.3)}
+.tile:first-child .v{font-size:64px;letter-spacing:-.03em}.tile:first-child .k{font-size:13px}
+.tiles{grid-template-columns:repeat(3,1fr)}.tile:first-child{grid-column:1/4}.tile .v{font-size:24px}.tile:first-child .v{font-size:64px}.tile .s{font-size:11px}
+.tab{font-size:12px;white-space:nowrap}
+
+html:root:root{--bg:#050b1c;--acc:#edbb00;--s1:#4aa3ff;--s2:#edbb00;--good:#5dffb4;--bad:#ff6b8f;--accfg:#1a1200;--ink:#f6f7ff;--ink2:#c5cbe6;--muted:#8a93b8}
+body{background:radial-gradient(900px 520px at -5% -5%,rgba(0,77,152,.85),transparent 62%),radial-gradient(800px 560px at 105% 25%,rgba(165,0,68,.62),transparent 62%),radial-gradient(700px 500px at 30% 105%,rgba(0,77,152,.55),transparent 60%),#050b1c;background-attachment:fixed}
+.tile:first-child{background:repeating-linear-gradient(90deg,rgba(0,77,152,.95) 0 34px,rgba(165,0,68,.95) 34px 68px);border:2px solid #edbb00;box-shadow:0 14px 34px rgba(0,0,0,.55),inset 0 0 60px rgba(0,0,0,.35)}
+.tile:first-child .v,.tile:first-child .k,.tile:first-child .s{text-shadow:0 2px 10px rgba(0,0,0,.7);color:#fff}
+.tile:first-child .k{color:#edbb00;font-weight:700}
+.tab[aria-selected="true"]{background:linear-gradient(135deg,#004d98,#a50044);color:#fff;box-shadow:0 0 0 2px #edbb00,0 6px 20px rgba(165,0,68,.6)}
+.tabs{background:rgba(5,11,28,.85);border-color:rgba(237,187,0,.35)}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,#004d98,#a50044);color:#fff;box-shadow:0 0 0 1.5px #edbb00}
+section>h2:before{background:linear-gradient(#004d98,#a50044);box-shadow:0 0 0 2px #edbb00,0 0 12px rgba(165,0,68,.7)}
+header h1{color:#edbb00}
+.card,.scroll,.fpanel,.tile:not(:first-child){border-color:rgba(237,187,0,.28)}
+th{background:rgba(6,16,46,.92)}
+.mk.win{background:#3ddc84;color:#032a14;box-shadow:0 0 10px rgba(61,220,132,.6)} .mk.loss{background:#ff4d5e;color:#fff;box-shadow:0 0 10px rgba(255,77,94,.6)}
+.tile .v.pos{color:#5dffb4}.tile .v.neg{color:#ff8fb0}
+.reset,.stamp a,.infolink{color:#8cc4ff}
+
+/* ---- symmetry and layout fixes ---- */
+header{text-align:center;display:block;padding:8px 0 2px}
+header .stamp{text-align:center}
+.tile{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tile:first-child{grid-column:1/4;padding:22px 16px}
+.tile:first-child .v{font-size:68px;line-height:1;margin-top:6px}
+.tile .s{margin-top:4px}
+.tiles{grid-template-columns:repeat(3,1fr)}
+.tabs{justify-content:space-between}
+.tab{flex:1;text-align:center}
+td.n,th.n{padding-left:6px;padding-right:6px}
+td,th{padding-left:8px;padding-right:8px}
+.ncell{text-align:right;font-family:var(--f-data);white-space:nowrap;line-height:1.25}
+.ncell b{font-weight:700;font-size:15px}
+.ncell .sub{display:block}
+.fhead{justify-content:space-between}
+
+td.m{min-width:0!important}
+.ncell{font-size:12px}.ncell b{font-size:14px}
+.tag{font-size:10px;padding:1px 5px}
+td{padding-top:10px;padding-bottom:10px}
 </style>
 <div class="wrap">
   <header>
@@ -131,22 +193,22 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
     <p><b>Open</b> is the original method with no limits.</p>
     <p><b>Filtered</b> adds limits to see if they help: skip Under bets in the Premier League and LaLiga 2, and build slips with one leg per league, no two legs priced -300 or shorter, and no leg where the model's edge over the book is above 10 points or below zero.</p>
     <p>The aim is to learn whether cutting the weaker leagues and the riskiest slip legs makes the results better over a larger sample.</p></div>
-    <div class="scroll"><table id="cmp"><thead><tr><th>Track</th><th class="n">Singles main W-L</th><th class="n">Units</th><th class="n">Slips W-L</th><th class="n">Slip profit</th></tr></thead><tbody></tbody></table></div>
+    <div class="scroll"><table id="cmp"><thead><tr><th>Track</th><th class="n">Singles</th><th class="n">Units</th><th class="n">Slips</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="cmpnote"></p></section>
   <section data-tab="markov"><h2>Markov side test<button class="info" data-info="markov" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-markov" hidden><p><b>What this is.</b> A separate experiment. It does not touch any pick, record, slip or track above, and nothing is bet on it.</p>
     <p>A Markov chain predicts the next step using only where you are now. Here the "square" is the score. The model plays each match minute by minute: each minute a goal can happen, and the chance depends on the current score (the leading team slows down a little, the trailing team pushes a little). It is set so the average total matches our projected total, then we read off the chance of Under 2.5 and Under 3.5.</p>
     <p>We compare it with DataGaffer's own chance and a plain Poisson model on finished games. Lower Brier score means better probabilities. Brier of 0.25 is what you get by always saying 50%.</p></div>
-    <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg Under 2.5 chance</th><th class="n">Brier U2.5</th><th class="n">Brier U3.5</th></tr></thead><tbody></tbody></table></div>
+    <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg U2.5</th><th class="n">Brier 2.5</th><th class="n">Brier 3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="mknote"></p>
     <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
-  <section data-tab="results"><h2>By day <button class="reset" id="dayall" style="margin-left:auto;font-size:13px;text-transform:none;letter-spacing:0">Show all days</button></h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
+  <section data-tab="results"><h2>By day <button class="reset" id="dayall" style="margin-left:auto;font-size:13px;text-transform:none;letter-spacing:0">Show all days</button></h2><div class="scroll"><table id="days"><thead><tr><th>Day</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Open</th><th class="n">Hit</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
   <section data-tab="leagues"><h2>League base rates<button class="info" data-info="leagues" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
     <div class="infobox" id="ib-leagues" hidden></div></section>
-  <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
+  <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Slip</th><th class="n">Odds / Profit</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="slipmore"></button></div><p class="note" id="slipnote"></p></section>
-  <section data-tab="picks"><h2>All picks<button class="info" data-info="picks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-picks" hidden><p>One row per pick, 1 unit flat stake. The tag under each call shows which group it is in: <b>Main line</b> (2.5 goals), <b>Alt line</b> (3.5 goals), <b>Near miss</b> (almost met the rules, tracked only), or <b>Double chance</b>.</p></div><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
+  <section data-tab="picks"><h2>All picks<button class="info" data-info="picks" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-picks" hidden><p>One row per pick, 1 unit flat stake. The tag under each call shows which group it is in: <b>Main line</b> (2.5 goals), <b>Alt line</b> (3.5 goals), <b>Near miss</b> (almost met the rules, tracked only), or <b>Double chance</b>.</p></div><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Match</th><th>Call</th><th class="n">Odds / Units</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="more">Show more</button><span id="count"></span></div></section>
   <p class="note">1 unit flat stake per pick, American odds, Bet365 prices converted. Slips are drafts, not placed bets. Small samples: a few dozen bets cannot show whether the method has an edge. Data summaries only, not betting advice.</p>
 </div>
@@ -182,8 +244,8 @@ var HINTS = {
     alt:"Alt line: the same game's Over or Under 3.5 goals bet. Tracked separately so it never mixes into the main record.",
     watch:"Near misses: games that almost met our rules (just under the cutoff). Tracked only to learn if the cutoffs are too strict. Not part of the main record."}
 };
-var LINE_NAME={main:"Main line",alt:"Alt line",watch:"Near miss"};
-function lineName(p){ return p.bet_type==="single"?(LINE_NAME[p.line_group]||""):"Double chance"; }
+var LINE_NAME={main:"Main",alt:"Alt 3.5",watch:"Near miss"};
+function lineName(p){ return p.bet_type==="single"?(LINE_NAME[p.line_group]||""):"DC"; }
 function summary(list,st){
   var parts=[];
   parts.push(F.type==="single"?"goals bets":F.type==="double_chance"?"double chance bets":"all bets");
@@ -244,9 +306,9 @@ function drawPicks(list){
   var rows=list.slice().sort(function(a,b){ return a.date<b.date?1:a.date>b.date?-1:(a.id<b.id?-1:1); });
   var h=""; rows.slice(0,SHOW).forEach(function(p){
     var r=p.result||"pending", u=p.profit_units;
-    h+='<tr><td class="mc">'+mark(r)+'</td><td>'+md(p.date)+'</td><td class="m">'+esc(p.match)+(p.home_goals!=null?' <span class="sub">('+p.home_goals+'-'+p.away_goals+')</span>':'')+'<div class="sub">'+esc(p.league||"")+(p.kickoff_et?" · "+esc(p.kickoff_et):"")+'</div></td><td>'+esc(call(p))+(lineName(p)?'<div class="tag">'+esc(lineName(p))+'</div>':'')+'</td><td class="n">'+fmtO(p.odds_american)+'</td><td class="n">'+(p.model_prob!=null?Math.round(p.model_prob*100)+"%":"")+'</td><td class="n '+cls(u)+'">'+(u!=null?fmtU(u):"")+'</td></tr>';
+    h+='<tr><td class="mc">'+mark(r)+'</td><td class="m">'+esc(p.match)+(p.home_goals!=null?' <span class="sub">('+p.home_goals+'-'+p.away_goals+')</span>':'')+'<div class="sub">'+md(p.date)+' · '+esc(p.league||"")+(p.kickoff_et?" · "+esc(p.kickoff_et):"")+'</div></td><td>'+esc(call(p))+(lineName(p)?'<div class="tag">'+esc(lineName(p))+'</div>':'')+'</td><td class="ncell"><b>'+fmtO(p.odds_american)+'</b><span class="sub">'+(p.model_prob!=null?Math.round(p.model_prob*100)+"% model":"")+'</span><span class="'+cls(u)+'">'+(u!=null?fmtU(u)+"u":"")+'</span></td></tr>';
   });
-  $("picks").tBodies[0].innerHTML = h || '<tr><td colspan="7" class="sub">No picks match these filters.</td></tr>';
+  $("picks").tBodies[0].innerHTML = h || '<tr><td colspan="4" class="sub">No picks match these filters.</td></tr>';
   $("count").textContent = Math.min(SHOW,rows.length)+" of "+rows.length;
   $("more").style.display = rows.length>SHOW?"":"none";
 }
@@ -262,7 +324,7 @@ function drawSlips(){
   var h="", tot=0, stk=0, n=0;
   DATA.slips.slice().sort(function(a,b){return a.date<b.date?1:-1}).forEach(function(s){
     var r=s.result||"pending"; if(r==="win"||r==="loss"){tot+=s.profit_dollars||0;stk+=s.stake_dollars||0;n++}
-    h+='<tr><td class="mc">'+mark(r)+'</td><td>'+md(s.date)+'</td><td class="m"><b>'+esc(s.name)+'</b>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td>'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</td><td class="n">'+fmtO(s.combined_odds_american)+'</td><td class="n">'+Math.round(s.combined_prob_model*100)+'%</td><td class="n '+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</td></tr>';
+    h+='<tr><td class="mc">'+mark(r)+'</td><td class="m"><b>'+esc(s.name)+'</b><div class="sub">'+md(s.date)+' · '+((s.track||"open")==="filtered"?"Filtered":"Open")+'</div>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td class="ncell"><b>'+fmtO(s.combined_odds_american)+'</b><span class="sub">'+Math.round(s.combined_prob_model*100)+'% model</span><span class="'+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</span></td></tr>';
   });
   if(!SLIPALL){ h=h.split("</tr>").slice(0,8).join("</tr>")+"</tr>"; }
   $("slips").tBodies[0].innerHTML=h; $("slipmore").textContent=SLIPALL?"Show latest 8":"Show all "+DATA.slips.length+" slips";
@@ -359,7 +421,7 @@ function drawMk(){
   function pc(x){return x==null?"":Math.round(x*100)+"%"}
   $("mkg").tBodies[0].innerHTML=rec.map(function(g){ var hit=g.result_u25; return '<tr><td class="m">'+esc(g.match)+'<div class="sub">'+md(g.date)+' · '+esc(g.league||"")+' · proj '+g.projected_total+'</div></td><td class="n">'+pc(g.markov_u25)+'</td><td class="n">'+pc(g.dg_u25)+'</td><td class="n">'+pc(g.poisson_u25)+'</td><td class="n">'+(g.total_goals==null?mark("pending",true):g.total_goals+' '+mark(hit?"win":"loss",true))+'</td></tr>'; }).join("");
 }
-var TABS=[["results","Results"],["picks","Picks"],["slips","Slips"],["tracks","Open vs Filtered"],["leagues","Leagues"],["markov","Markov test"]];
+var TABS=[["results","Results"],["picks","Picks"],["slips","Slips"],["tracks","Tracks"],["leagues","Leagues"],["markov","Markov"]];
 var TAB="results";
 function showTab(id,fromUser){
   if(!TABS.some(function(x){return x[0]===id})) id="results"; TAB=id;
@@ -383,7 +445,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:40 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:30 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

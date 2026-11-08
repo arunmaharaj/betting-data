@@ -17,6 +17,7 @@
   --bg:#0d1410; --surface:#151e18; --ink:#eef2ee; --ink2:#b7c0b9; --muted:#8a948c; --line:#27302a; --grid:#1e2721;
   --s1:#3987e5; --s2:#d95926; --good:#3dbb7a; --bad:#ee6b69; --warn:#e0a53a; --chip:#222c25; --acc:#3dbb7a; --accfg:#06150c; color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.4;
   padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
@@ -90,13 +91,19 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
 .chip{border-radius:999px;padding:7px 14px}
 .chip[aria-pressed="true"]{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
 .tile:first-child .v{font-size:40px}
+.tabs{display:flex;gap:6px;overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding:8px 0;margin:-8px 0;scrollbar-width:none;border-bottom:1px solid var(--line)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink2);font:600 14px var(--f-body);padding:9px 16px;border-radius:999px;cursor:pointer;min-height:40px}
+.tab[aria-selected="true"]{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+.tab:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 @media (max-width:520px){h1{font-size:34px}.flabel{width:100%}}
 </style>
 <div class="wrap">
   <header>
     <div><h1>Betting Ledger</h1><div class="stamp" id="stamp">loading</div></div>
   </header>
-  <section class="fpanel" aria-label="Filters">
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Pages"></nav>
+  <section data-tab="results picks" class="fpanel" aria-label="Filters">
     <div class="fhead"><h2>Filter the results</h2><button class="reset" id="reset">Reset filters</button></div>
     <div class="fgroup"><span class="flabel">Bet type</span><div class="seg" id="f-type"></div><div class="hint" id="h-type"></div></div>
     <div class="fgroup" id="row-line"><span class="flabel">Which line</span><div class="seg" id="f-line"></div><div class="hint" id="h-line"></div></div>
@@ -104,29 +111,29 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
     <div class="fgroup"><label for="f-league" class="flabel">League</label><select id="f-league"><option value="">All leagues</option></select></div>
     <div class="showing" id="showing"></div>
   </section>
-  <section class="tiles" id="tiles" aria-label="Results for the current filter"></section>
-  <section><h2>Cumulative units</h2><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
-  <section><h2>Open vs Filtered</h2>
+  <section data-tab="results" class="tiles" id="tiles" aria-label="Results for the current filter"></section>
+  <section data-tab="results"><h2>Cumulative units</h2><div class="card"><div class="legend" id="legend"></div><div class="cw" id="cw"><svg id="chart" role="img" aria-label="Cumulative units by day"></svg></div></div></section>
+  <section data-tab="tracks"><h2>Open vs Filtered</h2>
     <div class="card" style="margin-bottom:10px"><p style="margin:0 0 6px"><b>What this compares.</b> Both tracks start from the same list of games. Nothing here is played with real money. We are only collecting results.</p>
     <p style="margin:0 0 6px"><b>Open</b> is the original method with no limits.</p>
     <p style="margin:0 0 6px"><b>Filtered</b> adds limits to see if they help: skip Under bets in the Premier League and LaLiga 2, and build slips with one leg per league, no two legs priced -300 or shorter, and no leg where the model's edge over the book is above 10 points or below zero.</p>
     <p class="note" style="margin:0">The aim is to learn whether cutting the weaker leagues and the riskiest slip legs makes the results better over a larger sample.</p></div>
     <div class="scroll"><table id="cmp"><thead><tr><th>Track</th><th class="n">Singles main W-L</th><th class="n">Units</th><th class="n">Slips W-L</th><th class="n">Slip profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="cmpnote"></p></section>
-  <section><h2>Markov side test</h2>
+  <section data-tab="markov"><h2>Markov side test</h2>
     <div class="card" style="margin-bottom:10px"><p style="margin:0 0 6px"><b>What this is.</b> A separate experiment. It does not touch any pick, record, slip or track above, and nothing is bet on it.</p>
     <p style="margin:0 0 6px">A Markov chain predicts the next step using only where you are now. Here the "square" is the score. The model plays each match minute by minute: each minute a goal can happen, and the chance depends on the current score (the leading team slows down a little, the trailing team pushes a little). It is set so the average total matches our projected total, then we read off the chance of Under 2.5 and Under 3.5.</p>
     <p class="note" style="margin:0">We compare it with DataGaffer's own chance and a plain Poisson model on finished games. Lower Brier score means better probabilities. Brier of 0.25 is what you get by always saying 50%.</p></div>
     <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg Under 2.5 chance</th><th class="n">Brier U2.5</th><th class="n">Brier U3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="mknote"></p>
     <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
-  <section><h2>By day</h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
-  <section><h2>League base rates</h2>
+  <section data-tab="results"><h2>By day</h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
+  <section data-tab="leagues"><h2>League base rates</h2>
     <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="basenote"></p></section>
-  <section><h2>Slips</h2><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
+  <section data-tab="slips"><h2>Slips</h2><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="slipnote"></p></section>
-  <section><h2>Picks</h2><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
+  <section data-tab="picks"><h2>All picks</h2><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="more">Show more</button><span id="count"></span></div></section>
   <p class="note">1 unit flat stake per pick, American odds, Bet365 prices converted. Slips are drafts, not placed bets. Small samples: a few dozen bets cannot show whether the method has an edge. Data summaries only, not betting advice.</p>
 </div>
@@ -335,16 +342,34 @@ function drawMk(){
   function pc(x){return x==null?"":Math.round(x*100)+"%"}
   $("mkg").tBodies[0].innerHTML=rec.map(function(g){ var hit=g.result_u25; return '<tr><td class="m">'+esc(g.match)+'<div class="sub">'+md(g.date)+' · '+esc(g.league||"")+' · proj '+g.projected_total+'</div></td><td class="n">'+pc(g.markov_u25)+'</td><td class="n">'+pc(g.dg_u25)+'</td><td class="n">'+pc(g.poisson_u25)+'</td><td class="n">'+(g.total_goals==null?mark("pending",true):g.total_goals+' '+mark(hit?"win":"loss",true))+'</td></tr>'; }).join("");
 }
+var TABS=[["results","Results"],["picks","Picks"],["slips","Slips"],["tracks","Open vs Filtered"],["leagues","Leagues"],["markov","Markov test"]];
+var TAB="results";
+function showTab(id,fromUser){
+  if(!TABS.some(function(x){return x[0]===id})) id="results"; TAB=id;
+  Array.prototype.forEach.call(document.querySelectorAll("[data-tab]"),function(s){ s.hidden = s.getAttribute("data-tab").split(" ").indexOf(id)<0; });
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(b){ var on=b.dataset.t===id; b.setAttribute("aria-selected",on); if(on&&fromUser) b.scrollIntoView({inline:"center",block:"nearest"}); });
+  try{ localStorage.setItem("ledger-tab",id); }catch(e){}
+  if(fromUser){ try{ history.replaceState(null,"","#"+id); }catch(e){} window.scrollTo(0,0); }
+  if(id==="results"&&DATA) drawChart(DATA.picks.filter(pass));
+}
+function initTabs(){
+  var nav=$("tabs"); nav.innerHTML="";
+  TABS.forEach(function(x){ var b=document.createElement("button"); b.className="tab"; b.dataset.t=x[0]; b.setAttribute("role","tab"); b.textContent=x[1]; b.onclick=function(){showTab(x[0],true)}; nav.appendChild(b); });
+  var h=(location.hash||"").replace("#",""), s=null; try{ s=localStorage.getItem("ledger-tab"); }catch(e){}
+  showTab(h||s||"results",false);
+  window.addEventListener("hashchange",function(){ showTab((location.hash||"").replace("#",""),true); });
+}
 function setup(d, live){
   DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
   var sel=$("f-league"); sel.innerHTML='<option value="">All leagues</option>'+ls.map(function(l){return '<option>'+esc(l)+'</option>'}).join(""); sel.value=F.league;
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("reset").onclick=resetF; $("more").onclick=function(){SHOW+=40;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:10 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:20 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);
+initTabs();
 fetch(URL_BASE+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(b){ if(b&&b.leagues){BASE=b; if(DATA)drawBase();} }).catch(function(){});
 fetch(URL_MK+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(m){ if(m&&m.games){MK=m; drawMk();} }).catch(function(){});
 fetch(URL_RAW+"?t="+Date.now()).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){ setup(d,true); }).catch(function(){});

@@ -957,9 +957,9 @@
    "poisson_u25": 0.5749,
    "poisson_u35": 0.7829,
    "dg_u25": 0.574,
-   "total_goals": null,
-   "result_u25": null,
-   "result_u35": null
+   "total_goals": 2,
+   "result_u25": 1,
+   "result_u35": 1
   },
   {
    "date": "2026-11-06",

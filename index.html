@@ -22,8 +22,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
   padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
 header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
-h1{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1;letter-spacing:.01em;margin:0;text-transform:uppercase}
-.stamp{font-family:var(--f-data);font-size:12px;color:var(--muted);line-height:1.5}
+h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1;letter-spacing:.01em;margin:0;text-transform:uppercase}
+.stamp{font-family:var(--f-data);font-size:11px;color:var(--muted);line-height:1.5}
 .stamp a{color:var(--s1)}
 h2{font-family:var(--f-display);font-weight:600;font-size:20px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--ink2)}
 .filters{display:flex;flex-direction:column;gap:10px}
@@ -69,12 +69,18 @@ td.mc,th.mc{width:40px;padding-right:0;text-align:center}
 .note{font-size:12px;color:var(--muted);line-height:1.5}
 .err{color:var(--warn)}
 
-header{padding:18px 18px 16px;border-radius:14px;background:var(--acc);color:var(--accfg);position:relative;overflow:hidden}
+header{padding:12px 16px 10px;border-radius:14px;background:var(--acc);color:var(--accfg);position:relative;overflow:hidden}
 header:after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;border:18px solid rgba(255,255,255,.08)}
 header h1{color:var(--accfg)} header .stamp{color:var(--accfg);opacity:.85} header .stamp a{color:var(--accfg);text-decoration:underline}
 .fpanel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:14px}
 .fhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .fhead h2{margin:0}
+.fbody{display:flex;flex-direction:column;gap:14px}
+.ftoggle{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:var(--chip);border:0;border-radius:10px;padding:10px 12px;color:var(--ink);font:600 15px var(--f-body);cursor:pointer;text-align:left}
+.fsum{flex:1;min-width:0;font:400 13px var(--f-body);color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.car{transition:transform .15s} .ftoggle[aria-expanded="true"] .car{transform:rotate(180deg)}
+.fpanel{gap:10px;padding:10px}
+.showing{font-size:13px;border-top:0;padding-top:0}
 .fgroup{display:flex;flex-direction:column;gap:6px}
 .fgroup .flabel{width:auto}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
@@ -90,13 +96,13 @@ section>h2{display:flex;align-items:center;gap:8px}
 section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:var(--acc)}
 .chip{border-radius:999px;padding:7px 14px}
 .chip[aria-pressed="true"]{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
-.tile:first-child .v{font-size:40px}
+.tile:first-child .v{font-size:34px}.tile{padding:10px 12px}.wrap{gap:16px}
 .tabs{display:flex;gap:6px;overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding:8px 0;margin:-8px 0;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink2);font:600 14px var(--f-body);padding:9px 16px;border-radius:999px;cursor:pointer;min-height:40px}
 .tab[aria-selected="true"]{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
 .tab:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
-@media (max-width:520px){h1{font-size:34px}.flabel{width:100%}}
+@media (max-width:520px){h1{font-size:28px}.flabel{width:100%}}
 </style>
 <div class="wrap">
   <header>
@@ -104,11 +110,12 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
   </header>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Pages"></nav>
   <section data-tab="results picks" class="fpanel" aria-label="Filters">
-    <div class="fhead"><h2>Filter the results</h2><button class="reset" id="reset">Reset filters</button></div>
+    <div class="fhead"><button class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span>Filters</span><span class="fsum" id="fsum"></span><span class="car">&#9662;</span></button><button class="reset" id="reset">Reset</button></div><div id="fbody" hidden class="fbody">
     <div class="fgroup"><span class="flabel">Bet type</span><div class="seg" id="f-type"></div><div class="hint" id="h-type"></div></div>
     <div class="fgroup" id="row-line"><span class="flabel">Which line</span><div class="seg" id="f-line"></div><div class="hint" id="h-line"></div></div>
     <div class="fgroup"><span class="flabel">Over or Under</span><div class="seg" id="f-side"></div></div>
     <div class="fgroup"><label for="f-league" class="flabel">League</label><select id="f-league"><option value="">All leagues</option></select></div>
+    </div>
     <div class="showing" id="showing"></div>
   </section>
   <section data-tab="results" class="tiles" id="tiles" aria-label="Results for the current filter"></section>
@@ -127,12 +134,12 @@ section>h2:before{content:"";width:6px;height:18px;border-radius:3px;background:
     <div class="scroll"><table id="mk"><thead><tr><th>Model</th><th class="n">Games</th><th class="n">Avg Under 2.5 chance</th><th class="n">Brier U2.5</th><th class="n">Brier U3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="mknote"></p>
     <div class="scroll" style="margin-top:10px"><table id="mkg"><thead><tr><th>Match</th><th class="n">Markov U2.5</th><th class="n">DataGaffer</th><th class="n">Poisson</th><th class="n">Goals (U2.5)</th></tr></thead><tbody></tbody></table></div></section>
-  <section data-tab="results"><h2>By day</h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
+  <section data-tab="results"><h2>By day <button class="reset" id="dayall" style="margin-left:auto;font-size:13px;text-transform:none;letter-spacing:0">Show all days</button></h2><div class="scroll"><table id="days"><thead><tr><th>Date</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Pending</th><th class="n">Hit rate</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div></section>
   <section data-tab="leagues"><h2>League base rates</h2>
     <div class="scroll"><table id="base"><thead><tr><th>League</th><th class="n">Games</th><th class="n">Avg goals</th><th class="n">Under 2.5</th><th class="n">Ours</th><th class="n">Under 3.5</th><th class="n">Ours</th><th class="n">Over 2.5</th><th class="n">Ours</th><th class="n">Over 3.5</th><th class="n">Ours</th></tr></thead><tbody></tbody></table></div>
     <p class="note" id="basenote"></p></section>
   <section data-tab="slips"><h2>Slips</h2><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Date</th><th>Slip</th><th>Track</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Profit</th></tr></thead><tbody></tbody></table></div>
-    <p class="note" id="slipnote"></p></section>
+    <div class="pager"><button class="chip" id="slipmore"></button></div><p class="note" id="slipnote"></p></section>
   <section data-tab="picks"><h2>All picks</h2><div class="scroll"><table id="picks"><thead><tr><th class="mc"></th><th>Date</th><th>Match</th><th>Call</th><th class="n">Odds</th><th class="n">Model</th><th class="n">Units</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="more">Show more</button><span id="count"></span></div></section>
   <p class="note">1 unit flat stake per pick, American odds, Bet365 prices converted. Slips are drafts, not placed bets. Small samples: a few dozen bets cannot show whether the method has an edge. Data summaries only, not betting advice.</p>
@@ -144,7 +151,7 @@ var MK_SNAP = {"description": "Side experiment, not used for any pick. Markov ch
 var URL_MK = "https://raw.githubusercontent.com/arunmaharaj/betting-data/main/markov_sim.json";
 var URL_BASE = "https://raw.githubusercontent.com/arunmaharaj/betting-data/main/league_base_rates.json";
 var URL_RAW = "https://raw.githubusercontent.com/arunmaharaj/betting-data/main/picks.json";
-var F = {type:"single", line:"main", side:"", league:""}, SHOW = 40, DATA = null;
+var F = {type:"single", line:"main", side:"", league:""}, SHOW = 25, DATA = null;
 try { var sv = JSON.parse(localStorage.getItem("ledger-filters")||"null"); if (sv) F = Object.assign(F, sv); } catch(e){}
 function save(){ try{ localStorage.setItem("ledger-filters", JSON.stringify(F)); }catch(e){} }
 function $(i){return document.getElementById(i)}
@@ -177,14 +184,14 @@ function summary(list,st){
   if(F.type!=="double_chance"&&F.line) parts.push({main:"on the main 2.5 line",alt:"on the alt 3.5 line",watch:"that were near misses"}[F.line]);
   if(F.side) parts.push(F.side==="over"?"Overs only":"Unders only");
   if(F.league) parts.push("in "+F.league);
-  return "<b>Showing:</b> "+parts.join(", ")+". "+list.length+" bets, "+st.n+" played, "+st.pe+" waiting for kickoff.";
+  return list.length+" bets: "+st.n+" played, "+st.pe+" waiting for kickoff.";
 }
 function drawChips(){
   Object.keys(CHIPS).forEach(function(k){
     var el=$("f-"+k); el.innerHTML="";
     CHIPS[k].forEach(function(o){
       var b=document.createElement("button"); b.className="chip"; b.textContent=o[1]; b.setAttribute("aria-pressed", F[k]===o[0]);
-      b.onclick=function(){ F[k]=o[0]; SHOW=40; save(); render(); }; el.appendChild(b);
+      b.onclick=function(){ F[k]=o[0]; SHOW=25; save(); render(); }; el.appendChild(b);
     });
   });
   $("row-line").style.display = F.type==="double_chance" ? "none":"flex";
@@ -208,21 +215,24 @@ function render(){
   var all = DATA.picks, list = all.filter(pass);
   var st = stats(list);
   $("tiles").innerHTML =
-    tile("Record", st.w+"-"+st.l, st.v?st.v+" void":"settled bets", "")+
+    tile("Record", st.w+"-"+st.l, st.pe+" waiting to play", "")+
     tile("Hit rate", st.hit==null?"n/a":(st.hit*100).toFixed(0)+"%", st.n+" settled","")+
     tile("Units", st.n?fmtU(st.u):"n/a", "1u flat stake", cls(st.u))+
-    tile("ROI", st.roi==null?"n/a":(st.roi*100>0?"+":"")+(st.roi*100).toFixed(1)+"%", "per unit staked", cls(st.u))+
-    tile("Pending", String(st.pe), "not yet played","");
+    tile("ROI", st.roi==null?"n/a":(st.roi*100>0?"+":"")+(st.roi*100).toFixed(1)+"%", "per unit staked", cls(st.u));
+  $("fsum").textContent = short();
   $("showing").innerHTML = summary(list,st) + (st.n===0 ? '<div class="empty" style="margin-top:8px">'+(list.length?"None of these have been played yet, so there is no record to show. They will fill in after the games finish.":"No bets match this combination.")+' <button class="reset" onclick="resetF()">Reset filters</button></div>' : "");
   drawChart(list); drawDays(list); drawPicks(list);
 }
-function resetF(){ F={type:"",line:"",side:"",league:""}; $("f-league").value=""; SHOW=40; save(); render(); }
+function short(){ var a=[]; a.push(F.type==="single"?"Goals":F.type==="double_chance"?"Double chance":"All bets"); if(F.type!=="double_chance"&&F.line) a.push({main:"2.5",alt:"3.5",watch:"Near miss"}[F.line]); if(F.side) a.push(F.side==="over"?"Overs":"Unders"); if(F.league) a.push(F.league); return a.join(" · "); }
+function resetF(){ F={type:"",line:"",side:"",league:""}; $("f-league").value=""; SHOW=25; save(); render(); }
 function tile(k,v,s,c){ return '<div class="tile"><div class="k">'+k+'</div><div class="v '+c+'">'+v+'</div><div class="s">'+s+'</div></div>'; }
+var DAYSALL=false;
 function drawDays(list){
   var by={}; list.forEach(function(p){ (by[p.date]=by[p.date]||[]).push(p); });
   var ds=Object.keys(by).sort().reverse(), h="";
   ds.forEach(function(d){ var s=stats(by[d]);
     h+='<tr><td>'+md(d)+'</td><td class="n">'+by[d].length+'</td><td class="n">'+s.w+'-'+s.l+'</td><td class="n">'+s.pe+'</td><td class="n">'+(s.hit==null?"":(s.hit*100).toFixed(0)+"%")+'</td><td class="n '+cls(s.u)+'">'+(s.n?fmtU(s.u):"")+'</td></tr>'; });
+  if(!DAYSALL&&ds.length>7){ h=h.split("</tr>").slice(0,7).join("</tr>")+"</tr>"; }
   $("days").tBodies[0].innerHTML = h || '<tr><td colspan="6" class="sub">No picks match these filters.</td></tr>';
 }
 function drawPicks(list){
@@ -242,13 +252,15 @@ function legRes(s,l){
     else if(p.bet_type==="double_chance"&&l.call.indexOf(p.market)>-1) res=p.result; });
   return res;
 }
+var SLIPALL=false;
 function drawSlips(){
   var h="", tot=0, stk=0, n=0;
   DATA.slips.slice().sort(function(a,b){return a.date<b.date?1:-1}).forEach(function(s){
     var r=s.result||"pending"; if(r==="win"||r==="loss"){tot+=s.profit_dollars||0;stk+=s.stake_dollars||0;n++}
     h+='<tr><td class="mc">'+mark(r)+'</td><td>'+md(s.date)+'</td><td class="m"><b>'+esc(s.name)+'</b>'+s.legs.map(function(l){return '<div class="sub" style="margin-top:3px">'+mark(legRes(s,l),true)+esc(l.match)+' '+esc(l.call.replace(" goals",""))+'</div>'}).join("")+'</td><td>'+((s.track||"open")==="filtered"?"Filtered":"Open")+'</td><td class="n">'+fmtO(s.combined_odds_american)+'</td><td class="n">'+Math.round(s.combined_prob_model*100)+'%</td><td class="n '+cls(s.profit_dollars)+'">'+(s.profit_dollars!=null?(s.profit_dollars>0?"+$":"-$")+Math.abs(s.profit_dollars).toFixed(0):"")+'</td></tr>';
   });
-  $("slips").tBodies[0].innerHTML=h;
+  if(!SLIPALL){ h=h.split("</tr>").slice(0,8).join("</tr>")+"</tr>"; }
+  $("slips").tBodies[0].innerHTML=h; $("slipmore").textContent=SLIPALL?"Show latest 8":"Show all "+DATA.slips.length+" slips";
   $("slipnote").textContent = n+" settled drafts at $25 each: "+(tot>=0?"+$":"-$")+Math.abs(tot).toFixed(0)+" on $"+stk.toFixed(0)+" staked. Drafts, not placed bets.";
 }
 function drawChart(list){
@@ -363,9 +375,9 @@ function setup(d, live){
   DATA=d; var ls=Array.from(new Set(d.picks.map(function(p){return p.league}).filter(Boolean))).sort();
   var sel=$("f-league"); sel.innerHTML='<option value="">All leagues</option>'+ls.map(function(l){return '<option>'+esc(l)+'</option>'}).join(""); sel.value=F.league;
   sel.onchange=function(){F.league=sel.value;save();render()};
-  $("reset").onclick=resetF; $("more").onclick=function(){SHOW+=40;render()};
+  $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:20 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 7, 9:30 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

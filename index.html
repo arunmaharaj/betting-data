@@ -11317,11 +11317,11 @@ var SNAPSHOT = {
    "placed": null,
    "stake_units": 1,
    "stake_dollars": null,
-   "home_goals": null,
-   "away_goals": null,
-   "status": null,
-   "result": "pending",
-   "profit_units": null,
+   "home_goals": 2,
+   "away_goals": 1,
+   "status": "Final",
+   "result": "loss",
+   "profit_units": -1,
    "closing_odds_american": null,
    "id": "2026-11-08-vasco-v-palmeiras-under_2_5",
    "kickoff_et": "3:00 PM",
@@ -11354,11 +11354,11 @@ var SNAPSHOT = {
    "placed": null,
    "stake_units": 1,
    "stake_dollars": null,
-   "home_goals": null,
-   "away_goals": null,
-   "status": null,
-   "result": "pending",
-   "profit_units": null,
+   "home_goals": 2,
+   "away_goals": 1,
+   "status": "Final",
+   "result": "win",
+   "profit_units": 0.25,
    "closing_odds_american": null,
    "id": "2026-11-08-vasco-v-palmeiras-under_3_5",
    "kickoff_et": "3:00 PM",
@@ -11391,11 +11391,11 @@ var SNAPSHOT = {
    "placed": null,
    "stake_units": 1,
    "stake_dollars": null,
-   "home_goals": null,
-   "away_goals": null,
-   "status": null,
-   "result": "pending",
-   "profit_units": null,
+   "home_goals": 2,
+   "away_goals": 1,
+   "status": "Final",
+   "result": "loss",
+   "profit_units": -1,
    "closing_odds_american": null,
    "id": "2026-11-08-vasco-v-palmeiras-under_1_5",
    "kickoff_et": "3:00 PM",
@@ -12353,11 +12353,11 @@ var SNAPSHOT = {
    "placed": null,
    "stake_units": 1,
    "stake_dollars": null,
-   "home_goals": null,
-   "away_goals": null,
-   "status": null,
-   "result": "pending",
-   "profit_units": null,
+   "home_goals": 2,
+   "away_goals": 3,
+   "status": "Final",
+   "result": "loss",
+   "profit_units": -1,
    "closing_odds_american": null,
    "id": "2026-11-08-estrela-v-benfica-dc-1x",
    "kickoff_et": "3:30 PM",
@@ -12390,11 +12390,11 @@ var SNAPSHOT = {
    "placed": null,
    "stake_units": 1,
    "stake_dollars": null,
-   "home_goals": null,
-   "away_goals": null,
-   "status": null,
-   "result": "pending",
-   "profit_units": null,
+   "home_goals": 0,
+   "away_goals": 1,
+   "status": "Final",
+   "result": "loss",
+   "profit_units": -1,
    "closing_odds_american": null,
    "id": "2026-11-08-rio-ave-v-sc-braga-dc-1x",
    "kickoff_et": "3:30 PM",
@@ -17008,10 +17008,10 @@ var MK_SNAP = {
    "u35": {
     "league": 0.68
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 5,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-08",
@@ -17623,10 +17623,10 @@ var MK_SNAP = {
    "u35": {
     "league": 0.68
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -17903,10 +17903,10 @@ var MK_SNAP = {
     "markov": 0.7672,
     "blend": 0.7613
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-08",
@@ -18356,7 +18356,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 8, 5:04 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 8, 11:45 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

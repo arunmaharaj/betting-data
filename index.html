@@ -220,6 +220,7 @@ button.cd{cursor:pointer}
 .mprog .info{align-self:flex-start}
 .mkts{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;flex-wrap:nowrap}
 .mkts .chip{flex:none;text-align:center;padding:8px 6px}
+#pace th,#pace td,#pacepay th,#pacepay td{padding-left:5px;padding-right:5px}#pace td:first-child,#pacepay td:first-child{white-space:nowrap}#pace th,#pacepay th{letter-spacing:0;font-size:10.5px}#pace td{font-size:12.5px}#pace .sub{font-size:10.5px}
 </style>
 <div class="wrap">
   <header>
@@ -270,8 +271,12 @@ button.cd{cursor:pointer}
     <div class="infobox" id="ib-leagues" hidden></div>
     <h2 style="margin-top:28px">Pace bands<button class="info" data-info="pace" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
     <div class="infobox" id="ib-pace" hidden><p><b>What this is.</b> Pace is the outlook data's score for how fast and open a game should be. This table groups every finished game we logged by its pace score and shows how those games actually ended. It is data collection only and does not change how picks are made.</p><p><b>How to read it.</b> Each row is one band of pace scores. <b>Games</b> counts finished games once each. <b>Goals</b> is the real average, with the outlook's average projected total in small print under it, so you can see whether pace adds anything beyond the projected total. The last three columns (O 2.5, O 3.5, U 2.5) show how often the game finished over 2.5, over 3.5 or under 2.5 (hits out of games).</p><p><b>Caution.</b> Only games that passed our shortlist are here, so most already have a high or low projected total. Bands with fewer than 10 games are noise, so a perfect record in a band of 8 is a lead to watch, not proof. Prices matter too: very high pace games are priced short, so hitting every time can still pay little.</p></div>
-    <div class="scroll"><table id="pace"><thead><tr><th>Pace</th><th class="n">Games</th><th class="n">Goals</th><th class="n">O 2.5</th><th class="n">O 3.5</th><th class="n">U 2.5</th></tr></thead><tbody></tbody></table></div>
+    <div class="scroll"><table id="pace"><thead><tr><th>Pace</th><th class="n">Gms</th><th class="n">Goals</th><th class="n">O 2.5</th><th class="n">O 3.5</th><th class="n">U 2.5</th><th class="n">U 3.5</th></tr></thead><tbody></tbody></table></div>
     <p class="mkcap" id="pacecap"></p>
+
+    <h2 style="margin-top:22px">What each pace band paid<button class="info" data-info="pacepay" aria-expanded="false" aria-label="More info" title="More info">i</button></h2>
+    <div class="infobox" id="ib-pacepay" hidden><p>This uses the bets we actually logged, at their Bet365 prices and 1 unit each, grouped by the pace score of the game. <b>Main</b> is the main-line pick (usually 2.5). <b>Alt</b> is the alternate line (usually 3.5). Units are profit or loss, so you can compare bands by what they paid and not only by how often they hit. Both sides are mixed together because pace bands split them naturally: high pace games are overs and low pace games are unders. Bets with no logged price are left out here, as are the 1.5 line and double chance. Small bands swing a lot.</p></div>
+    <div class="scroll"><table id="pacepay"><thead><tr><th>Pace</th><th class="n">Main</th><th class="n">Main units</th><th class="n">Alt</th><th class="n">Alt units</th></tr></thead><tbody></tbody></table></div>
   </section>
   <section data-tab="slips"><h2>Slips<button class="info" data-info="slips" aria-expanded="false" aria-label="More info" title="More info">i</button></h2><div class="infobox" id="ib-slips" hidden>Drafts built from converted Bet365 prices at $25 each. They are not placed bets, just a record of how the slips would have done. The check or X on each leg is that game's graded result.</div><div id="slipcal" class="cal"></div><div class="slipctl"><button class="chip" id="slipfold">Collapse all days</button></div><div class="scroll"><table id="slips"><thead><tr><th class="mc"></th><th>Slip</th><th class="n">Odds / Profit</th></tr></thead><tbody></tbody></table></div>
     <div class="pager"><button class="chip" id="slipmore"></button></div><p class="note" id="slipnote"></p></section>
@@ -18251,16 +18256,21 @@ var LGMK={u15:{n:"Under 1.5",side:"under",line:1.5,grp:"alt15"},o15:{n:"Over 1.5
 function lgRate(x,k){ var base=k.slice(1), u=base==="15"?x.under_1_5_pct:base==="25"?x.under_2_5_pct:x.under_3_5_pct; if(u==null) return null; return k.charAt(0)==="o"?100-u:u; }
 function lineGrid(cur){ return ["o15","o25","o35","u15","u25","u35"].map(function(k){return '<button type="button" class="chip'+(k===cur?" on":"")+'" data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+LGMK[k].n+'</button>'}).join(""); }
 
-var PBANDS=[[85,1000,"85 and up"],[80,85,"80 to 85"],[70,80,"70 to 80"],[60,70,"60 to 70"],[50,60,"50 to 60"],[40,50,"40 to 50"],[30,40,"30 to 40"],[20,30,"20 to 30"],[-1000,20,"Under 20"]];
+var PBANDS=[[85,1000,"85+"],[80,85,"80-85"],[70,80,"70-80"],[60,70,"60-70"],[50,60,"50-60"],[40,50,"40-50"],[30,40,"30-40"],[20,30,"20-30"],[-1000,20,"<20"]];
 function drawPace(){
   var g={}; DATA.picks.forEach(function(p){ if(p.bet_type!=="single"||(p.goals_basis&&p.goals_basis!=="total")||!p.inputs||p.inputs.pace==null||p.home_goals==null||p.away_goals==null||!settled(p)) return; var k=p.date+"|"+p.match; if(!g[k]) g[k]={pace:p.inputs.pace,proj:p.inputs.projected_total,tot:p.home_goals+p.away_goals}; });
   var rows=PBANDS.map(function(b){ var L=Object.keys(g).map(function(k){return g[k]}).filter(function(x){return x.pace>=b[0]&&x.pace<b[1]}); return {n:b[2],L:L}; });
   var tb=document.querySelector("#pace tbody"), tot=0;
-  tb.innerHTML=rows.map(function(r){ var L=r.L,n=L.length; tot+=n; if(!n) return '<tr><td>'+r.n+'</td><td class="n sub" colspan="5">no games yet</td></tr>';
+  tb.innerHTML=rows.map(function(r){ var L=r.L,n=L.length; tot+=n; if(!n) return '<tr><td>'+r.n+'</td><td class="n sub" colspan="6">no games yet</td></tr>';
     var avg=function(f){return (L.reduce(function(a,x){return a+f(x)},0)/n).toFixed(2)};
     var c=function(f){var h=L.filter(f).length; return '<span class="'+(h/n>=0.5?"up":"dn")+'">'+h+'/'+n+'</span><div class="sub">'+Math.round(h/n*100)+'%</div>'};
-    return '<tr><td>'+r.n+(n<10?' <span class="sub">(small)</span>':'')+'</td><td class="n">'+n+'</td><td class="n">'+avg(function(x){return x.tot})+'<div class="sub">proj '+avg(function(x){return x.proj||0})+'</div></td><td class="n">'+c(function(x){return x.tot>=3})+'</td><td class="n">'+c(function(x){return x.tot>=4})+'</td><td class="n">'+c(function(x){return x.tot<=2})+'</td></tr>'; }).join("");
+    return '<tr><td>'+r.n+(n<10?'<div class="sub">small</div>':'')+'</td><td class="n">'+n+'</td><td class="n">'+avg(function(x){return x.tot})+'<div class="sub">proj '+avg(function(x){return x.proj||0})+'</div></td><td class="n">'+c(function(x){return x.tot>=3})+'</td><td class="n">'+c(function(x){return x.tot>=4})+'</td><td class="n">'+c(function(x){return x.tot<=2})+'</td><td class="n">'+c(function(x){return x.tot<=3})+'</td></tr>'; }).join("");
   $("pacecap").textContent=tot+" finished games with a pace score. Bands under 10 games are marked small.";
+
+  var pb=document.querySelector("#pacepay tbody"), pr=PBANDS.map(function(b){return {n:b[2],lo:b[0],hi:b[1],m:[],a:[]}});
+  DATA.picks.forEach(function(p){ if(p.bet_type!=="single"||(p.goals_basis&&p.goals_basis!=="total")||!p.inputs||p.inputs.pace==null||p.odds_american==null||!settled(p)) return; pr.forEach(function(r){ if(p.inputs.pace>=r.lo&&p.inputs.pace<r.hi){ if(p.line_group==="main")r.m.push(p); else if(p.line_group==="alt")r.a.push(p); } }); });
+  var cu=function(L){ if(!L.length) return '<td class="n sub">none</td><td class="n sub">none</td>'; var st=stats(L); return '<td class="n">'+st.w+'-'+st.l+'</td><td class="n"><span class="'+(st.u>=0?"up":"dn")+'">'+fmtU(st.u)+'</span></td>'; };
+  pb.innerHTML=pr.map(function(r){ return '<tr><td>'+r.n+'</td>'+cu(r.m)+cu(r.a)+'</tr>'; }).join("");
 }
 function drawBase(){
   var B=BASE; if(!B||!B.leagues) return;
@@ -18373,7 +18383,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 12, 8:22 AM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 12, 3:15 PM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawPace(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);

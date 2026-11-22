@@ -221,6 +221,48 @@ button.cd{cursor:pointer}
 .mkts{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;flex-wrap:nowrap}
 .mkts .chip{flex:none;text-align:center;padding:8px 6px}
 #pace th,#pace td,#pacepay th,#pacepay td{padding-left:5px;padding-right:5px}#pace td:first-child,#pacepay td:first-child{white-space:nowrap}#pace th,#pacepay th{letter-spacing:0;font-size:10.5px}#pace td{font-size:12.5px}#pace .sub{font-size:10.5px}
+
+/* ===== CALM STYLE (preview): flat charcoal, one accent, fewer boxes ===== */
+html:root:root{--bg:#0f1216;--surface:#161a20;--ink:#eceff3;--ink2:#b4bcc7;--muted:#7d8794;--line:#252b34;--grid:#1d232b;--chip:#1f252d;--acc:#4cc38a;--good:#4cc38a;--bad:#ef6b73;--warn:#e0b04a;--s1:#6aa9ff;--accfg:#04150c}
+html:root:root body{background:var(--bg)!important;padding-bottom:84px}
+header{padding:4px 0 0!important} header h1{font-size:14px!important;letter-spacing:.22em!important;color:var(--ink2)!important}
+.card,.scroll,.fpanel,.cal{background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:none!important;backdrop-filter:none!important}
+.fpanel{padding:8px 10px!important}
+.ftoggle{background:var(--chip)!important;border:1px solid var(--line)!important;box-shadow:none!important}
+.showing{font-size:12px!important;color:var(--muted)!important;margin-top:6px}
+.tiles{display:grid!important;grid-template-columns:1.5fr 1fr 1fr 1fr!important;gap:8px!important;background:transparent!important;border:0!important}
+.tile,.tile:first-child{grid-column:auto!important;background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:none!important;backdrop-filter:none!important;padding:10px 6px!important}
+.tile .k{font-size:10px!important;letter-spacing:.1em!important}
+.tile .v,.tile:first-child .v{font-size:22px!important;margin-top:2px!important;letter-spacing:0!important}
+.tile .s,.tile:first-child .s{font-size:10px!important}
+.tabs{left:0!important;right:0!important;transform:none!important;width:auto!important;max-width:none!important;bottom:0!important;border-radius:0!important;border:0!important;border-top:1px solid var(--line)!important;background:var(--surface)!important;box-shadow:none!important;backdrop-filter:none!important;padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px))!important}
+.tab{color:var(--muted)!important;border-radius:0!important;padding:10px 4px!important;font-size:12.5px!important;border-top:2px solid transparent!important}
+.tab[aria-selected="true"]{background:transparent!important;color:var(--acc)!important;box-shadow:none!important;border-top:2px solid var(--acc)!important}
+.chip{background:var(--chip)!important;border:1px solid var(--line)!important;color:var(--ink2)!important}
+.chip[aria-pressed="true"],.mkts .chip.on{background:var(--ink)!important;color:var(--bg)!important;box-shadow:none!important;border-color:var(--ink)!important}
+section>h2:before{display:none!important}
+h2{font-size:13px!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:var(--muted)!important;font-weight:600!important}
+.dayhead{background:var(--chip)!important;border-top:1px solid var(--line)!important;padding:7px 12px!important}
+th{background:var(--surface)!important;backdrop-filter:none!important}
+td{padding:7px 8px!important}
+.mk.win{background:var(--good)!important;color:#04170d!important;box-shadow:none!important}
+.mk.loss{background:var(--bad)!important;color:#1a0507!important;box-shadow:none!important}
+.mbar i{background:var(--acc)!important;border-right:0!important}
+.reset,.stamp a,.infolink{color:var(--s1)!important}
+.info,.infolink{display:none!important}
+#mk .info,.mprog .info{display:inline-flex!important}
+.stamp{font-size:10.5px!important}
+details.lines{margin:0 0 8px}
+details.lines>summary,details.notes>summary{cursor:pointer;color:var(--muted);font-size:12px;letter-spacing:.06em;list-style:none;padding:4px 0}
+details.lines>summary::-webkit-details-marker,details.notes>summary::-webkit-details-marker{display:none}
+details.lines>summary:before,details.notes>summary:before{content:"+ "}
+details.lines[open]>summary:before,details.notes[open]>summary:before{content:"- "}
+details.notes{border-top:1px solid var(--line);padding-top:6px}
+details.notes .nb{font-size:13px;color:var(--ink2);margin:8px 0}
+details.notes .nb h4{margin:0 0 2px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cal{padding:10px!important;margin-bottom:8px!important}
+html:root:root [hidden]{display:none!important}
+.tile:first-child .k{color:var(--muted)!important}
 </style>
 <div class="wrap">
   <header>
@@ -29856,8 +29898,9 @@ function drawDays(list){
   $("days").tBodies[0].innerHTML = h || '<tr><td colspan="6" class="sub">No picks match these filters.</td></tr>';
 }
 var PCOLL={};
+function kt(p){var m=/(\d+):(\d+)\s*(AM|PM)/.exec(p.kickoff_et||"");if(!m)return 9999;var h=(+m[1])%12+(m[3]==="PM"?12:0);return h*60+(+m[2])}
 function drawPicks(list){
-  var rows=list.slice().sort(function(a,b){ return a.date<b.date?1:a.date>b.date?-1:(a.id<b.id?-1:1); });
+  var rows=list.slice().sort(function(a,b){ return a.date<b.date?1:a.date>b.date?-1:(kt(a)-kt(b)||(a.id<b.id?-1:1)); });
   var DN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   var order=[], by={}; rows.forEach(function(p){ if(!by[p.date]){by[p.date]=[];order.push(p.date)} by[p.date].push(p); });
   var h="", shown=0;
@@ -29933,7 +29976,7 @@ function drawSlips(){
   Array.prototype.forEach.call(document.querySelectorAll("#slips .dayhead"),function(el){el.onclick=function(){var k=el.getAttribute("data-day");COLL[k]=!COLL[k];drawSlips()}});
   drawCal(day);
 }
-var CHOFF={};
+var CHOFF={u35:true,o35:true,o15:true,u15:true,dc:true};
 function drawChart(list){
   var svg=$("chart"), W=640, H=260, L=44, R=14, T=14, B=28;
   svg.setAttribute("viewBox","0 0 "+W+" "+H);
@@ -30128,7 +30171,7 @@ function setup(d, live){
   sel.onchange=function(){F.league=sel.value;save();render()};
   $("slipfold").onclick=function(){var ks=Object.keys(COLL),all=true;DATA.slips.forEach(function(s){if(!COLL[s.date])all=false});DATA.slips.forEach(function(s){COLL[s.date]=!all});drawSlips()}; $("slipmore").onclick=function(){SLIPALL=!SLIPALL;drawSlips()}; $("dayall").onclick=function(){DAYSALL=!DAYSALL;this.textContent=DAYSALL?"Show last 7":"Show all days";render()}; $("reset").onclick=resetF; $("ftoggle").onclick=function(){ var b=$("fbody"), o=b.hidden; b.hidden=!o; this.setAttribute("aria-expanded",o); }; $("more").onclick=function(){SHOW+=25;render()};
   var last=d.picks.reduce(function(m,p){return p.date>m?p.date:m},"");
-  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 22, 4:25 AM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
+  $("stamp").innerHTML = (live?"Live from GitHub":'Saved copy from Nov 22, 4:55 AM ET. This preview cannot load live data. For live results open <a href="https://arunmaharaj.github.io/betting-data/" target="_blank" rel="noopener">arunmaharaj.github.io/betting-data</a>')+" · "+d.picks.length+" picks · latest slate "+md(last);
   drawSlips(); render(); drawBase(); drawPace(); drawCmp(); drawMk();
 }
 setup(SNAPSHOT,false);
@@ -30136,4 +30179,22 @@ initTabs();
 fetch(URL_BASE+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(b){ if(b&&b.leagues){BASE=b; if(DATA)drawBase();} }).catch(function(){});
 fetch(URL_MK+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(m){ if(m&&m.games&&m.models){MK=m; drawMk();} }).catch(function(){});
 fetch(URL_RAW+"?t="+Date.now()).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){ setup(d,true); }).catch(function(){});
+
+(function(){
+  var lg=document.getElementById("legend");
+  if(lg&&!document.getElementById("lines")){var d=document.createElement("details");d.className="lines";d.id="lines";d.innerHTML="<summary>Chart lines</summary>";lg.parentNode.insertBefore(d,lg);d.appendChild(lg);}
+  ["results","picks","slips","tracks","leagues","models"].forEach(function(T){
+    var secs=Array.prototype.filter.call(document.querySelectorAll("section[data-tab]"),function(s){return s.getAttribute("data-tab").split(" ").indexOf(T)>=0});
+    var out="";
+    secs.forEach(function(s){Array.prototype.forEach.call(s.querySelectorAll(".infobox"),function(b){
+      var lab=b.previousElementSibling&&b.previousElementSibling.querySelector?b.previousElementSibling:null, t="";
+      var h=b.closest(".fgroup"); if(h){var f=h.querySelector(".flabel"); t=f?f.firstChild.textContent:""}
+      if(!t){var sec=b.closest("section"); var h2=sec&&sec.querySelector("h2"); t=h2?h2.firstChild.textContent:""}
+      if(!t&&s.querySelector(".infolink"))t="The numbers";
+      out+='<div class="nb"><h4>'+t.trim()+'</h4>'+b.innerHTML+'</div>';
+    })});
+    if(out){var d=document.createElement("details");d.className="notes";d.setAttribute("data-tab",T);d.innerHTML="<summary>How to read this page</summary>"+out;var foot=document.querySelector(".wrap>p.note:last-of-type");foot.parentNode.insertBefore(d,foot);}
+  });
+  if(typeof showTab==="function"){var cur=(location.hash||"").replace("#","")||"results";try{showTab(cur,false)}catch(e){}}
+})();
 </script>

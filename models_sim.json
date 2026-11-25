@@ -1,6 +1,6 @@
 {
  "description": "Independent side models. Data collection only: nothing here feeds any pick, slip, record or track.",
- "built": "2026-11-23",
+ "built": "2026-11-25",
  "sample_target": 300,
  "models": [
   {
@@ -7401,10 +7401,10 @@
     "markov": 0.4697,
     "blend": 0.4751
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-24",
@@ -7438,10 +7438,10 @@
     "markov": 0.8088,
     "blend": 0.7632
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-24",
@@ -7475,10 +7475,10 @@
     "markov": 0.532,
     "blend": 0.5557
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-24",
@@ -7512,10 +7512,10 @@
     "markov": 0.8048,
     "blend": 0.7586
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-24",
@@ -7546,10 +7546,10 @@
     "markov": 0.5016,
     "blend": 0.5091
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-24",
@@ -7578,10 +7578,10 @@
     "markov": 0.7412,
     "blend": 0.7362
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-24",
@@ -7610,10 +7610,10 @@
     "markov": 0.4131,
     "blend": 0.4286
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-24",
@@ -7644,10 +7644,10 @@
     "markov": 0.4369,
     "blend": 0.4548
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-24",
@@ -7678,10 +7678,10 @@
     "markov": 0.2946,
     "blend": 0.3217
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 6,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-24",
@@ -7712,10 +7712,10 @@
     "markov": 0.4552,
     "blend": 0.4746
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-24",
@@ -7730,6 +7730,348 @@
    },
    "u35": {
     "league": 0.63
+   },
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Atletico v Viking",
+   "league": "UEFA Champions League",
+   "projected_total": 3.94,
+   "u15": {
+    "poisson": 0.0961,
+    "negbin": 0.1314,
+    "bivar": 0.1197,
+    "markov": 0.0899,
+    "blend": 0.1093
+   },
+   "u25": {
+    "market": 0.2381,
+    "poisson": 0.247,
+    "negbin": 0.2893,
+    "bivar": 0.2744,
+    "markov": 0.2392,
+    "blend": 0.2576
+   },
+   "u35": {
+    "poisson": 0.4453,
+    "negbin": 0.4715,
+    "bivar": 0.4607,
+    "markov": 0.4405,
+    "blend": 0.4545
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Atletico-MG v Corinthians",
+   "league": "Serie A (Brazil)",
+   "projected_total": 2.64,
+   "u15": {
+    "poisson": 0.2598,
+    "negbin": 0.291,
+    "bivar": 0.2892,
+    "markov": 0.2546,
+    "blend": 0.2736
+   },
+   "u25": {
+    "market": 0.5291,
+    "poisson": 0.5084,
+    "negbin": 0.5243,
+    "bivar": 0.5209,
+    "markov": 0.506,
+    "outlook": 0.505,
+    "blend": 0.5178
+   },
+   "u35": {
+    "market": 0.7324,
+    "poisson": 0.7273,
+    "negbin": 0.7206,
+    "bivar": 0.7187,
+    "markov": 0.7284,
+    "blend": 0.7255
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Club Brugge v Liverpool",
+   "league": "UEFA Champions League",
+   "projected_total": 4.1,
+   "u15": {
+    "poisson": 0.0845,
+    "negbin": 0.1192,
+    "bivar": 0.1069,
+    "markov": 0.0799,
+    "blend": 0.0976
+   },
+   "u25": {
+    "market": 0.256,
+    "poisson": 0.2238,
+    "negbin": 0.2679,
+    "bivar": 0.2514,
+    "markov": 0.2176,
+    "outlook": 0.229,
+    "blend": 0.2434
+   },
+   "u35": {
+    "market": 0.4495,
+    "poisson": 0.4142,
+    "negbin": 0.4446,
+    "bivar": 0.4319,
+    "markov": 0.4092,
+    "blend": 0.4299
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Inter v Stuttgart",
+   "league": "UEFA Champions League",
+   "projected_total": 4.33,
+   "u15": {
+    "poisson": 0.0702,
+    "negbin": 0.1037,
+    "bivar": 0.0906,
+    "markov": 0.0658,
+    "blend": 0.0826
+   },
+   "u25": {
+    "market": 0.2381,
+    "poisson": 0.1936,
+    "negbin": 0.2397,
+    "bivar": 0.2212,
+    "markov": 0.1872,
+    "outlook": 0.191,
+    "blend": 0.216
+   },
+   "u35": {
+    "market": 0.4125,
+    "poisson": 0.3718,
+    "negbin": 0.4079,
+    "bivar": 0.3923,
+    "markov": 0.3659,
+    "blend": 0.3901
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "PSG v AS Roma",
+   "league": "UEFA Champions League",
+   "projected_total": 3.87,
+   "u15": {
+    "poisson": 0.1016,
+    "negbin": 0.1372,
+    "bivar": 0.1258,
+    "markov": 0.0968,
+    "blend": 0.1153
+   },
+   "u25": {
+    "market": 0.2839,
+    "poisson": 0.2578,
+    "negbin": 0.2992,
+    "bivar": 0.2849,
+    "markov": 0.2519,
+    "outlook": 0.256,
+    "blend": 0.2756
+   },
+   "u35": {
+    "market": 0.4709,
+    "poisson": 0.4593,
+    "negbin": 0.4836,
+    "bivar": 0.4736,
+    "markov": 0.4552,
+    "blend": 0.4685
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Sabah FA v Barcelona",
+   "league": "UEFA Champions League",
+   "projected_total": 5.04,
+   "u15": {
+    "poisson": 0.0391,
+    "negbin": 0.0677,
+    "bivar": 0.0539,
+    "markov": 0.0346,
+    "blend": 0.0488
+   },
+   "u25": {
+    "market": 0.1497,
+    "poisson": 0.1213,
+    "negbin": 0.1692,
+    "bivar": 0.1464,
+    "markov": 0.1128,
+    "outlook": 0.126,
+    "blend": 0.1399
+   },
+   "u35": {
+    "market": 0.2839,
+    "poisson": 0.2595,
+    "negbin": 0.3093,
+    "bivar": 0.2853,
+    "markov": 0.25,
+    "blend": 0.2776
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Sporting v Man United",
+   "league": "UEFA Champions League",
+   "projected_total": 3.66,
+   "u15": {
+    "poisson": 0.1199,
+    "negbin": 0.1559,
+    "bivar": 0.1457,
+    "markov": 0.1146,
+    "blend": 0.1341
+   },
+   "u25": {
+    "market": 0.3772,
+    "poisson": 0.2923,
+    "negbin": 0.3306,
+    "bivar": 0.3184,
+    "markov": 0.2864,
+    "blend": 0.321
+   },
+   "u35": {
+    "poisson": 0.5025,
+    "negbin": 0.5211,
+    "bivar": 0.5134,
+    "markov": 0.4994,
+    "blend": 0.5091
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Stoke City v Millwall",
+   "league": "Championship",
+   "projected_total": 2.69,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2505,
+    "negbin": 0.2823,
+    "bivar": 0.28,
+    "markov": 0.2459,
+    "blend": 0.2557
+   },
+   "u25": {
+    "league": 0.38,
+    "market": 0.5291,
+    "poisson": 0.4961,
+    "negbin": 0.5132,
+    "bivar": 0.5096,
+    "markov": 0.4937,
+    "outlook": 0.494,
+    "blend": 0.487
+   },
+   "u35": {
+    "league": 0.63,
+    "market": 0.7161,
+    "poisson": 0.7163,
+    "negbin": 0.7106,
+    "bivar": 0.7086,
+    "markov": 0.7169,
+    "blend": 0.6997
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Toluca v Atlas",
+   "league": "Liga MX",
+   "projected_total": 3.79,
+   "u15": {
+    "poisson": 0.1082,
+    "negbin": 0.144,
+    "bivar": 0.1331,
+    "markov": 0.1025,
+    "blend": 0.122
+   },
+   "u25": {
+    "market": 0.3568,
+    "poisson": 0.2705,
+    "negbin": 0.3108,
+    "bivar": 0.2973,
+    "markov": 0.2638,
+    "outlook": 0.272,
+    "blend": 0.2999
+   },
+   "u35": {
+    "market": 0.5465,
+    "poisson": 0.4755,
+    "negbin": 0.4977,
+    "bivar": 0.4886,
+    "markov": 0.4717,
+    "blend": 0.496
+   },
+   "total_goals": null,
+   "res_u15": null,
+   "res_u25": null,
+   "res_u35": null
+  },
+  {
+   "date": "2026-11-25",
+   "match": "Watford v Blackburn",
+   "league": "Championship",
+   "projected_total": 2.5,
+   "u15": {
+    "league": 0.22,
+    "poisson": 0.2873,
+    "negbin": 0.3168,
+    "bivar": 0.3162,
+    "markov": 0.283,
+    "blend": 0.2847
+   },
+   "u25": {
+    "league": 0.38,
+    "market": 0.4762,
+    "poisson": 0.5438,
+    "negbin": 0.5561,
+    "bivar": 0.5533,
+    "markov": 0.5422,
+    "outlook": 0.542,
+    "blend": 0.5086
+   },
+   "u35": {
+    "league": 0.63,
+    "market": 0.6803,
+    "poisson": 0.7576,
+    "negbin": 0.7487,
+    "bivar": 0.7466,
+    "markov": 0.7586,
+    "blend": 0.7203
    },
    "total_goals": null,
    "res_u15": null,

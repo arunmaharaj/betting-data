@@ -1,6 +1,6 @@
 {
  "description": "Independent side models. Data collection only: nothing here feeds any pick, slip, record or track.",
- "built": "2026-11-25",
+ "built": "2026-11-26",
  "sample_target": 300,
  "models": [
   {
@@ -7763,10 +7763,10 @@
     "markov": 0.4405,
     "blend": 0.4545
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -7797,10 +7797,10 @@
     "markov": 0.7284,
     "blend": 0.7255
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -7831,10 +7831,10 @@
     "markov": 0.4092,
     "blend": 0.4299
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -7865,10 +7865,10 @@
     "markov": 0.3659,
     "blend": 0.3901
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -7899,10 +7899,10 @@
     "markov": 0.4552,
     "blend": 0.4685
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-25",
@@ -7933,10 +7933,10 @@
     "markov": 0.25,
     "blend": 0.2776
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 5,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-25",
@@ -7965,10 +7965,10 @@
     "markov": 0.4994,
     "blend": 0.5091
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 4,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 0
   },
   {
    "date": "2026-11-25",
@@ -8002,10 +8002,10 @@
     "markov": 0.7169,
     "blend": 0.6997
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 3,
+   "res_u15": 0,
+   "res_u25": 0,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -8036,10 +8036,10 @@
     "markov": 0.4717,
     "blend": 0.496
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 2,
+   "res_u15": 0,
+   "res_u25": 1,
+   "res_u35": 1
   },
   {
    "date": "2026-11-25",
@@ -8073,10 +8073,10 @@
     "markov": 0.7586,
     "blend": 0.7203
    },
-   "total_goals": null,
-   "res_u15": null,
-   "res_u25": null,
-   "res_u35": null
+   "total_goals": 1,
+   "res_u15": 1,
+   "res_u25": 1,
+   "res_u35": 1
   }
  ]
 }
